@@ -7,7 +7,8 @@ export default class App extends Component {
     return (
       <AppContainer> 
         <Switch>
-          <Route path={routes.ROOT} render={() => <h1>Hello Angie</h1>}/>
+          <Route exact path={routes.ROOT} render={() => <h1>Hello Angie</h1>}/>
+          <Route path={routes.ROOT} render={() => <h1>Uh Oh</h1>}/>
         </Switch>
       </AppContainer>
     );

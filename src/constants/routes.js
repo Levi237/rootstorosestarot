@@ -1,1 +1,1 @@
-const ROOT = './'
+export const ROOT = '/'
