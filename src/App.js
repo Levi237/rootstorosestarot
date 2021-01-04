@@ -5,8 +5,8 @@ import * as routes          from './constants/routes';
 export default class App extends Component {
   render(){
     return (
-      <AppContainer>
-        Hello World
+      <AppContainer> 
+        <h1>Hello Angie</h1>
       </AppContainer>
     );
   };
@@ -14,4 +14,7 @@ export default class App extends Component {
 
 const AppContainer = styled.div`
   width: 100vw;
+  h1 {
+    text-align: center;
+  }
 `;
