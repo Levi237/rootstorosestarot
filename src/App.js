@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import * as routes from 'constan/routes'
 
 function App() {
   return (
