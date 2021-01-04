@@ -6,7 +6,9 @@ export default class App extends Component {
   render(){
     return (
       <AppContainer> 
-        <h1>Hello Angie</h1>
+        <Switch>
+          <Route path={routes.ROOT} render={() => <h1>Hello Angie</h1>}/>
+        </Switch>
       </AppContainer>
     );
   };
