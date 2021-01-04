@@ -16,6 +16,7 @@ dotenv.config();
 firebase.initializeApp({
   apiKey: `${process.env.REACT_APP_FIREBASE_APIKEY}`,
   authDomain: "rootstorosestarot.firebaseapp.com",
+  databaseURL: "https://rootstorosestarot-default-rtdb.firebaseio.com",
   projectId: "rootstorosestarot",
   storageBucket: "rootstorosestarot.appspot.com",
   messagingSenderId: `${process.env.REACT_APP_FIREBASE_MESSAGING}`,
