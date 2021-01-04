@@ -1,8 +1,13 @@
-import * as routes from 'constan/routes'
+import React, { Component } from 'react';
+import * as routes from 'constan/routes';
+import { Switch, Router } from 'react-router-dom';
 
-function App() {
+export default class App extends Component {
+render(){
+
+
   return (
-    <div className="App">
+    <AppContainer>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -17,8 +22,12 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </AppContainer>
   );
 }
+}
 
-export default App;
+const AppContainer = styled.div`
+  width: 100vw;
+`;
+
