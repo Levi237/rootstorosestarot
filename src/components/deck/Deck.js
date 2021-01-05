@@ -403,6 +403,8 @@ export default class Deck extends Component {
         let shuffledDeck = [];
 
         const shuffleCards = () => {
+            const shuffleBtn = document.getElementById('shuffle');
+            const reshuffleBtn = document.getElementById('reshuffle');
             while (newDeck.length > 0) {
                 let index = Math.floor(Math.random() * newDeck.length);
                 let card = newDeck[index];
@@ -410,8 +412,10 @@ export default class Deck extends Component {
                 newDeck.splice(index, 1);
             };
             dealCards();
+            shuffleBtn.style.display = "none";
+            reshuffleBtn.style.display = "inline-block";
         };
-        const shuffleAgain = () => {
+        const reshuffleCards = () => {
             newDeck = [...shuffledDeck];
             clearDeck();
             shuffleCards();
@@ -425,11 +429,15 @@ export default class Deck extends Component {
         
         const clearDeck = () => {
             const container = document.getElementById('deckDisplay');
+            const shuffleBtn = document.getElementById('shuffle');
+            const reshuffleBtn = document.getElementById('reshuffle');
             while (shuffledDeck.length > 0) {
                 shuffledDeck = [];
                 newDeck = [...deck];
                 container.innerHTML = `<div><h2>empty</h2></div>`;
             }
+            shuffleBtn.style.display = "inline-block";
+            reshuffleBtn.style.display = "none";
         };
         return (
             <>
@@ -437,14 +445,14 @@ export default class Deck extends Component {
                 <div id="deckDisplay">
                     <div><h2>landing</h2></div>
                 </div>
-                <button id="start" onClick={shuffleCards}>
-                    Shuffle Deck
+                <button id="shuffle" onClick={shuffleCards}>
+                    Shuffle
                 </button>
                 {/* <button onClick={dealCards}>
                     Deal Deck
                 </button> */}
-                <button id="reshuffle" onClick={shuffleAgain}>
-                    shuffleAgain
+                <button id="reshuffle" onClick={reshuffleCards}>
+                    Reshuffle
                 </button>
                 <button id="clear" onClick={clearDeck}>
                     Clear
