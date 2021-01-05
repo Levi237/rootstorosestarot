@@ -424,8 +424,11 @@ export default class Deck extends Component {
         
         const dealCards = () => {
             const container = document.getElementById('deckDisplay');
-            container.innerHTML = `<div><h2>${shuffledDeck[0].title}</h2></div>`;
-        }
+            // container.innerHTML = `<div><h2>${shuffledDeck[0].title}</h2></div>`;
+            let dealDeck = shuffledDeck.map((card) => {
+                container.innerHTML += `<div><h2>${card.title}</h2></div>`;
+            });
+        };
         
         const clearDeck = () => {
             const container = document.getElementById('deckDisplay');
@@ -435,7 +438,7 @@ export default class Deck extends Component {
                 shuffledDeck = [];
                 newDeck = [...deck];
                 container.innerHTML = `<div><h2>empty</h2></div>`;
-            }
+            };
             shuffleBtn.style.display = "inline-block";
             reshuffleBtn.style.display = "none";
         };
