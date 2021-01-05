@@ -57,7 +57,6 @@ export default class Deck extends Component {
         //     // console.log(shuffledDeck, "shuffledDeck");
         // };
         const clearDeck = () => {
-            // deck = shuffledDeck;
             const container = document.getElementById('deckDisplay');
             while (shuffledDeck.length > 0) {
                 shuffledDeck = [];
