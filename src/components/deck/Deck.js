@@ -3,48 +3,62 @@
 // Create Deck Object Array
 
 import React, { Component } from 'react';
+
 export default class Deck extends Component {
     state = {
-        deck: {
+        deck: [{
             cardOne: {
                 title: "card one",
                 image: "😬",
-                info: "blah blah blah blah blah blah blah blah blah"
+                info: "one blah blah blah blah blah blah blah blah"
             },
             cardTwo: {
-                title: "card one",
+                title: "card two",
                 image: "😊",
-                info: "blah blah blah blah blah blah blah blah blah"
+                info: "two blah blah blah blah blah blah blah blah"
             },
             cardThree: {
-                title: "card one",
+                title: "card three",
                 image: "😎",
-                info: "blah blah blah blah blah blah blah blah blah"
+                info: "three blah blah blah blah blah blah blah blah"
             },
             cardFour: {
-                title: "card one",
+                title: "card four",
                 image: "🤗",
-                info: "blah blah blah blah blah blah blah blah blah"
+                info: "four blah blah blah blah blah blah blah blah"
             }
-        }
-    }
+        }]
+    };
     render(){
+        const { deck } = this.state;
         const shuffledDeck = [];
 
         const shuffleCards = ()  => {
-            while (this.state.deck.length > 0) {
+            while (deck.length > 0) {
                 let index = Math.floor(Math.random() * deck.length);
                 let card = deck[index];
                 shuffledDeck.push(card);
                 deck.splice(index, 1);
-            }
+            };
+        };
+        const dealCards = () => {
+            let container = document.getElementById('deckDisplay')
+            container.innerHTML = `<div><h2>${shuffledDeck[0].cardOne.title}</h2></div>`
         }
-        return (<>
-        <div id="deckDisplay">
-            
-        </div>
-        <button onClick={shuffleCards}>Deal Deck</button>
-        
-        </>);
+        const shuffleDealCards = () => {
+            shuffleCards();
+            dealCards();
+        }
+        return (
+            <>
+                <h1>DECK DISPLAY</h1>
+                <div id="deckDisplay">
+                    
+                </div>
+                <button onClick={shuffleDealCards}>
+                    Deal Deck
+                </button>
+            </>
+        );
     };
 };
