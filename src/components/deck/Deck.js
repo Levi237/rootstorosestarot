@@ -427,6 +427,7 @@ export default class Deck extends Component {
             const container = document.getElementById('deckDisplay');
             while (shuffledDeck.length > 0) {
                 shuffledDeck = [];
+                newDeck = [...deck];
                 container.innerHTML = `<div><h2>empty</h2></div>`;
             }
         };
@@ -436,16 +437,16 @@ export default class Deck extends Component {
                 <div id="deckDisplay">
                     <div><h2>landing</h2></div>
                 </div>
-                <button onClick={shuffleCards}>
+                <button id="start" onClick={shuffleCards}>
                     Shuffle Deck
                 </button>
-                <button onClick={dealCards}>
+                {/* <button onClick={dealCards}>
                     Deal Deck
-                </button>
-                <button onClick={shuffleAgain}>
+                </button> */}
+                <button id="reshuffle" onClick={shuffleAgain}>
                     shuffleAgain
                 </button>
-                <button onClick={clearDeck}>
+                <button id="clear" onClick={clearDeck}>
                     Clear
                 </button>
             </>
