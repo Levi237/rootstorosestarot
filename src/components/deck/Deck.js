@@ -425,7 +425,7 @@ export default class Deck extends Component {
         const dealCards = () => {
             const container = document.getElementById('deckDisplay');
             shuffledDeck.map((card) => {
-                container.innerHTML += `<div id="${card.number}"></div>`;
+                container.innerHTML += `<div id="${card.number}"><img src="./deck/back.jpg"></div>`;
             });
         };
         
@@ -436,7 +436,7 @@ export default class Deck extends Component {
             while (shuffledDeck.length > 0) {
                 shuffledDeck = [];
                 newDeck = [...deck];
-                container.innerHTML = `<div><h2>empty</h2></div>`;
+                container.innerHTML = "";
             };
             shuffleBtn.style.display = "inline-block";
             reshuffleBtn.style.display = "none";
@@ -444,9 +444,6 @@ export default class Deck extends Component {
         return (
             <>
                 <h1>DECK DISPLAY</h1>
-                <div id="deckDisplay">
-                    <div><h2>landing</h2></div>
-                </div>
                 <button id="shuffle" onClick={shuffleCards}>
                     Shuffle
                 </button>
@@ -459,6 +456,10 @@ export default class Deck extends Component {
                 <button id="clear" onClick={clearDeck}>
                     Clear
                 </button>
+                <div id="deckDisplay">
+                    
+                </div>
+
             </>
         );
     };
