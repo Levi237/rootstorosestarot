@@ -22,3 +22,10 @@ code {
 #shuffle {
   display: inline-block;
 }
+.dealtCard {
+  display: inline-block;
+  margin-left: -80px;
+}
+.dealtCard:hover {
+  transform: scale(1.25);
+}
