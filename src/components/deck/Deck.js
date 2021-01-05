@@ -34,19 +34,21 @@ export default class Deck extends Component {
                 shuffledDeck.push(card);
                 newDeck.splice(index, 1);
             };
+            dealCards();
             console.log(shuffledDeck, "shuffled cards")
         };
         const shuffleAgain = () => {
-            newDeck = [...deck];
+            newDeck = [...shuffledDeck];
             clearDeck();
             shuffleCards();
+            dealCards();
             console.log(shuffledDeck, "shuffled again")
         };
         
         const dealCards = () => {
             const container = document.getElementById('deckDisplay');
             console.log(container, "container")
-            container.innerHTML = `<div><h2>test</h2></div>`;
+            container.innerHTML = `<div><h2>${shuffledDeck[0].title}</h2></div>`;
             console.log(shuffledDeck, "deal deck", deck, "<--- deck")
         }
         // const shuffleDealCards = () => {
