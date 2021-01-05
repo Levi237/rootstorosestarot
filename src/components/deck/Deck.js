@@ -424,9 +424,8 @@ export default class Deck extends Component {
         
         const dealCards = () => {
             const container = document.getElementById('deckDisplay');
-            // container.innerHTML = `<div><h2>${shuffledDeck[0].title}</h2></div>`;
-            let dealDeck = shuffledDeck.map((card) => {
-                container.innerHTML += `<div><h2>${card.title}</h2></div>`;
+            shuffledDeck.map((card) => {
+                container.innerHTML += `<div id="${card.number}"></div>`;
             });
         };
         
