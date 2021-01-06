@@ -355,12 +355,10 @@ export default class Deck extends Component {
     render(){
         const { deck, shuffle, select } = this.state;
 
-        // console.log(deck, "<===deck=====select===>", select)
         let hand = []
 
         select.map(s => {
             deck.filter(d => {
-                // console.log(s, "number", d.number)
                 if ( s === d.number ) {
                     console.log(s, "=", d.number)
                     hand.push(d);
@@ -416,7 +414,27 @@ const Container = styled.div`
                     margin-left: 0;
                 }
             }
-          }
-
+        }
+    }
+    @media screen and (max-width: 900px) {
+        div#displayContainer {
+            div#deckDisplay {
+                width: 3000vw!important;
+                height: 100vw!important;
+                padding-top: 10vw!important;
+                padding-left: 5vw!important;
+                > div {
+                    width: 25vw;
+                    display: inline-block;
+                    margin-left: -15vw;
+                    &:first-of-type {
+                        margin-left: 0;
+                    }
+                    > img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 `;
