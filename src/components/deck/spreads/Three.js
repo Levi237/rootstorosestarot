@@ -22,13 +22,12 @@ export default class ThreeSpread extends Component {
 
 const Container = styled.div`
     text-align: center;
-    width: 600px;
+    max-width: 600px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 
-    ' one two three';
+    grid-template-areas: ' one two three ';
     > div {
         &:first-of-type {
             grid-area: one;
