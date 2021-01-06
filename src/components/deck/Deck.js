@@ -239,72 +239,107 @@ export default class Deck extends Component {
                 number: "77",
                 title: "king of pentacles",
             }
-        ]
+        ], 
+        shuffle: []
     };
-    render(){
-        const { deck } = this.state;
 
-        let newDeck = [...deck];
+    shuffleThis = (e) => {
+        let newDeck = [...this.state.deck];
         let shuffledDeck = [];
-
-        const shuffleCards = () => {
-            const shuffleBtn = document.getElementById('shuffle');
-            const reshuffleBtn = document.getElementById('reshuffle');
+        // const shuffleBtn = document.getElementById('shuffle');
+            // const reshuffleBtn = document.getElementById('reshuffle');
             while (newDeck.length > 0) {
                 let index = Math.floor(Math.random() * newDeck.length);
                 let card = newDeck[index];
                 shuffledDeck.push(card);
                 newDeck.splice(index, 1);
             };
-            dealCards();
-            shuffleBtn.style.display = "none";
-            reshuffleBtn.style.display = "inline-block";
-        };
-        const reshuffleCards = () => {
-            newDeck = [...shuffledDeck];
-            clearDeck();
-            shuffleCards();
-            dealCards();
-        };
+            // shuffleBtn.style.display = "none";
+            // reshuffleBtn.style.display = "inline-block";
+            console.log(shuffledDeck, "<========shuffledDeck")
+            // dealCards();
+        this.setState({
+          shuffle: [...shuffledDeck]
+        });
+      };
+
+    render(){
+        const { deck, shuffle } = this.state;
+
+        // let newDeck = [...deck];
+        // let shuffledDeck = [];
+
+        // const shuffleCards = () => {
+        //     const shuffleBtn = document.getElementById('shuffle');
+        //     const reshuffleBtn = document.getElementById('reshuffle');
+        //     while (newDeck.length > 0) {
+        //         let index = Math.floor(Math.random() * newDeck.length);
+        //         let card = newDeck[index];
+        //         shuffledDeck.push(card);
+        //         newDeck.splice(index, 1);
+        //     };
+        //     shuffleBtn.style.display = "none";
+        //     reshuffleBtn.style.display = "inline-block";
+        //     console.log(shuffledDeck, "<========shuffledDeck")
+        //     dealCards();
+        // };
+        // const reshuffleCards = () => {
+        //     const container = document.getElementById('deckDisplay');
+        //     container.innerHTML = `<div></div>`;
+        //     newDeck = [...shuffledDeck];
+        //     clearDeck();
+        //     shuffleCards();
+        //     dealCards();
+        // };
         
-        const dealCards = () => {
-            const container = document.getElementById('deckDisplay');
-            shuffledDeck.map((card) => {
-                container.innerHTML += `<div id="${card.number}" class="dealtCard"><img src="./deck/tab/back.jpg"></div>`;
+
+
+        // const clearDeck = () => {
+        //     const container = document.getElementById('deckDisplay');
+        //     const shuffleBtn = document.getElementById('shuffle');
+        //     const reshuffleBtn = document.getElementById('reshuffle');
+        //     while (shuffledDeck.length > 0) {
+        //         shuffledDeck = [];
+        //         newDeck = [...deck];
+        //         container.innerHTML = "";
+        //     };
+        //     shuffleBtn.style.display = "inline-block";
+        //     reshuffleBtn.style.display = "none";
+        // };
+        // const dealCards = () => {
+        //     const container = document.getElementById('deckDisplay');
+        //     container.innerHTML = "";
+const dealCards = shuffle.map((card, key) => {
+        //         console.log("dealcards clicked")
+        //         container.innerHTML += `<div id="${card.number}" key=${key} class="dealtCard"><img src="./deck/tab/back.jpg"/></div>`;
+        //         // if (shuffledDeck) {
+ return (
+     <div id={card.number} key={key} class="dealtCard">
+         <img src="./deck/tab/back.jpg" onClick="saveCard"/>
+     </div>
+ );
+                
+        //     // }
+        //         //onClick push ID to const hand = [];
             });
-        };
+        // }
         
-        const clearDeck = () => {
-            const container = document.getElementById('deckDisplay');
-            const shuffleBtn = document.getElementById('shuffle');
-            const reshuffleBtn = document.getElementById('reshuffle');
-            while (shuffledDeck.length > 0) {
-                shuffledDeck = [];
-                newDeck = [...deck];
-                container.innerHTML = "";
-            };
-            shuffleBtn.style.display = "inline-block";
-            reshuffleBtn.style.display = "none";
-        };
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                <button id="shuffle" onClick={shuffleCards}>
+                <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
-                {/* <button onClick={dealCards}>
-                    Deal Deck
-                </button> */}
-                <button id="reshuffle" onClick={reshuffleCards}>
+                {/* <button id="reshuffle" onClick={reshuffleCards}>
                     Reshuffle
                 </button>
                 <button id="clear" onClick={clearDeck}>
                     Clear
-                </button>
+                </button> */}
                 <div>
 
                     <div id="deckDisplay">
-                        
+{ dealCards }
                     </div>
                 </div>
 
@@ -326,5 +361,4 @@ const Container = styled.div`
             overflow: scroll;
           }
     }
-
 `;

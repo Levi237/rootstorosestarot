@@ -13,15 +13,15 @@ code {
 }
 
 /* DECK ID TRIGGERS */
-#clear {
+/* #clear {
   display: inline-block;
-}
-#reshuffle {
+} */
+/* #reshuffle {
  display: none;
-}
-#shuffle {
+} */
+/* #shuffle {
   display: inline-block;
-}
+} */
 .dealtCard {
   display: inline-block;
   margin-left: -80px;
