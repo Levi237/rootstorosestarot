@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 export default class ThreeSpread extends Component {
     render(){
+        const { select } = this.props;
         return(
             <Container>
-                <div>test</div><div>test</div><div>test</div>
+                {/* <div>{ select && select[0]}</div><div>{ select && select[1]}</div><div>{ select && select[2]}</div> */}
             </Container>
         );
     };
