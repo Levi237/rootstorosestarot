@@ -240,106 +240,60 @@ export default class Deck extends Component {
                 title: "king of pentacles",
             }
         ], 
-        shuffle: []
+        shuffle: [],
+        select: []
     };
 
-    shuffleThis = (e) => {
+    shuffleThis = () => {
         let newDeck = [...this.state.deck];
         let shuffledDeck = [];
-        // const shuffleBtn = document.getElementById('shuffle');
-            // const reshuffleBtn = document.getElementById('reshuffle');
-            while (newDeck.length > 0) {
-                let index = Math.floor(Math.random() * newDeck.length);
-                let card = newDeck[index];
-                shuffledDeck.push(card);
-                newDeck.splice(index, 1);
-            };
-            // shuffleBtn.style.display = "none";
-            // reshuffleBtn.style.display = "inline-block";
-            console.log(shuffledDeck, "<========shuffledDeck")
-            // dealCards();
+        while (newDeck.length > 0) {
+            let index = Math.floor(Math.random() * newDeck.length);
+            let card = newDeck[index];
+            shuffledDeck.push(card);
+            newDeck.splice(index, 1);
+        };
+        // console.log(shuffledDeck, "<========shuffledDeck")
         this.setState({
           shuffle: [...shuffledDeck]
         });
-      };
+    };
+    selectThis = (e) => {
+        const { shuffle, select } = this.state;
+        const t = e.currentTarget.id;
+        document.getElementById("shuffle").style.display = "none";
+        console.log(t, "<=id======length=>", shuffle.length)
+        if (select.length < 11) {
+            this.setState({
+                select: [...select, t],
+                shuffle: shuffle.filter((x) =>  x.id !== t)
+            })
+        }
+    }
 
     render(){
-        const { deck, shuffle } = this.state;
+        const { shuffle } = this.state;
 
-        // let newDeck = [...deck];
-        // let shuffledDeck = [];
-
-        // const shuffleCards = () => {
-        //     const shuffleBtn = document.getElementById('shuffle');
-        //     const reshuffleBtn = document.getElementById('reshuffle');
-        //     while (newDeck.length > 0) {
-        //         let index = Math.floor(Math.random() * newDeck.length);
-        //         let card = newDeck[index];
-        //         shuffledDeck.push(card);
-        //         newDeck.splice(index, 1);
-        //     };
-        //     shuffleBtn.style.display = "none";
-        //     reshuffleBtn.style.display = "inline-block";
-        //     console.log(shuffledDeck, "<========shuffledDeck")
-        //     dealCards();
-        // };
-        // const reshuffleCards = () => {
-        //     const container = document.getElementById('deckDisplay');
-        //     container.innerHTML = `<div></div>`;
-        //     newDeck = [...shuffledDeck];
-        //     clearDeck();
-        //     shuffleCards();
-        //     dealCards();
-        // };
-        
-
-
-        // const clearDeck = () => {
-        //     const container = document.getElementById('deckDisplay');
-        //     const shuffleBtn = document.getElementById('shuffle');
-        //     const reshuffleBtn = document.getElementById('reshuffle');
-        //     while (shuffledDeck.length > 0) {
-        //         shuffledDeck = [];
-        //         newDeck = [...deck];
-        //         container.innerHTML = "";
-        //     };
-        //     shuffleBtn.style.display = "inline-block";
-        //     reshuffleBtn.style.display = "none";
-        // };
-        // const dealCards = () => {
-        //     const container = document.getElementById('deckDisplay');
-        //     container.innerHTML = "";
-const dealCards = shuffle.map((card, key) => {
-        //         console.log("dealcards clicked")
-        //         container.innerHTML += `<div id="${card.number}" key=${key} class="dealtCard"><img src="./deck/tab/back.jpg"/></div>`;
-        //         // if (shuffledDeck) {
- return (
-     <div id={card.number} key={key} class="dealtCard">
-         <img src="./deck/tab/back.jpg" onClick="saveCard"/>
-     </div>
- );
-                
-        //     // }
-        //         //onClick push ID to const hand = [];
-            });
-        // }
-        
+        const dealCards = shuffle.map((card, key) => {
+        return (
+                <div id={card.number} key={key} class="dealtCard" onClick={(e) => this.selectThis(e)}>
+                    <img src="./deck/tab/back.jpg"/>
+                </div>
+            );
+        });
+ 
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
-                {/* <button id="reshuffle" onClick={reshuffleCards}>
-                    Reshuffle
-                </button>
-                <button id="clear" onClick={clearDeck}>
+                {/* <button id="clear" onClick={clearDeck}>
                     Clear
                 </button> */}
                 <div>
-
                     <div id="deckDisplay">
-{ dealCards }
+                        { dealCards }
                     </div>
                 </div>
 
