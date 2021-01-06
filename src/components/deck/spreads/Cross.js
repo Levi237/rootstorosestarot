@@ -12,7 +12,8 @@ export default class CrossSpread extends Component {
 };
 
 const Container = styled.div`
-    display: grid | inline-grid;
+text-align: center;
+    display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 

@@ -342,11 +342,11 @@ export default class Deck extends Component {
         const { select } = this.state;
         const t = e.currentTarget.id;
         const v = e.currentTarget;
-        console.log(t, "t", e, "value=>", v, v.title)
+        console.log(t, "t", e, "value=>", v)
         document.getElementById("shuffle").style.display = "none";
         if (select.length < 3) {
             this.setState({
-                select: [...select, v]
+                select: [...select, t]
             })
             document.getElementById(t).style.display = "none";
         }
@@ -355,6 +355,19 @@ export default class Deck extends Component {
     render(){
         const { deck, shuffle, select } = this.state;
 
+        console.log(deck, "<===deck=====select===>", select)
+        let hand = []
+
+        const filterData = deck.filter(d => {
+            select.map(s => {
+                console.log(s, "number", d.number)
+                if ( s === d.number ) {
+                    console.log(s, "=", d.number)
+                    hand.push(d);
+                }
+            })
+            console.log(hand)
+        })
         const dealCards = shuffle.map((card, key) => {
             return (
                 <div id={card.number} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
@@ -366,7 +379,7 @@ export default class Deck extends Component {
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                <ThreeSpread select={select} deck={deck}/>
+                <ThreeSpread hand={hand} />
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>

@@ -3,17 +3,28 @@ import styled from 'styled-components';
 
 export default class ThreeSpread extends Component {
     render(){
-        const { select } = this.props;
+        const { hand } = this.props;
+
+        const showHand = hand.map((h, k) => {
+            return (
+                <>
+                <img src={`./deck/${h.number}.jpg`}/>
+                </>
+            )
+        })
         return(
             <Container>
-                {/* <div>{ select && select[0]}</div><div>{ select && select[1]}</div><div>{ select && select[2]}</div> */}
+                {showHand}
             </Container>
         );
     };
 };
 
 const Container = styled.div`
-    display: grid | inline-grid;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: 
@@ -28,5 +39,8 @@ const Container = styled.div`
         &:nth-of-type(3) {
             grid-area: three;
         }
+    }
+    > img {
+        max-width: 80%;
     }
 `;
