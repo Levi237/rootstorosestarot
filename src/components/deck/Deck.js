@@ -355,18 +355,18 @@ export default class Deck extends Component {
     render(){
         const { deck, shuffle, select } = this.state;
 
-        console.log(deck, "<===deck=====select===>", select)
+        // console.log(deck, "<===deck=====select===>", select)
         let hand = []
 
-        const filterData = deck.filter(d => {
-            select.map(s => {
-                console.log(s, "number", d.number)
+        select.map(s => {
+            deck.filter(d => {
+                // console.log(s, "number", d.number)
                 if ( s === d.number ) {
                     console.log(s, "=", d.number)
                     hand.push(d);
                 }
             })
-            console.log(hand)
+            console.log(hand, "<===hand")
         })
         const dealCards = shuffle.map((card, key) => {
             return (
@@ -403,10 +403,20 @@ const Container = styled.div`
         overflow: scroll;
 
         div#deckDisplay {
-            width: 3978px;
+            width: 3280px;
             height: 280px;
             padding-top: 50px;
+            padding-left: 20px;
             overflow: scroll;
+            > div {
+                width: 60px;
+                display: inline-block;
+                margin-left: -20px;
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
           }
+
     }
 `;

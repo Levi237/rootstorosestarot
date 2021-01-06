@@ -7,9 +7,9 @@ export default class ThreeSpread extends Component {
 
         const showHand = hand.map((h, k) => {
             return (
-                <>
-                <img src={`./deck/${h.number}.jpg`}/>
-                </>
+                <div key={k}>
+                    <img src={`./deck/${h.number}.jpg`}/>
+                </div>
             )
         })
         return(
@@ -39,8 +39,8 @@ const Container = styled.div`
         &:nth-of-type(3) {
             grid-area: three;
         }
-    }
-    > img {
-        max-width: 80%;
+        > img {
+            max-width: 80%;
+        }
     }
 `;

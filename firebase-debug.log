@@ -1,0 +1,29 @@
+[debug] [2021-01-06T19:12:09.272Z] ----------------------------------------------------------------------
+[debug] [2021-01-06T19:12:09.275Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2021-01-06T19:12:09.276Z] CLI Version:   9.1.0
+[debug] [2021-01-06T19:12:09.276Z] Platform:      darwin
+[debug] [2021-01-06T19:12:09.276Z] Node Version:  v10.15.3
+[debug] [2021-01-06T19:12:09.280Z] Time:          Wed Jan 06 2021 11:12:09 GMT-0800 (Pacific Standard Time)
+[debug] [2021-01-06T19:12:09.280Z] ----------------------------------------------------------------------
+[debug] [2021-01-06T19:12:09.281Z] 
+[debug] [2021-01-06T19:12:09.292Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-06T19:12:09.292Z] > authorizing via signed-in user
+[debug] [2021-01-06T19:12:09.293Z] [iam] checking project rootstorosestarot for permissions ["firebase.projects.get"]
+[debug] [2021-01-06T19:12:09.296Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-01-06T19:12:09.296Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-06T19:12:09.501Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 06 Jan 2021 19:12:09 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-06T19:12:09.520Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/rootstorosestarot:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-01-06T19:12:09.809Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 Jan 2021 19:12:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=188","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-06T19:12:09.810Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rootstorosestarot  
+ 
+[debug] [2021-01-06T19:12:10.059Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 Jan 2021 19:12:10 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/Users/Levi/Desktop/website/rootstorosestarot'...
+[info] 
+[debug] [2021-01-06T19:12:10.062Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rootstorosestarot/webApps/-/config  
+ 
+[debug] [2021-01-06T19:12:10.474Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 Jan 2021 19:12:10 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
