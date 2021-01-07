@@ -16,7 +16,15 @@ export default class ThreeSpread extends Component {
             <LocalWrapper>
                 <ContainerSpread>
                     <section>
-                        <div></div><div></div><div></div>
+                        <div>
+                            <img src="./deck/back-bw.jpg"/>
+                        </div>
+                        <div>
+                            <img src="./deck/back-bw.jpg"/>
+                        </div>
+                        <div>
+                            <img src="./deck/back-bw.jpg"/>
+                        </div>
                     </section>
                 </ContainerSpread>
                 <ContainerHand>
@@ -45,9 +53,9 @@ const Container = styled.div`
         width: 100vw;
         max-width: 600px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: ' one two three ';
+        grid-template-columns: 5% 30% 30% 30% 5%;
+        grid-template-rows: 100%;
+        grid-template-areas: ' . one two three . ';
         > div {
             &:first-of-type {
                 grid-area: one;
@@ -58,36 +66,16 @@ const Container = styled.div`
             &:nth-of-type(3) {
                 grid-area: three;
             }
-        }
-    }
-`;
-const ContainerHand = styled(Container)`
-    position: absolute;
-    top: 0;
-    > section {
-        > div {
-
             > img {
                 max-width: 80%;
             }
         }
     }
 `;
+const ContainerHand = styled(Container)`
+    position: absolute;
+    top: 0;
+`;
 const ContainerSpread = styled(Container)`
     position: relative;
-    > section {
-    > div {
-        height: 250px;
-        margin-left: 20px;
-        border: solid black 1px;
-        width: 158px;
-        // background-image: url(./deck/back.jpg);
-        // background-size: cover;
-        // background-repeat: no-repeat;
-        // background-position: center;
-        > img {
-            max-width: 80%;
-        }
-    }
-}
 `;
