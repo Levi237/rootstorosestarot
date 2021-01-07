@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ThreeSpread from './spreads/Three';
-import CrossSpread from './spreads/Cross';
+import ThreeSpread from '../spreads/Three';
+import CrossSpread from '../spreads/Cross';
 
 export default class Deck extends Component {
     state = {
@@ -338,7 +338,8 @@ export default class Deck extends Component {
             }
         ],
         shuffle: [],
-        select: [],
+        selectCard: [],
+        selectSpread: "",
         spreadLength: 5
     };
 
@@ -355,23 +356,33 @@ export default class Deck extends Component {
           shuffle: [...shuffledDeck]
         });
     };
-    selectThis = (e) => {
-        const { select, spreadLength, spreads } = this.state;
+    selectCard = (e) => {
+        const { selectCard, spreadLength } = this.state;
         const t = e.currentTarget.id;
         document.getElementById("shuffle").style.display = "none";
-        if (select.length < spreadLength) {
+        if (selectCard.length < spreadLength) {
             this.setState({
-                select: [...select, t]
+                selectCard: [...selectCard, t]
             });
             document.getElementById(t).style.display = "none";
         };
     };
-
+    selectSpread = (e) => {
+        const { selectSpread } = this.state;
+        const t = e.currentTarget.name;
+        // document.getElementById("shuffle").style.display = "none";
+        // if (selectSpread.length < 1) {
+            this.setState({
+                selectSpread: t
+            });
+            // document.getElementById(t).style.display = "none";
+        // };
+    };
     render(){
-        const { deck, shuffle, select, spreads } = this.state;
+        const { deck, shuffle, selectCard, spreads } = this.state;
 
         const hand = [];
-        select.map(s => {
+        selectCard.map(s => {
             deck.filter(d => {
                 if ( s === d.id ) {
                     hand.push(d);
@@ -380,14 +391,14 @@ export default class Deck extends Component {
         });
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.id} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
+                <div id={card.id} key={key} className="dealtCard" onClick={(e) => this.selectCard(e)}>
                     <img src="./deck/tab/back.jpg"/>
                 </div>
             );
         });
         const spreadOptions = spreads.map((s, key) => {
             return (
-                <button id={s.id} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
+                <button id={s.id} key={key} name={s.name} className="dealtCard" onClick={(e) => this.selectSpread(e)}>
                     <img src={s.image}/>
                 </button>
             );
