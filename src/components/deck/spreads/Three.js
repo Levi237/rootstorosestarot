@@ -79,13 +79,12 @@ const ContainerSpread = styled(Container)`
     > div {
         height: 250px;
         margin-left: 20px;
-        background-color: blue;
         border: solid black 1px;
         width: 158px;
-        background-image: url(./deck/back.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        // background-image: url(./deck/back.jpg);
+        // background-size: cover;
+        // background-repeat: no-repeat;
+        // background-position: center;
         > img {
             max-width: 80%;
         }
