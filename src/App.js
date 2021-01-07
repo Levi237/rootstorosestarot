@@ -328,22 +328,22 @@ export default class App extends Component {
       {
           name: "three",
           image: "./spread/three.png",
-          length: 3
+          cards: 3
       },{
           name: "cross",
           image: "./spread/cross.png",
-          length: 5
+          cards: 5
       },{
           name: "celtic cross",
           image: "./spread/cross.png",
-          length: 10
+          cards: 10
       }
   ],
   shuffle: [],
-  selectCards: [],
+  // selectCards: [],
   hand: [],
-  selectSpread: "",
-  spreadLength: 3
+  selectSpread: {},
+  // selectSpread.cards: 3
   }
 
   shuffleThis = () => {
@@ -358,32 +358,35 @@ export default class App extends Component {
     this.setState({
       shuffle: [...shuffledDeck]
     });
-};
-    // const picked = [];
-    selectCard = (e) => {
-      const { spreadLength, deck, hand } = this.state;
-      const t = e.currentTarget.id;
-      document.getElementById("shuffle").style.display = "none";
-      // if (picked.length < spreadLength) {
-          // picked.push(t);
-          document.getElementById(t).style.display = "none";
-      // };
-      if (hand.length < spreadLength) {
-          // picked.map(s => {
-              deck.filter(d => {
-                  if ( t === d.id ) {
-                      this.setState({
-                          hand: [...hand, d]
-                      })
-                      // 
-                  };
-              });
-          // });
+  };
+  selectCard = (e) => {
+    const { selectSpread, deck, hand } = this.state;
+    const t = e.currentTarget.id;
+    document.getElementById("shuffle").style.display = "none";
+    document.getElementById(t).style.display = "none";
+    if (hand.length < selectSpread.cards) {
+      deck.filter(d => {
+          if ( t === d.id ) {
+              this.setState({
+                  hand: [...hand, d]
+              })
+          };
+      });
+    }
+  };
+  selectSpread = (e) => {
+    const t = e.currentTarget.name;
+    document.getElementById("spread-container").style.display = "none";
+    this.state.spreads.filter(s => {
+      if ( t === s.name ) {
+        this.setState({
+            selectSpread: s
+        });
       }
-      // console.log(picked, "<picked", picked.length)
+    })
   };
   render(){
-    const { hand, deck, shuffle, spreadLength, spreads } = this.state
+    const { hand, deck, shuffle, selectSpread, spreads } = this.state
     
     return (
       <AppContainer> 
@@ -391,10 +394,10 @@ export default class App extends Component {
           <Route exact path={routes.ROOT} render={() => 
             <>
               <h1>Hello Angie :)</h1>
-              <Spreads spreads={spreads}/>
-              <Deck spreadLength={spreadLength} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
-              <ThreeSpread hand={hand}/>
-              <CrossSpread hand={hand}/>
+              <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
+              <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
+              { selectSpread.name === "three" && <ThreeSpread hand={hand}/> }
+              { selectSpread.name === "cross" && <CrossSpread hand={hand}/> }
             </>
             }/>
           <Route path={routes.ROOT} render={() => <h1>Uh Oh</h1>}/>

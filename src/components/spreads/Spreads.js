@@ -3,20 +3,14 @@ import styled from 'styled-components';
 
 export default class Spreads extends Component {
     state = {
-        selectSpread: "",
+        // selectSpread: "",
     }
-    selectSpread = (e) => {
-        const t = e.currentTarget.name;
-        document.getElementById("spread-container").style.display = "none";
-            this.setState({
-                selectSpread: t
-            });
-    };
+
     render(){
-        const { spreads } = this.props
+        const { spreads, selectSpread } = this.props
                 const spreadOptions = spreads.map((s, key) => {
             return (
-                <button id={s.id} key={key} name={s.name} className="dealtCard" onClick={(e) => this.selectSpread(e)}>
+                <button id={s.id} key={key} name={s.name} className="dealtCard" onClick={(e) => selectSpread(e)}>
                     <img src={s.image}/>
                 </button>
             );
