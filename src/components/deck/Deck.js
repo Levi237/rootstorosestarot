@@ -335,7 +335,6 @@ export default class Deck extends Component {
             shuffledDeck.push(card);
             newDeck.splice(index, 1);
         };
-        console.log(shuffledDeck, "<========shuffledDeck")
         this.setState({
           shuffle: [...shuffledDeck]
         });
@@ -344,7 +343,6 @@ export default class Deck extends Component {
         const { select } = this.state;
         const t = e.currentTarget.id;
         const v = e.currentTarget;
-        console.log(t, "t", e, "value=>", v)
         document.getElementById("shuffle").style.display = "none";
         if (select.length < 5) {
             this.setState({
