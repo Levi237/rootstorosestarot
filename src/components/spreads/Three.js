@@ -17,13 +17,13 @@ export default class ThreeSpread extends Component {
                 <ContainerSpread>
                     <section>
                         <div>
-                            <img src="./deck/back-bw.jpg"/>
+                            <img src="./deck/back.jpg"/>
                         </div>
                         <div>
-                            <img src="./deck/back-bw.jpg"/>
+                            <img src="./deck/back.jpg"/>
                         </div>
                         <div>
-                            <img src="./deck/back-bw.jpg"/>
+                            <img src="./deck/back.jpg"/>
                         </div>
                     </section>
                 </ContainerSpread>
@@ -78,4 +78,8 @@ const ContainerHand = styled(Container)`
 `;
 const ContainerSpread = styled(Container)`
     position: relative;
+    img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
 `;
