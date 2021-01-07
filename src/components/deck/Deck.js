@@ -346,23 +346,22 @@ export default class Deck extends Component {
         if (select.length < spreadLength) {
             this.setState({
                 select: [...select, t]
-            })
+            });
             document.getElementById(t).style.display = "none";
-        }
-    }
+        };
+    };
 
     render(){
         const { deck, shuffle, select } = this.state;
 
-        const hand = []
-
+        const hand = [];
         select.map(s => {
             deck.filter(d => {
                 if ( s === d.number ) {
                     hand.push(d);
-                }
-            })
-        })
+                };
+            });
+        });
         const dealCards = shuffle.map((card, key) => {
             return (
                 <div id={card.number} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
