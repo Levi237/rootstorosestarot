@@ -6,9 +6,9 @@ export default class Spreads extends Component {
         selectSpread: "",
     }
     selectSpread = (e) => {
-        const { selectSpread } = this.state;
+        // const { selectSpread } = this.state;
         const t = e.currentTarget.name;
-        // document.getElementById("shuffle").style.display = "none";
+        document.getElementById("spread-container").style.display = "none";
         // if (selectSpread.length < 1) {
             this.setState({
                 selectSpread: t
@@ -26,12 +26,24 @@ export default class Spreads extends Component {
             );
         });
         return(
-            <LocalWrapper>
+            <LocalWrapper id="spread-container">
                 {spreadOptions}
             </LocalWrapper>
         );
     };
 };
 
-const LocalWrapper = styled.div`
+const LocalWrapper = styled.section`
+    text-align: center;
+    button {
+        border: none;
+        background: transparent;
+        vertical-align: middle;
+        img {
+            width: 20vw;
+            min-width: 80px;
+            max-width: 150px;
+            margin: 5px;
+        }
+    }
 `;
