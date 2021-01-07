@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export default class ThreeSpread extends Component {
+export default class SimpleSpread extends Component {
     render(){
         const { hand } = this.props;
 
