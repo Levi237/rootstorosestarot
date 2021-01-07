@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ThreeSpread from './spreads/Three';
@@ -324,10 +325,21 @@ export default class Deck extends Component {
         shuffle: [],
         select: [],
         spreadLength: 5,
-        spreads: {
-            three: 3,
-            cross: 5,
-        }
+        spreads: [
+            {
+                name: "three",
+                image: "./spread/three.png",
+                length: 3
+            },{
+                name: "cross",
+                image: "./spread/cross.png",
+                length: 5
+            },{
+                name: "celtic cross",
+                image: "./spread/cross.png",
+                length: 10
+            }
+        ]
     };
 
     shuffleThis = () => {
@@ -344,10 +356,10 @@ export default class Deck extends Component {
         });
     };
     selectThis = (e) => {
-        const { select, spreads } = this.state;
+        const { select, spreadLength, spreads } = this.state;
         const t = e.currentTarget.id;
         document.getElementById("shuffle").style.display = "none";
-        if (select.length < spreads.three) {
+        if (select.length < spreadLength) {
             this.setState({
                 select: [...select, t]
             });
@@ -377,9 +389,6 @@ export default class Deck extends Component {
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                <button id="spread" onClick={this.pickThis}>
-                    Pick Spread
-                </button>
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
