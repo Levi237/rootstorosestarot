@@ -8,6 +8,7 @@ import Spreads              from './components/spreads/Spreads';
 import ThreeSpread          from './components/spreads/Three';
 import CrossSpread          from './components/spreads/Cross';
 // import CelticCrossSpread    from './components/spreads/CelticCross';
+
 export default class App extends Component {
   state = {
     deck: [
