@@ -419,8 +419,8 @@ const Container = styled.div`
     @media screen and (max-width: 900px) {
         div#displayContainer {
             div#deckDisplay {
-                width: 3000vw!important;
-                height: 100vw!important;
+                width: 800vw!important;
+                height: 50vw!important;
                 padding-top: 10vw!important;
                 padding-left: 5vw!important;
                 > div {
