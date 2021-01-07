@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ThreeSpread from './spreads/Three';
+import CrossSpread from './spreads/Cross';
 
 export default class Deck extends Component {
     state = {
@@ -344,7 +345,7 @@ export default class Deck extends Component {
         const v = e.currentTarget;
         console.log(t, "t", e, "value=>", v)
         document.getElementById("shuffle").style.display = "none";
-        if (select.length < 3) {
+        if (select.length < 5) {
             this.setState({
                 select: [...select, t]
             })
@@ -360,11 +361,9 @@ export default class Deck extends Component {
         select.map(s => {
             deck.filter(d => {
                 if ( s === d.number ) {
-                    console.log(s, "=", d.number)
                     hand.push(d);
                 }
             })
-            console.log(hand, "<===hand")
         })
         const dealCards = shuffle.map((card, key) => {
             return (
@@ -377,7 +376,7 @@ export default class Deck extends Component {
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                <ThreeSpread hand={hand} />
+                <CrossSpread hand={hand} />
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
