@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+h1, h2, h3, h4, p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 /* DECK ID TRIGGERS */
 /* #clear {
   display: inline-block;
