@@ -333,17 +333,15 @@ export default class App extends Component {
           name: "cross",
           image: "./spread/cross.png",
           cards: 5
-      },{
-          name: "celtic cross",
-          image: "./spread/cross.png",
-          cards: 10
+      // },{
+      //     name: "celtic cross",
+      //     image: "./spread/cross.png",
+      //     cards: 10
       }
   ],
   shuffle: [],
-  // selectCards: [],
   hand: [],
   selectSpread: {},
-  // selectSpread.cards: 3
   }
 
   shuffleThis = () => {
