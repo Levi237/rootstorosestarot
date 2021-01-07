@@ -356,7 +356,7 @@ export default class Deck extends Component {
     render(){
         const { deck, shuffle, select } = this.state;
 
-        let hand = []
+        const hand = []
 
         select.map(s => {
             deck.filter(d => {
