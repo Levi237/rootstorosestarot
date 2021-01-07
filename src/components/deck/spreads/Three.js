@@ -29,6 +29,7 @@ const Container = styled.div`
     grid-template-rows: 1fr;
     grid-template-areas: ' one two three ';
     > div {
+        background-image: url(./deck/back.png);
         &:first-of-type {
             grid-area: one;
         }
