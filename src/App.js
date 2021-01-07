@@ -340,14 +340,14 @@ export default class App extends Component {
       }
   ],
   shuffle: [],
-  selectCard: [],
+  selectCards: [],
   hand: [],
   selectSpread: "",
   spreadLength: 3
   }
 
   shuffleThis = () => {
-    let newDeck = [...this.props.deck];
+    let newDeck = [...this.state.deck];
     let shuffledDeck = [];
     while (newDeck.length > 0) {
         let index = Math.floor(Math.random() * newDeck.length);
@@ -359,6 +359,29 @@ export default class App extends Component {
       shuffle: [...shuffledDeck]
     });
 };
+    // const picked = [];
+    selectCard = (e) => {
+      const { spreadLength, deck, hand } = this.state;
+      const t = e.currentTarget.id;
+      document.getElementById("shuffle").style.display = "none";
+      // if (picked.length < spreadLength) {
+          // picked.push(t);
+          document.getElementById(t).style.display = "none";
+      // };
+      if (hand.length < spreadLength) {
+          // picked.map(s => {
+              deck.filter(d => {
+                  if ( t === d.id ) {
+                      this.setState({
+                          hand: [...hand, d]
+                      })
+                      // 
+                  };
+              });
+          // });
+      }
+      // console.log(picked, "<picked", picked.length)
+  };
   render(){
     const { hand, deck, shuffle, spreadLength, spreads } = this.state
     
@@ -369,7 +392,7 @@ export default class App extends Component {
             <>
               <h1>Hello Angie :)</h1>
               <Spreads spreads={spreads}/>
-              <Deck spreadLength={spreadLength} deck={deck} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
+              <Deck spreadLength={spreadLength} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
               <ThreeSpread hand={hand}/>
               <CrossSpread hand={hand}/>
             </>

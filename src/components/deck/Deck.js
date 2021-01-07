@@ -335,39 +335,17 @@ export default class Deck extends Component {
         //     }
         // ],
         // shuffle: [],
-        // selectCard: [],
+        // selectCards: [],
         // hand: [],
         // selectSpread: "",
         // spreadLength: 3
     };
 
 
-    // const picked = [];
-    selectCard = (e) => {
-        const { spreadLength, deck, hand } = this.props;
-        const t = e.currentTarget.id;
-        document.getElementById("shuffle").style.display = "none";
-        // if (picked.length < spreadLength) {
-            // picked.push(t);
-            document.getElementById(t).style.display = "none";
-        // };
-        if (hand.length = spreadLength) {
-            // picked.map(s => {
-                deck.filter(d => {
-                    if ( t === d.id ) {
-                        this.setState({
-                            hand: [...hand, d]
-                        })
-                        // 
-                    };
-                });
-            // });
-        }
-        // console.log(picked, "<picked", picked.length)
-    };
+
 
     render(){
-        const { shuffle, spreads, shuffleThis } = this.props;
+        const { shuffle, spreads, shuffleThis, selectCard } = this.props;
 
         // const hand = [];
         // selectCard.map(s => {
@@ -382,7 +360,7 @@ export default class Deck extends Component {
         // });
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.id} key={key} className="dealtCard" onClick={(e) => this.selectCard(e)}>
+                <div id={card.id} key={key} className="dealtCard" onClick={(e) => selectCard(e)}>
                     <img src="./deck/tab/back.jpg"/>
                 </div>
             );
@@ -391,7 +369,7 @@ export default class Deck extends Component {
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                <button id="shuffle" onClick={shuffleThis}>
+                <button id="shuffle" onClick={(e) => shuffleThis(e)}>
                     Shuffle
                 </button>
 
