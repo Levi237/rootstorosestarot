@@ -7,6 +7,7 @@ import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads/Spreads';
 import ThreeSpread          from './components/spreads/Three';
 import CrossSpread          from './components/spreads/Cross';
+// import CelticCrossSpread    from './components/spreads/CelticCross';
 export default class App extends Component {
   state = {
     deck: [
@@ -396,7 +397,7 @@ export default class App extends Component {
               <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
               { selectSpread.name === "three" && <ThreeSpread hand={hand}/> }
               { selectSpread.name === "cross" && <CrossSpread hand={hand}/> }
-              {/* { selectSpread.name === "celtic cross" && <CrossSpread hand={hand}/> } */}
+              {/* { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand}/> } */}
             </>
             }/>
           <Route path={routes.ROOT} render={() => <h1>Uh Oh</h1>}/>
