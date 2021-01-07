@@ -6,15 +6,11 @@ export default class Spreads extends Component {
         selectSpread: "",
     }
     selectSpread = (e) => {
-        // const { selectSpread } = this.state;
         const t = e.currentTarget.name;
         document.getElementById("spread-container").style.display = "none";
-        // if (selectSpread.length < 1) {
             this.setState({
                 selectSpread: t
             });
-            // document.getElementById(t).style.display = "none";
-        // };
     };
     render(){
         const { spreads } = this.props
