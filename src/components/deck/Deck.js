@@ -323,7 +323,11 @@ export default class Deck extends Component {
         ], 
         shuffle: [],
         select: [],
-        spreadLength: 5
+        spreadLength: 5,
+        spreads: {
+            three: 3,
+            cross: 5,
+        }
     };
 
     shuffleThis = () => {
@@ -340,10 +344,10 @@ export default class Deck extends Component {
         });
     };
     selectThis = (e) => {
-        const { select, spreadLength } = this.state;
+        const { select, spreads } = this.state;
         const t = e.currentTarget.id;
         document.getElementById("shuffle").style.display = "none";
-        if (select.length < spreadLength) {
+        if (select.length < spreads.three) {
             this.setState({
                 select: [...select, t]
             });
@@ -373,10 +377,13 @@ export default class Deck extends Component {
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
+                <button id="spread" onClick={this.pickThis}>
+                    Pick Spread
+                </button>
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
-                <CrossSpread hand={hand} />
+                <ThreeSpread hand={hand} />
                 {/* <button id="clear" onClick={clearDeck}>
                     Clear
                 </button> */}
