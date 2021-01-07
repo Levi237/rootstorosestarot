@@ -3,12 +3,11 @@ import styled               from 'styled-components';
 import { Switch, Route }    from 'react-router-dom';
 import * as routes          from './constants/routes';
 
+import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads/Spreads';
-import SimpleSpread          from './components/spreads/Simple';
+import SimpleSpread         from './components/spreads/Simple';
 import CrossSpread          from './components/spreads/Cross';
-// import CelticCrossSpread    from './components/spreads/CelticCross';
-
 export default class App extends Component {
   state = {
     deck: [
@@ -390,19 +389,12 @@ export default class App extends Component {
     
     return (
       <AppContainer> 
-        <Switch>
-          <Route exact path={routes.ROOT} render={() => 
-            <>
-              <h1>Hello Angie :)</h1>
+        <Header/>
               <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
               <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
               { selectSpread.name === "three" && <SimpleSpread hand={hand}/> }
               { selectSpread.name === "cross" && <CrossSpread hand={hand}/> }
               {/* { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand}/> } */}
-            </>
-            }/>
-          <Route path={routes.ROOT} render={() => <h1>Uh Oh</h1>}/>
-        </Switch>
       </AppContainer>
     );
   };
