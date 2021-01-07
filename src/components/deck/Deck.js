@@ -322,9 +322,6 @@ export default class Deck extends Component {
                 content: "blah blah blah"
             }
         ], 
-        shuffle: [],
-        select: [],
-        spreadLength: 5,
         spreads: [
             {
                 name: "three",
@@ -339,7 +336,10 @@ export default class Deck extends Component {
                 image: "./spread/cross.png",
                 length: 10
             }
-        ]
+        ],
+        shuffle: [],
+        select: [],
+        spreadLength: 5
     };
 
     shuffleThis = () => {
@@ -368,7 +368,7 @@ export default class Deck extends Component {
     };
 
     render(){
-        const { deck, shuffle, select } = this.state;
+        const { deck, shuffle, select, spreads } = this.state;
 
         const hand = [];
         select.map(s => {
@@ -385,14 +385,21 @@ export default class Deck extends Component {
                 </div>
             );
         });
- 
+        const spreadOptions = spreads.map((s, key) => {
+            return (
+                <button id={s.id} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
+                    <img src={s.image}/>
+                </button>
+            );
+        });
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
+                {spreadOptions}
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
-                <ThreeSpread hand={hand} />
+                <ThreeSpread hand={hand}/>
                 {/* <button id="clear" onClick={clearDeck}>
                     Clear
                 </button> */}
