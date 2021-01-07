@@ -323,7 +323,7 @@ export default class Deck extends Component {
         ], 
         shuffle: [],
         select: [],
-        spreadLength: 0
+        spreadLength: 5
     };
 
     shuffleThis = () => {
@@ -340,11 +340,10 @@ export default class Deck extends Component {
         });
     };
     selectThis = (e) => {
-        const { select } = this.state;
+        const { select, spreadLength } = this.state;
         const t = e.currentTarget.id;
-        const v = e.currentTarget;
         document.getElementById("shuffle").style.display = "none";
-        if (select.length < 5) {
+        if (select.length < spreadLength) {
             this.setState({
                 select: [...select, t]
             })
