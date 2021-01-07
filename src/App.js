@@ -11,7 +11,7 @@ export default class App extends Component {
         <Switch>
           <Route exact path={routes.ROOT} render={() => 
             <>
-              <h1>Hello Angie</h1>
+              <h1>Hello Angie :)</h1>
               <Deck/>
             </>
             }/>
