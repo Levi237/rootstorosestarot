@@ -29,8 +29,7 @@ export default class ThreeSpread extends Component {
                 </ContainerSpread>
                 <ContainerHand>
                     <section>
-
-                    {showHand}
+                        {showHand}
                     </section>
                 </ContainerHand>
 
