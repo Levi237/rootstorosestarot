@@ -322,7 +322,8 @@ export default class Deck extends Component {
             }
         ], 
         shuffle: [],
-        select: []
+        select: [],
+        spreadLength: 0
     };
 
     shuffleThis = () => {
