@@ -8,315 +8,315 @@ export default class Deck extends Component {
     state = {
         deck: [
             {
-                number: "00",
+                id: "00",
                 title: "the fool",
                 content: "blah blah blah"
             },{
-                number: "01",
+                id: "01",
                 title: "the magician",
                 content: "blah blah blah"
             },{
-                number: "02",
+                id: "02",
                 title: "the high priestess",
                 content: "blah blah blah"
             },{
-                number: "03",
+                id: "03",
                 title: "the empress",
                 content: "blah blah blah"
             },{
-                number: "04",
+                id: "04",
                 title: "the emporer",
                 content: "blah blah blah"
             },{
-                number: "05",
+                id: "05",
                 title: "the heirophant",
                 content: "blah blah blah"
             },{
-                number: "06",
+                id: "06",
                 title: "the lovers",
                 content: "blah blah blah"
             },{
-                number: "07",
+                id: "07",
                 title: "the chariot",
                 content: "blah blah blah"
             },{
-                number: "08",
+                id: "08",
                 title: "strength",
                 content: "blah blah blah"
             },{
-                number: "09",
+                id: "09",
                 title: "the hermit",
                 content: "blah blah blah"
             },{
-                number: "10",
+                id: "10",
                 title: "wheel of fortune",
                 content: "blah blah blah"
             },{
-                number: "11",
+                id: "11",
                 title: "justice",
                 content: "blah blah blah"
             },{
-                number: "12",
+                id: "12",
                 title: "the hanged man",
                 content: "blah blah blah"
             },{
-                number: "13",
+                id: "13",
                 title: "death",
                 content: "blah blah blah"
             },{
-                number: "14",
+                id: "14",
                 title: "temperance",
                 content: "blah blah blah"
             },{
-                number: "15",
+                id: "15",
                 title: "the devil",
                 content: "blah blah blah"
             },{
-                number: "16",
+                id: "16",
                 title: "the tower",
                 content: "blah blah blah"
             },{
-                number: "17",
+                id: "17",
                 title: "the star",
                 content: "blah blah blah"
             },{
-                number: "18",
+                id: "18",
                 title: "the moon",
                 content: "blah blah blah"
             },{
-                number: "19",
+                id: "19",
                 title: "the sun",
                 content: "blah blah blah"
             },{
-                number: "20",
+                id: "20",
                 title: "judgement",
                 content: "blah blah blah"
             },{
-                number: "21",
+                id: "21",
                 title: "the world",
                 content: "blah blah blah"
             },{
-                number: "22",
+                id: "22",
                 title: "ace of wands",
                 content: "blah blah blah"
             },{
-                number: "23",
+                id: "23",
                 title: "two of wands",
                 content: "blah blah blah"
             },{
-                number: "24",
+                id: "24",
                 title: "three of wands",
                 content: "blah blah blah"
             },{
-                number: "25",
+                id: "25",
                 title: "four of wands",
                 content: "blah blah blah"
             },{
-                number: "26",
+                id: "26",
                 title: "five of wands",
                 content: "blah blah blah"
             },{
-                number: "27",
+                id: "27",
                 title: "six of wands",
                 content: "blah blah blah"
             },{
-                number: "28",
+                id: "28",
                 title: "seven of wands",
                 content: "blah blah blah"
             },{
-                number: "29",
+                id: "29",
                 title: "eight of wands",
                 content: "blah blah blah"
             },{
-                number: "30",
+                id: "30",
                 title: "nine of wands",
                 content: "blah blah blah"
             },{
-                number: "31",
+                id: "31",
                 title: "ten of wands",
                 content: "blah blah blah"
             },{
-                number: "32",
+                id: "32",
                 title: "page of wands",
                 content: "blah blah blah"
             },{
-                number: "33",
+                id: "33",
                 title: "knight of wands",
                 content: "blah blah blah"
             },{
-                number: "34",
+                id: "34",
                 title: "queen of wands",
                 content: "blah blah blah"
             },{
-                number: "35",
+                id: "35",
                 title: "king of wands",
                 content: "blah blah blah"
             },{
-                number: "36",
+                id: "36",
                 title: "ace of cups",
                 content: "blah blah blah"
             },{
-                number: "37",
+                id: "37",
                 title: "two of cups",
                 content: "blah blah blah"
             },{
-                number: "38",
+                id: "38",
                 title: "three of cups",
                 content: "blah blah blah"
             },{
-                number: "39",
+                id: "39",
                 title: "four of cups",
                 content: "blah blah blah"
             },{
-                number: "40",
+                id: "40",
                 title: "five of cups",
                 content: "blah blah blah"
             },{
-                number: "41",
+                id: "41",
                 title: "six of cups",
                 content: "blah blah blah"
             },{
-                number: "42",
+                id: "42",
                 title: "seven of cups",
                 content: "blah blah blah"
             },{
-                number: "43",
+                id: "43",
                 title: "eight of cups",
                 content: "blah blah blah"
             },{
-                number: "44",
+                id: "44",
                 title: "nine of cups",
                 content: "blah blah blah"
             },{
-                number: "45",
+                id: "45",
                 title: "ten of cups",
                 content: "blah blah blah"
             },{
-                number: "46",
+                id: "46",
                 title: "page of cups",
                 content: "blah blah blah"
             },{
-                number: "47",
+                id: "47",
                 title: "knight of cups",
                 content: "blah blah blah"
             },{
-                number: "48",
+                id: "48",
                 title: "queen of cups",
                 content: "blah blah blah"
             },{
-                number: "49",
+                id: "49",
                 title: "king of cups",
                 content: "blah blah blah"
             },{
-                number: "50",
+                id: "50",
                 title: "ace of swords",
                 content: "blah blah blah"
             },{
-                number: "51",
+                id: "51",
                 title: "two of swords",
                 content: "blah blah blah"
             },{
-                number: "52",
+                id: "52",
                 title: "three of swords",
                 content: "blah blah blah"
             },{
-                number: "53",
+                id: "53",
                 title: "four of swords",
                 content: "blah blah blah"
             },{
-                number: "54",
+                id: "54",
                 title: "five of swords",
                 content: "blah blah blah"
             },{
-                number: "55",
+                id: "55",
                 title: "six of swords",
                 content: "blah blah blah"
             },{
-                number: "56",
+                id: "56",
                 title: "seven of swords",
                 content: "blah blah blah"
             },{
-                number: "57",
+                id: "57",
                 title: "eight of swords",
                 content: "blah blah blah"
             },{
-                number: "58",
+                id: "58",
                 title: "nine of swords",
                 content: "blah blah blah"
             },{
-                number: "59",
+                id: "59",
                 title: "ten of swords",
                 content: "blah blah blah"
             },{
-                number: "60",
+                id: "60",
                 title: "page of swords",
                 content: "blah blah blah"
             },{
-                number: "61",
+                id: "61",
                 title: "knight of swords",
                 content: "blah blah blah"
             },{
-                number: "62",
+                id: "62",
                 title: "queen of swords",
                 content: "blah blah blah"
             },{
-                number: "63",
+                id: "63",
                 title: "king of swords",
                 content: "blah blah blah"
             },{
-                number: "64",
+                id: "64",
                 title: "ace of pentacles",
                 content: "blah blah blah"
             },{
-                number: "65",
+                id: "65",
                 title: "two of pentacles",
                 content: "blah blah blah"
             },{
-                number: "66",
+                id: "66",
                 title: "three of pentacles",
                 content: "blah blah blah"
             },{
-                number: "67",
+                id: "67",
                 title: "four of pentacles",
                 content: "blah blah blah"
             },{
-                number: "68",
+                id: "68",
                 title: "five of pentacles",
                 content: "blah blah blah"
             },{
-                number: "69",
+                id: "69",
                 title: "six of pentacles",
                 content: "blah blah blah"
             },{
-                number: "70",
+                id: "70",
                 title: "seven of pentacles",
                 content: "blah blah blah"
             },{
-                number: "71",
+                id: "71",
                 title: "eight of pentacles",
                 content: "blah blah blah"
             },{
-                number: "72",
+                id: "72",
                 title: "nine of pentacles",
                 content: "blah blah blah"
             },{
-                number: "73",
+                id: "73",
                 title: "ten of pentacles",
                 content: "blah blah blah"
             },{
-                number: "74",
+                id: "74",
                 title: "page of pentacles",
                 content: "blah blah blah"
             },{
-                number: "75",
+                id: "75",
                 title: "knight of pentacles",
                 content: "blah blah blah"
             },{
-                number: "76",
+                id: "76",
                 title: "queen of pentacles",
                 content: "blah blah blah"
             },{
-                number: "77",
+                id: "77",
                 title: "king of pentacles",
                 content: "blah blah blah"
             }
@@ -357,14 +357,14 @@ export default class Deck extends Component {
         const hand = [];
         select.map(s => {
             deck.filter(d => {
-                if ( s === d.number ) {
+                if ( s === d.id ) {
                     hand.push(d);
                 };
             });
         });
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.number} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
+                <div id={card.id} key={key} className="dealtCard" onClick={(e) => this.selectThis(e)}>
                     <img src="./deck/tab/back.jpg"/>
                 </div>
             );
@@ -373,10 +373,10 @@ export default class Deck extends Component {
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                <CrossSpread hand={hand} />
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
+                <CrossSpread hand={hand} />
                 {/* <button id="clear" onClick={clearDeck}>
                     Clear
                 </button> */}

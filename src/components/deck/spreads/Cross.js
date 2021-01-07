@@ -4,11 +4,10 @@ import styled                   from 'styled-components';
 export default class CrossSpread extends Component {
     render(){
         const { hand } = this.props;
-
         const showHand = hand.map((h, k) => {
             return (
                 <div key={k}>
-                    <img src={`./deck/${h.number}.jpg`}/>
+                    <img src={`./deck/${h.id}.jpg`}/>
                 </div>
             )
         })
