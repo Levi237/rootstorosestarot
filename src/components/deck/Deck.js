@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import ThreeSpread from '../spreads/Three';
 import CrossSpread from '../spreads/Cross';
-
+import Spreads from '../spreads/Spreads';
 export default class Deck extends Component {
     state = {
         deck: [
@@ -367,17 +367,7 @@ export default class Deck extends Component {
             document.getElementById(t).style.display = "none";
         };
     };
-    selectSpread = (e) => {
-        const { selectSpread } = this.state;
-        const t = e.currentTarget.name;
-        // document.getElementById("shuffle").style.display = "none";
-        // if (selectSpread.length < 1) {
-            this.setState({
-                selectSpread: t
-            });
-            // document.getElementById(t).style.display = "none";
-        // };
-    };
+
     render(){
         const { deck, shuffle, selectCard, spreads } = this.state;
 
@@ -396,17 +386,11 @@ export default class Deck extends Component {
                 </div>
             );
         });
-        const spreadOptions = spreads.map((s, key) => {
-            return (
-                <button id={s.id} key={key} name={s.name} className="dealtCard" onClick={(e) => this.selectSpread(e)}>
-                    <img src={s.image}/>
-                </button>
-            );
-        });
+
         return (
             <Container>
                 <h1>DECK DISPLAY</h1>
-                {spreadOptions}
+                <Spreads spreads={spreads}/>
                 <button id="shuffle" onClick={this.shuffleThis}>
                     Shuffle
                 </button>
