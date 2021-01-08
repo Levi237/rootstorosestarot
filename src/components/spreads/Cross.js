@@ -46,20 +46,20 @@ export default class CrossSpread extends Component {
 
 const LocalWrapper = styled.div`
     position: relative;
-    height: 100vw;
+    height: 120vw;
     max-height: 800px;
 `;
 
 const Container = styled.div`
     text-align: center;
-    width: 100vw;
+    width: 90vw;
     > section {
         margin: 0 auto;
         width: 100vw;
         max-width: 600px;
         display: grid;
         grid-template-columns: 5% 30% 30% 30% 5%;
-        grid-template-rows: 229px;
+        grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: 
             ' . . two . . '
             ' . four one five . '

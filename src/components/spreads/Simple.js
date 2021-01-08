@@ -40,8 +40,8 @@ export default class SimpleSpread extends Component {
 
 const LocalWrapper = styled.div`
     position: relative;
-    height: 30vw;
-    max-height: 212px;
+    height: 40vw;
+    max-height: 252px;
 `;
 
 const Container = styled.div`
