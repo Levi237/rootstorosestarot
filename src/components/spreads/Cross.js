@@ -34,8 +34,7 @@ export default class CrossSpread extends Component {
                 </ContainerSpread>
                 <ContainerHand>
                     <section>
-{/* <div>tes</div> */}
-                    {showHand}
+                        {showHand}
                     </section>
                 </ContainerHand>
 
@@ -46,7 +45,7 @@ export default class CrossSpread extends Component {
 
 const LocalWrapper = styled.div`
     position: relative;
-    height: 120vw;
+    height: 115vw;
     max-height: 800px;
 `;
 
