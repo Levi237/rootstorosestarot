@@ -16,6 +16,9 @@ const LocalWrapper = styled.header`
     background-color: black;
     color: white;
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     @media screen and (max-width: 900px) {
         height: 40px;
         margin-bottom: 10px;
