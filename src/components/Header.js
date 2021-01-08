@@ -5,7 +5,7 @@ export default class Header extends Component {
     render(){
         return(
             <LocalWrapper>
-                <h1>Roots to Roses Tarot</h1>
+                <h1>Roots to <i>Roses</i> Tarot</h1>
             </LocalWrapper>
         )
     }
