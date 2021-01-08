@@ -40,8 +40,8 @@ export default class SimpleSpread extends Component {
 
 const LocalWrapper = styled.div`
     position: relative;
-    height: 40vw;
-    max-height: 252px;
+    height: 30vw;
+    max-height: 212px;
 `;
 
 const Container = styled.div`
@@ -49,7 +49,7 @@ const Container = styled.div`
     width: 100vw;
     > section {
         margin: 0 auto;
-        width: 100vw;
+        width: 90vw;
         max-width: 600px;
         display: grid;
         grid-template-columns: 5% 30% 30% 30% 5%;

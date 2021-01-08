@@ -5,15 +5,19 @@ export default class Header extends Component {
     render(){
         return(
             <LocalWrapper>
-                <h1>Hello Angie :)</h1>
+                <h1>Roots to Roses Tarot</h1>
             </LocalWrapper>
         )
     }
 }
 
 const LocalWrapper = styled.header`
-height: 80px;
-background-color: black;
-color: white;
-margin-bottom: 40px;
+    height: 80px;
+    background-color: black;
+    color: white;
+    margin-bottom: 40px;
+    @media screen and (max-width: 900px) {
+        height: 40px;
+        margin-bottom: 10px;
+    }
 `;

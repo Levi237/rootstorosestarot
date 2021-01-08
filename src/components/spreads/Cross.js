@@ -46,7 +46,7 @@ export default class CrossSpread extends Component {
 
 const LocalWrapper = styled.div`
     position: relative;
-    height: 120vw;
+    height: 100vw;
     max-height: 800px;
 `;
 
@@ -55,15 +55,15 @@ const Container = styled.div`
     width: 100vw;
     > section {
         margin: 0 auto;
-        width: 100vw;
+        width: 90vw;
         max-width: 600px;
         display: grid;
         grid-template-columns: 5% 30% 30% 30% 5%;
         grid-template-rows: auto;
         grid-template-areas: 
-            ' . . one . . '
-            ' . two three four . '
-            ' . . five . . ';
+            ' . . two . . '
+            ' . four one five . '
+            ' . . three . . ';
         > div {
             &:first-of-type {
                 grid-area: one;

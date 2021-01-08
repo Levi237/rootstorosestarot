@@ -35,6 +35,7 @@ h1, h2, h3, h4, p {
 }
 
 #shuffle {
-  position: relative;
-  z-index: 900;
+  /* position: absolute;
+  z-index: 900; */
+  display: none;
 }

@@ -15,10 +15,11 @@ export default class Deck extends Component {
 
         return (
             <Container id="deck-container">
-                <h1>DECK DISPLAY</h1>
-                <button id="shuffle" onClick={(e) => shuffleThis(e)}>
-                    Shuffle
-                </button>
+                <section id="shuffle">
+                    <button onClick={(e) => shuffleThis(e)}>
+                        Shuffle
+                    </button>
+                </section>
                 <div id="displayContainer">
                     <div id="deckDisplay">
                         { dealCards }
@@ -30,6 +31,13 @@ export default class Deck extends Component {
 };
 
 const Container = styled.div`
+> section {
+    text-align: center;
+    position: absolute;
+    z-index: 900;
+    top: calc(40px + 17vw);
+    width: 100vw;
+}
     width: 100vw;
     div#displayContainer {
         width: 100vw;
@@ -37,16 +45,18 @@ const Container = styled.div`
 
         div#deckDisplay {
             width: 3280px;
-            height: 280px;
-            padding-top: 50px;
-            padding-left: 20px;
+            height: 157px;
+            padding: 20px 10px;
             overflow: scroll;
             > div {
-                width: 60px;
+                width: 100px;
                 display: inline-block;
-                margin-left: -20px;
+                margin-left: -60px;
                 &:first-of-type {
                     margin-left: 0;
+                }
+                > img {
+                    width: 100%;
                 }
             }
         }
@@ -54,10 +64,9 @@ const Container = styled.div`
     @media screen and (max-width: 900px) {
         div#displayContainer {
             div#deckDisplay {
-                width: 800vw!important;
-                height: 50vw!important;
-                padding-top: 10vw!important;
-                padding-left: 5vw!important;
+                width: 795vw!important;
+                height: 39vw!important;
+                padding: 5vw 2.5vw!important;
                 > div {
                     width: 25vw;
                     display: inline-block;

@@ -324,25 +324,25 @@ export default class App extends Component {
           title: "king of pentacles",
           content: "blah blah blah"
       }
-  ], 
-  spreads: [
-      {
-          name: "three",
-          image: "./spread/three.png",
-          cards: 3
-      },{
-          name: "cross",
-          image: "./spread/cross.png",
-          cards: 5
-      // },{
-      //     name: "celtic cross",
-      //     image: "./spread/cross.png",
-      //     cards: 10
-      }
-  ],
-  shuffle: [],
-  hand: [],
-  selectSpread: {},
+    ], 
+    spreads: [
+        {
+            name: "three",
+            image: "./spread/three.png",
+            cards: 3
+        },{
+            name: "cross",
+            image: "./spread/cross.png",
+            cards: 5
+        // },{
+        //     name: "celtic cross",
+        //     image: "./spread/cross.png",
+        //     cards: 10
+        }
+    ],
+    shuffle: [],
+    hand: [],
+    selectSpread: {},
   }
 
   shuffleThis = () => {
@@ -376,6 +376,7 @@ export default class App extends Component {
   selectSpread = (e) => {
     const t = e.currentTarget.name;
     document.getElementById("spread-container").style.display = "none";
+    document.getElementById("shuffle").style.display = "block";
     this.state.spreads.filter(s => {
       if ( t === s.name ) {
         this.setState({
