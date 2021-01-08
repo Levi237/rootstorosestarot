@@ -49,7 +49,7 @@ const Container = styled.div`
     width: 100vw;
     > section {
         margin: 0 auto;
-        width: 90vw;
+        width: 100vw;
         max-width: 600px;
         display: grid;
         grid-template-columns: 5% 30% 30% 30% 5%;

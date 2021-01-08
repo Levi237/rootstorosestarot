@@ -34,7 +34,7 @@ export default class CrossSpread extends Component {
                 </ContainerSpread>
                 <ContainerHand>
                     <section>
-
+{/* <div>tes</div> */}
                     {showHand}
                     </section>
                 </ContainerHand>
@@ -55,11 +55,11 @@ const Container = styled.div`
     width: 100vw;
     > section {
         margin: 0 auto;
-        width: 90vw;
+        width: 100vw;
         max-width: 600px;
         display: grid;
         grid-template-columns: 5% 30% 30% 30% 5%;
-        grid-template-rows: auto;
+        grid-template-rows: 229px;
         grid-template-areas: 
             ' . . two . . '
             ' . four one five . '
