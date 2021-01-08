@@ -64,11 +64,11 @@ const Container = styled.div`
     @media screen and (max-width: 900px) {
         div#displayContainer {
             div#deckDisplay {
-                width: 795vw!important;
-                height: 39vw!important;
+                width: 405vw!important;
+                height: 31vw!important;
                 padding: 5vw 2.5vw!important;
                 > div {
-                    width: 25vw;
+                    width: 20vw;
                     display: inline-block;
                     margin-left: -15vw;
                     &:first-of-type {
