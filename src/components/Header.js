@@ -15,4 +15,5 @@ const LocalWrapper = styled.header`
 height: 80px;
 background-color: black;
 color: white;
+margin-bottom: 40px;
 `;
