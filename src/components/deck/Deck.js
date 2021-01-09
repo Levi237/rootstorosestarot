@@ -22,7 +22,7 @@ export default class Deck extends Component {
                 </section>
                 <div id="displayContainer">
                     <div id="deckDisplay">
-                        { dealCards }
+                        { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg"/></div>}
                     </div>
                 </div>
             </Container>
