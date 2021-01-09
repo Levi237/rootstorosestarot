@@ -15,6 +15,7 @@ code {
 h1, h2, h3, h4, p {
   margin-block-start: 0;
   margin-block-end: 0;
+  line-height: 100%;
 }
 
 /* DECK ID TRIGGERS */
@@ -43,7 +44,10 @@ h1, h2, h3, h4, p {
 .dealtCard {
   transition: all 2s;
 }
-
+.dealDeck {
+  margin-left: -100px!important;
+  transition: all 1.5s;
+}
 .shuffleDeck {
   margin-left: -100px!important;
   transition: all 1.5s;

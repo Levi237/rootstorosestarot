@@ -5,10 +5,17 @@ export default class Deck extends Component {
     render(){
         const { shuffle, shuffleThis, selectCard } = this.props;
 
+        // const deal = document.getElementsByClassName("dealDeck");
+        // while ( deal.length > 0) {
+        //     console.log(deal.length, "deal")
+        //     setTimeout(function(){deal[0].classList.remove('dealDeck')}, 1000);
+        //     document.getElementsByClassName("dealDeck").classList.remove("dealDeck")
+        // }
+
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.id} key={key} className="dealtCard" onClick={(e) => selectCard(e)}>
-                    <img src="./deck/tab/back.jpg"/>
+                <div id={card.id} key={key} className="dealDeck dealtCard" onClick={(e) => selectCard(e)}>
+                    <img alt="tarot card back" src="./deck/tab/back.jpg"/>
                 </div>
             );
         });

@@ -346,9 +346,10 @@ export default class App extends Component {
   }
 
   shuffleThis = () => {
-    const { deck ,shuffle } = this.state
+    const { deck ,shuffle } = this.state;
     let newDeck = [...deck];
     let shuffledDeck = [];
+    let dealtDeck = document.getElementsByClassName('dealtCard');
     while (newDeck.length > 0) {
         let index = Math.floor(Math.random() * newDeck.length);
         let card = newDeck[index];
@@ -358,16 +359,17 @@ export default class App extends Component {
     this.setState({
       shuffle: [...shuffledDeck]
     });
+    console.log("first shuffle", dealtDeck.length)
     if ( shuffle.length > 0 ) {
-        let dealtDeck = document.getElementsByClassName('dealtCard')
         console.log("post first shuffle", dealtDeck.length)
         for (let i = 0; i < dealtDeck.length; i++) {
             dealtDeck[i].classList.add('shuffleDeck');
-            setTimeout(function(){dealtDeck[i].classList.remove('shuffleDeck')}, 2000)
+            setTimeout(function(){dealtDeck[i].classList.remove('shuffleDeck')}, 2000);
         };
         // document.getElementsByClassName('dealtCard').classList.toggle('shuffleDeck')
     };
   };
+  
   selectCard = (e) => {
     const { selectSpread, deck, hand } = this.state;
     const t = e.currentTarget.id;
@@ -397,7 +399,7 @@ export default class App extends Component {
   };
   render(){
     const { hand, deck, shuffle, selectSpread, spreads } = this.state
-    
+
     return (
       <AppContainer> 
         <Header/>
