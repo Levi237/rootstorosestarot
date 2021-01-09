@@ -362,8 +362,8 @@ export default class App extends Component {
         let dealtDeck = document.getElementsByClassName('dealtCard')
         console.log("post first shuffle", dealtDeck.length)
         for (let i = 0; i < dealtDeck.length; i++) {
-
             dealtDeck[i].classList.add('shuffleDeck');
+            setTimeout(function(){dealtDeck[i].classList.remove('shuffleDeck')}, 2000)
         };
         // document.getElementsByClassName('dealtCard').classList.toggle('shuffleDeck')
     };
