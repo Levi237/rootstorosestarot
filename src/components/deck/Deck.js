@@ -42,7 +42,6 @@ const Container = styled.div`
     div#displayContainer {
         width: 100vw;
         overflow: scroll;
-
         div#deckDisplay {
             width: 3280px;
             height: 157px;
@@ -64,7 +63,7 @@ const Container = styled.div`
     @media screen and (max-width: 900px) {
         div#displayContainer {
             div#deckDisplay {
-                width: 405vw!important;
+                width: calc(405vw + 1px)!important;
                 height: 31vw!important;
                 padding: 5vw 2.5vw!important;
                 > div {

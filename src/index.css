@@ -39,3 +39,15 @@ h1, h2, h3, h4, p {
   z-index: 900; */
   display: none;
 }
+
+.dealtCard {
+  transition: all 2s;
+}
+
+.shuffleDeck {
+  margin-left: -100px!important;
+  transition: all 2s;
+}
+.shuffleDeck:first-of-type {
+margin-left: 0!important;
+}
