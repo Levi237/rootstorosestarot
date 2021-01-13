@@ -5,7 +5,7 @@ export default class Header extends Component {
     render(){
         return(
             <LocalWrapper>
-                <h1>Roots to <i>Roses</i> Tarot</h1>
+                <span>Roots to <i>Roses</i> Tarot</span>
             </LocalWrapper>
         )
     }
@@ -13,14 +13,24 @@ export default class Header extends Component {
 
 const LocalWrapper = styled.header`
     height: 80px;
-    background-color: black;
-    color: white;
+    background-color: transparent;
+    color: purple;
     margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    span{
+        line-height: 100%;
+        font-family: Times New Roman;
+        font-style: italic;
+    }
     @media screen and (max-width: 900px) {
         height: 40px;
         margin-bottom: 10px;
+        align-items: top!important;
+        justify-content: left;
+        span {
+            padding-left: 5px;
+        }
     }
 `;
