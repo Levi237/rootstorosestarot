@@ -44,14 +44,17 @@ h1, h2, h3, h4, p {
 .dealtCard {
   transition: all 2s;
 }
-.dealDeck {
+.dealDeck, .shuffleDeck{
   margin-left: -100px!important;
   transition: all 1.5s;
 }
-.shuffleDeck {
-  margin-left: -100px!important;
-  transition: all 1.5s;
-}
+
 .shuffleDeck:first-of-type {
-margin-left: 0!important;
+  margin-left: 0!important;
+}
+@media only screen and (max-width: 900px) {
+  .dealDeck, .shuffleDeck{
+    margin-left: -20vw!important;
+    transition: all 1.5s;
+  }
 }

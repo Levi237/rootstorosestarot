@@ -14,7 +14,7 @@ export default class Deck extends Component {
 
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.id} key={key} className="dealDeck dealtCard" onClick={(e) => selectCard(e)}>
+                <div id={card.id} key={key} className="dealtCard" onClick={(e) => selectCard(e)}>
                     <img alt="tarot card back" src="./deck/tab/back.jpg"/>
                 </div>
             );
@@ -38,13 +38,13 @@ export default class Deck extends Component {
 };
 
 const Container = styled.div`
-> section {
-    text-align: center;
-    position: absolute;
-    z-index: 900;
-    top: calc(40px + 17vw);
-    width: 100vw;
-}
+    > section {
+        text-align: center;
+        position: absolute;
+        z-index: 900;
+        top: calc(40px + 17vw);
+        width: 100vw;
+    }
     width: 100vw;
     div#displayContainer {
         width: 100vw;

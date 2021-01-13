@@ -345,11 +345,11 @@ export default class App extends Component {
     selectSpread: {},
   }
 
-  shuffleThis = () => {
+  showDeck = () => {
     const { deck ,shuffle } = this.state;
     let newDeck = [...deck];
     let shuffledDeck = [];
-    let dealtDeck = document.getElementsByClassName('dealtCard');
+    // let dealtDeck = document.getElementsByClassName('dealtCard');
     while (newDeck.length > 0) {
         let index = Math.floor(Math.random() * newDeck.length);
         let card = newDeck[index];
@@ -359,14 +359,12 @@ export default class App extends Component {
     this.setState({
       shuffle: [...shuffledDeck]
     });
-    console.log("first shuffle", dealtDeck.length)
-    if ( shuffle.length > 0 ) {
-        console.log("post first shuffle", dealtDeck.length)
-        for (let i = 0; i < dealtDeck.length; i++) {
-            dealtDeck[i].classList.add('shuffleDeck');
-            setTimeout(function(){dealtDeck[i].classList.remove('shuffleDeck')}, 2000);
-        };
-        // document.getElementsByClassName('dealtCard').classList.toggle('shuffleDeck')
+  }
+  shuffleThis = () => {
+    let dealtDeck = document.getElementsByClassName('dealtCard');
+    for (let i = 0; i < dealtDeck.length; i++) {
+        dealtDeck[i].classList.add('shuffleDeck');
+        setTimeout(function(){dealtDeck[i].classList.remove('shuffleDeck')}, 2000);
     };
   };
   
@@ -396,6 +394,7 @@ export default class App extends Component {
         });
       }
     })
+    this.showDeck();
   };
   render(){
     const { hand, deck, shuffle, selectSpread, spreads } = this.state
