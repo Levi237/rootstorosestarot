@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 export default class Deck extends Component {
-
     render(){
         const { shuffle, shuffleThis, selectCard } = this.props;
 
@@ -14,7 +13,7 @@ export default class Deck extends Component {
 
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.id} key={key} className="dealtCard" onClick={(e) => selectCard(e)}>
+                <div id={card.id} key={key} className="dealtCard shuffleDeck" onClick={(e) => selectCard(e)}>
                     <img alt="tarot card back" src="./deck/tab/back.jpg"/>
                 </div>
             );

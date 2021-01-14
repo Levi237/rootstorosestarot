@@ -344,7 +344,20 @@ export default class App extends Component {
     hand: [],
     selectSpread: {},
   }
-
+    componentDidMount(){
+        this.animateDeck();
+    };
+    animateDeck(){   
+        let getCard = document.getElementsByClassName('dealtCard');
+        for (let i = 0; i < getCard.length; i++) {
+            let x = i*900;
+                setTimeout(function(){
+                    setTimeout(function(){
+                    getCard[i].classList.remove('shuffleDeck');
+                }, x);
+            }, 2000);
+        };
+    };
   showDeck = () => {
     const { deck } = this.state;
     let newDeck = [...deck];
@@ -364,7 +377,11 @@ export default class App extends Component {
     let dealtDeck = document.getElementsByClassName('dealtCard');
     for (let i = 0; i < dealtDeck.length; i++) {
         dealtDeck[i].classList.add('shuffleDeck');
-        setTimeout(function(){dealtDeck[i].classList.remove('shuffleDeck')}, 2000);
+        setTimeout(function(){
+            // setTimeout(function(){
+                dealtDeck[i].classList.remove('shuffleDeck')
+            // }, i*900)
+        }, 2000);
     };
   };
   

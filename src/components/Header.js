@@ -12,8 +12,8 @@ export default class Header extends Component {
         let getLogo = document.getElementsByClassName('camo-logo');
         for (let i = 0; i < getLogo.length; i++) {
             let x = i*900;
-                setTimeout(function(){
-                    setTimeout(function(){
+                setTimeout(() => {
+                    setTimeout(() => {
                     getLogo[i].classList.add('show-logo');
                 }, x);
             }, 2000);
