@@ -344,25 +344,10 @@ export default class App extends Component {
     hand: [],
     selectSpread: {},
   }
-    componentDidMount(){
-        this.animateDeck();
-    };
-    animateDeck(){   
-        let getCard = document.getElementsByClassName('dealtCard');
-        for (let i = 0; i < getCard.length; i++) {
-            let x = i*900;
-                setTimeout(function(){
-                    setTimeout(function(){
-                    getCard[i].classList.remove('shuffleDeck');
-                }, x);
-            }, 2000);
-        };
-    };
   showDeck = () => {
     const { deck } = this.state;
     let newDeck = [...deck];
     let shuffledDeck = [];
-    // let dealtDeck = document.getElementsByClassName('dealtCard');
     while (newDeck.length > 0) {
         let index = Math.floor(Math.random() * newDeck.length);
         let card = newDeck[index];
@@ -377,10 +362,8 @@ export default class App extends Component {
     let dealtDeck = document.getElementsByClassName('dealtCard');
     for (let i = 0; i < dealtDeck.length; i++) {
         dealtDeck[i].classList.add('shuffleDeck');
-        setTimeout(function(){
-            // setTimeout(function(){
-                dealtDeck[i].classList.remove('shuffleDeck')
-            // }, i*900)
+        setTimeout(() => {
+            dealtDeck[i].classList.remove('shuffleDeck')
         }, 2000);
     };
   };
@@ -392,11 +375,11 @@ export default class App extends Component {
     document.getElementById(t).style.display = "none";
     if (hand.length < selectSpread.cards) {
       deck.filter(d => {
-          if ( t === d.id ) {
-              this.setState({
-                  hand: [...hand, d]
-              })
-          };
+        if ( t === d.id ) {
+          this.setState({
+            hand: [...hand, d]
+          })
+        };
       });
     }
   };
