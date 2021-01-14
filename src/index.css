@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -57,4 +59,24 @@ h1, h2, h3, h4, p {
     margin-left: -20vw!important;
     transition: all 1.5s;
   }
+}
+.logo-first {
+  color: purple;
+}
+.camo-logo {
+  font-family: 'Sacramento', cursive;
+  font-weight: thin;
+  color: purple;
+  opacity: 0;
+  transition: all 1.5s;
+  margin-left: -5px;
+}
+.camo-logo:first-of-type {
+  margin-left: 0;
+}
+.show-logo {
+  opacity: 1;
+  transition: all 1.5s;
+  position: relative;
+  margin-left: 0px;
 }

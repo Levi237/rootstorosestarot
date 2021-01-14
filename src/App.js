@@ -346,7 +346,7 @@ export default class App extends Component {
   }
 
   showDeck = () => {
-    const { deck ,shuffle } = this.state;
+    const { deck } = this.state;
     let newDeck = [...deck];
     let shuffledDeck = [];
     // let dealtDeck = document.getElementsByClassName('dealtCard');
