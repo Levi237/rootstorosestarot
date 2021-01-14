@@ -371,7 +371,9 @@ export default class App extends Component {
   selectCard = (e) => {
     const { selectSpread, deck, hand } = this.state;
     const t = e.currentTarget.id;
-    document.getElementById("shuffle").style.display = "none";
+    if (hand.length === selectSpread.cards - 1) {
+        document.getElementById("shuffle").style.display = "none";
+    }
     document.getElementById(t).style.display = "none";
     if (hand.length < selectSpread.cards) {
       deck.filter(d => {
