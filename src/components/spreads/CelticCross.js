@@ -74,13 +74,13 @@ const Container = styled.div`
         width: 100vw;
         max-width: 600px;
         display: grid;
-        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr;
+        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-template-areas: 
-            ' . . three . . seven '
-            ' . five one six . eight '
-            ' . . two . . nine'
-            ' . . four . . ten ';
+            ' . . three . . seven . '
+            ' . five one six . eight . '
+            ' . . two . . nine . '
+            ' . . four . . ten . ';
         > div {
             &:first-of-type {
                 grid-area: one;
