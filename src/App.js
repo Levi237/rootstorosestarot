@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import styled               from 'styled-components';
-import { Switch, Route }    from 'react-router-dom';
-import * as routes          from './constants/routes';
+// import { Switch, Route }    from 'react-router-dom';
+// import * as routes          from './constants/routes';
 
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
-import Spreads              from './components/spreads/Spreads';
+import Spreads              from './components/spreads';
 import SimpleSpread         from './components/spreads/Simple';
 import CrossSpread          from './components/spreads/Cross';
+import CelticCrossSpread    from './components/spreads/CelticCross';
 export default class App extends Component {
   state = {
     deck: [
@@ -357,7 +358,7 @@ export default class App extends Component {
     this.setState({
       shuffle: [...shuffledDeck]
     });
-  }
+  };
   shuffleThis = () => {
     let dealtDeck = document.getElementsByClassName('dealtCard');
     for (let i = 0; i < dealtDeck.length; i++) {
@@ -373,7 +374,7 @@ export default class App extends Component {
     const t = e.currentTarget.id;
     if (hand.length === selectSpread.cards - 1) {
         document.getElementById("shuffle").style.display = "none";
-    }
+    };
     if (hand.length < selectSpread.cards) {
       document.getElementById(t).style.display = "none";
       deck.filter(d => {
@@ -383,7 +384,7 @@ export default class App extends Component {
           })
         };
       });
-    }
+    };
   };
   selectSpread = (e) => {
     const t = e.currentTarget.name;
@@ -394,12 +395,12 @@ export default class App extends Component {
         this.setState({
             selectSpread: s
         });
-      }
+      };
     })
     this.showDeck();
   };
   render(){
-    const { hand, deck, shuffle, selectSpread, spreads } = this.state
+    const { hand, deck, shuffle, selectSpread, spreads } = this.state;
 
     return (
       <AppContainer> 
@@ -408,7 +409,7 @@ export default class App extends Component {
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
           { selectSpread.name === "three" && <SimpleSpread hand={hand}/> }
           { selectSpread.name === "cross" && <CrossSpread hand={hand}/> }
-          {/* { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand}/> } */}
+          { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand}/> }
       </AppContainer>
     );
   };
