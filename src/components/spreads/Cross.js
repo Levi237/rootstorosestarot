@@ -6,7 +6,7 @@ export default class CrossSpread extends Component {
         const { hand } = this.props;
         const showHand = hand.map((h, k) => {
             return (
-                <div key={k}>
+                <div key={k} style={{transform: `rotate(${180*h.rotation + 'deg'})`}}>
                     <img src={`./deck/${h.id}.jpg`}/>
                 </div>
             )

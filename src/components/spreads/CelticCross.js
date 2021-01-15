@@ -5,8 +5,10 @@ export default class CelticCrossSpread extends Component {
     render(){
         const { hand } = this.props;
         const showHand = hand.map((h, k) => {
+            // const random = Math.floor(Math.random(1 - 0) * 2);
+            // console.log(random, "random")
             return (
-                <div key={k}>
+                <div key={k} style={{transform: `rotate(${180*h.rotation + 'deg'})`}}>
                     <img src={`./deck/${h.id}.jpg`}/>
                 </div>
             )

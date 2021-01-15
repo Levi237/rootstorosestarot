@@ -7,7 +7,7 @@ export default class SimpleSpread extends Component {
 
         const showHand = hand.map((h, k) => {
             return (
-                <div key={k}>
+                <div key={k} style={{transform: `rotate(${180*h.rotation + 'deg'})`}}>
                     <img src={`./deck/${h.id}.jpg`}/>
                 </div>
             )
