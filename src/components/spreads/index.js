@@ -19,9 +19,12 @@ export default class Spreads extends Component {
         const { spreads, selectSpread } = this.props
                 const spreadOptions = spreads.map((s, key) => {
             return (
-                <button id={s.id} key={key} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
-                    <img src={s.image}/>
-                </button>
+                <div key={key}>
+                <h2>{s.name}</h2>
+                    <button id={s.id} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
+                        <img src={s.image}/>
+                    </button>
+                </div>
             );
         });
         return(
