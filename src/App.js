@@ -328,15 +328,15 @@ export default class App extends Component {
     spreads: [
         {
             name: "three",
-            image: "./spread/three.png",
+            image: "./spread/simple_icon.jpg",
             cards: 3
         },{
             name: "cross",
-            image: "./spread/cross.png",
+            image: "./spread/cross_icon.jpg",
             cards: 5
         // },{
         //     name: "celtic cross",
-        //     image: "./spread/cross.png",
+        //     image: "./spread/cross_icon.jpg",
         //     cards: 10
         }
     ],
