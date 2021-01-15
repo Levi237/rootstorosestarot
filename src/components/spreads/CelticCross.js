@@ -85,6 +85,9 @@ const Container = styled.div`
             }
             &:nth-of-type(2) {
                 grid-area: two;
+                img {
+                    transform: rotate(90deg);
+                }
             }
             &:nth-of-type(3) {
                 grid-area: three;
