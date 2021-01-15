@@ -9,12 +9,12 @@ export default class Header extends Component {
         this.animateLogo();
     };
     animateLogo(){   
-        let getLogo = document.getElementsByClassName('camo-logo');
+        const getLogo = document.getElementsByClassName('camo-logo');
         for (let i = 0; i < getLogo.length; i++) {
-            const roots = 5;
-            let x = i*200 + roots*850;
+            const firstWord = this.state.logoHeader.split(' ')[0].length;
+            let x = i*200 + firstWord*850;
                 setTimeout(() => {
-                    if (i < roots){
+                    if (i < firstWord){
                         setTimeout(() => {
                             getLogo[i].classList.add('show-logo');
                         }, i*850);
