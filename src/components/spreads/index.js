@@ -2,17 +2,29 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 export default class Spreads extends Component {
-    state = {
-        // selectSpread: "",
-    }
-
+    componentDidUpdate(){
+        this.animateDeck();
+    };
+    animateDeck(){   
+        let getCard = document.getElementsByClassName('dealtCard');
+        for (let i = 0; i < getCard.length; i++) {
+            setTimeout(() => {
+                setTimeout(() => {
+                    getCard[i].classList.remove('shuffleDeck');
+                }, i*20);
+            }, 0);
+        };
+    };
     render(){
         const { spreads, selectSpread } = this.props
                 const spreadOptions = spreads.map((s, key) => {
             return (
-                <button id={s.id} key={key} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
-                    <img src={s.image}/>
-                </button>
+                <div key={key}>
+                <h2>{s.name}</h2>
+                    <button id={s.id} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
+                        <img src={s.image}/>
+                    </button>
+                </div>
             );
         });
         return(

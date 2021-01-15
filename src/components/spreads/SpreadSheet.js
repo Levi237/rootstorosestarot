@@ -1,38 +1,33 @@
 import React, { Component }     from 'react';
 import styled                   from 'styled-components';
 
-export default class CrossSpread extends Component {
+export default class SpreadSheet extends Component {
     render(){
-        const { hand } = this.props;
+        const { hand, selectSpread } = this.props;
+
+        let sheet = []
+        let num = selectSpread.cards;
+        while (num > 0) {
+            num -= 1
+            sheet.push(<div key={num}>
+                    <img src="./deck/back.jpg"/>
+                </div>)
+        }
         const showHand = hand.map((h, k) => {
             return (
-                <div key={k}>
+                <div key={k} style={{transform: `rotate(${180*h.rotation + 'deg'})`}}>
                     <img src={`./deck/${h.id}.jpg`}/>
                 </div>
             )
         })
         return(
             <LocalWrapper>
-                <ContainerSpread>
-                    <section>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
+                <ContainerSpread className={selectSpread.id}>
+                    <section id="show">
+                        {sheet}
                     </section>
                 </ContainerSpread>
-                <ContainerHand>
+                <ContainerHand className={selectSpread.id}>
                     <section>
                         {showHand}
                     </section>
@@ -57,12 +52,6 @@ const Container = styled.div`
         width: 100vw;
         max-width: 600px;
         display: grid;
-        grid-template-columns: 5% 30% 30% 30% 5%;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: 
-            ' . . two . . '
-            ' . four one five . '
-            ' . . three . . ';
         > div {
             &:first-of-type {
                 grid-area: one;
@@ -78,6 +67,21 @@ const Container = styled.div`
             }
             &:nth-of-type(5) {
                 grid-area: five;
+            }
+            &:nth-of-type(6) {
+                grid-area: six;
+            }
+            &:nth-of-type(7) {
+                grid-area: seven;
+            }
+            &:nth-of-type(8) {
+                grid-area: eight;
+            }
+            &:nth-of-type(9) {
+                grid-area: nine;
+            }
+            &:nth-of-type(10) {
+                grid-area: ten;
             }
             > img {
                 max-width: 80%;

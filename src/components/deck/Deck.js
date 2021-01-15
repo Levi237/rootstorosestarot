@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 export default class Deck extends Component {
-
     render(){
         const { shuffle, shuffleThis, selectCard } = this.props;
 
@@ -14,7 +13,7 @@ export default class Deck extends Component {
 
         const dealCards = shuffle.map((card, key) => {
             return (
-                <div id={card.id} key={key} className="dealtCard" onClick={(e) => selectCard(e)}>
+                <div id={card.id} key={key} className="dealtCard shuffleDeck" onClick={(e) => selectCard(e)}>
                     <img alt="tarot card back" src="./deck/tab/back.jpg"/>
                 </div>
             );
@@ -38,14 +37,15 @@ export default class Deck extends Component {
 };
 
 const Container = styled.div`
+    width: 100vw;
     > section {
-        text-align: center;
+        text-align: right;
         position: absolute;
+        right: 5vw;
         z-index: 900;
-        top: calc(40px + 17vw);
+        top: 5vw;
         width: 100vw;
     }
-    width: 100vw;
     div#displayContainer {
         width: 100vw;
         overflow: scroll;
@@ -68,6 +68,11 @@ const Container = styled.div`
         }
     }
     @media screen and (max-width: 900px) {
+        > section {
+            text-align: right;
+            right: 5px;
+            top: 5px;
+        }
         div#displayContainer {
             div#deckDisplay {
                 width: calc(405vw + 1px)!important;
