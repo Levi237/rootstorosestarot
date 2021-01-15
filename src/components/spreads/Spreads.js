@@ -11,7 +11,7 @@ export default class Spreads extends Component {
             setTimeout(() => {
                 setTimeout(() => {
                     getCard[i].classList.remove('shuffleDeck');
-                }, i*60);
+                }, i*20);
             }, 0);
         };
     };
