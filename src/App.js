@@ -6,6 +6,7 @@ import styled               from 'styled-components';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
+import SpreadSheet from './components/spreads/SpreadSheet';
 import SimpleSpread         from './components/spreads/Simple';
 import CrossSpread          from './components/spreads/Cross';
 import CelticCrossSpread    from './components/spreads/CelticCross';
@@ -491,9 +492,9 @@ export default class App extends Component {
         <Header/>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          { selectSpread.name === "three" && <SimpleSpread hand={hand} selectSpread={selectSpread}/> }
-          { selectSpread.name === "cross" && <CrossSpread hand={hand} selectSpread={selectSpread}/> }
-          { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand} selectSpread={selectSpread}/> }
+          { selectSpread.name === "three" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
+          { selectSpread.name === "cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
+          { selectSpread.name === "celtic cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
       </AppContainer>
     );
   };
