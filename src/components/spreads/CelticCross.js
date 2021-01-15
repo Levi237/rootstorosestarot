@@ -3,7 +3,7 @@ import styled                   from 'styled-components';
 
 export default class CelticCrossSpread extends Component {
     render(){
-        const { hand } = this.props;
+        const { hand, selectSpread } = this.props;
         const showHand = hand.map((h, k) => {
             // const random = Math.floor(Math.random(1 - 0) * 2);
             // console.log(random, "random")
@@ -15,7 +15,7 @@ export default class CelticCrossSpread extends Component {
         })
         return(
             <LocalWrapper>
-                <ContainerSpread>
+                <ContainerSpread className={selectSpread.id}>
                     <section>
                         <div>
                             <img src="./deck/back.jpg"/>
@@ -49,7 +49,7 @@ export default class CelticCrossSpread extends Component {
                         </div>
                     </section>
                 </ContainerSpread>
-                <ContainerHand>
+                <ContainerHand className={selectSpread.id}>
                     <section>
                         {showHand}
                     </section>
@@ -74,13 +74,13 @@ const Container = styled.div`
         width: 100vw;
         max-width: 600px;
         display: grid;
-        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-areas: 
-            ' . . three . . seven . '
-            ' . five one six . eight . '
-            ' . . two . . nine . '
-            ' . . four . . ten . ';
+        // grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
+        // grid-template-rows: 1fr 1fr 1fr 1fr;
+        // grid-template-areas: 
+        //     ' . . three . . seven . '
+        //     ' . five one six . eight . '
+        //     ' . . two . . nine . '
+        //     ' . . four . . ten . ';
         > div {
             &:first-of-type {
                 grid-area: one;
