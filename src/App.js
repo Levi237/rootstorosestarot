@@ -6,10 +6,8 @@ import styled               from 'styled-components';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
-import SpreadSheet from './components/spreads/SpreadSheet';
-import SimpleSpread         from './components/spreads/Simple';
-import CrossSpread          from './components/spreads/Cross';
-import CelticCrossSpread    from './components/spreads/CelticCross';
+import SpreadSheet          from './components/spreads/SpreadSheet';
+
 export default class App extends Component {
   state = {
     deck: [
