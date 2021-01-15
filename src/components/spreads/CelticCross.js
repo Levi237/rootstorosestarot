@@ -30,6 +30,21 @@ export default class CelticCrossSpread extends Component {
                         <div>
                             <img src="./deck/back.jpg"/>
                         </div>
+                        <div>
+                            <img src="./deck/back.jpg"/>
+                        </div>
+                        <div>
+                            <img src="./deck/back.jpg"/>
+                        </div>
+                        <div>
+                            <img src="./deck/back.jpg"/>
+                        </div>
+                        <div>
+                            <img src="./deck/back.jpg"/>
+                        </div>
+                        <div>
+                            <img src="./deck/back.jpg"/>
+                        </div>
                     </section>
                 </ContainerSpread>
                 <ContainerHand>
@@ -57,12 +72,13 @@ const Container = styled.div`
         width: 100vw;
         max-width: 600px;
         display: grid;
-        grid-template-columns: 5% 30% 30% 30% 5%;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-template-areas: 
-            ' . . two . . '
-            ' . four one five . '
-            ' . . three . . ';
+            ' . . three . . seven '
+            ' . five one six . eight '
+            ' . . two . . nine'
+            ' . . four . . ten ';
         > div {
             &:first-of-type {
                 grid-area: one;
@@ -78,6 +94,21 @@ const Container = styled.div`
             }
             &:nth-of-type(5) {
                 grid-area: five;
+            }
+            &:nth-of-type(6) {
+                grid-area: six;
+            }
+            &:nth-of-type(7) {
+                grid-area: seven;
+            }
+            &:nth-of-type(8) {
+                grid-area: eight;
+            }
+            &:nth-of-type(9) {
+                grid-area: nine;
+            }
+            &:nth-of-type(10) {
+                grid-area: ten;
             }
             > img {
                 max-width: 80%;
