@@ -4,37 +4,24 @@ import styled                   from 'styled-components';
 export default class CrossSpread extends Component {
     render(){
         const { hand } = this.props;
+        const showPlacement = hand.map(() => { <div><img src="./deck/back.jpg"/></div>});
         const showHand = hand.map((h, k) => {
             return (
                 <div key={k} style={{transform: `rotate(${180*h.rotation + 'deg'})`}}>
                     <img src={`./deck/${h.id}.jpg`}/>
                 </div>
-            )
-        })
+            );
+        });
         return(
             <LocalWrapper>
                 <ContainerSpread>
                     <section>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
-                        <div>
-                            <img src="./deck/back.jpg"/>
-                        </div>
+                        { showPlacement }
                     </section>
                 </ContainerSpread>
                 <ContainerHand>
                     <section>
-                        {showHand}
+                        { showHand }
                     </section>
                 </ContainerHand>
 
