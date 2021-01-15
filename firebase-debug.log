@@ -1,0 +1,74 @@
+[debug] [2021-01-15T08:30:03.606Z] ----------------------------------------------------------------------
+[debug] [2021-01-15T08:30:03.608Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2021-01-15T08:30:03.608Z] CLI Version:   9.1.2
+[debug] [2021-01-15T08:30:03.609Z] Platform:      darwin
+[debug] [2021-01-15T08:30:03.609Z] Node Version:  v10.15.3
+[debug] [2021-01-15T08:30:03.609Z] Time:          Fri Jan 15 2021 00:30:03 GMT-0800 (Pacific Standard Time)
+[debug] [2021-01-15T08:30:03.609Z] ----------------------------------------------------------------------
+[debug] [2021-01-15T08:30:03.609Z] 
+[debug] [2021-01-15T08:30:03.623Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-15T08:30:03.623Z] > authorizing via signed-in user
+[debug] [2021-01-15T08:30:03.623Z] [iam] checking project rootstorosestarot for permissions ["firebase.projects.get"]
+[debug] [2021-01-15T08:30:03.626Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-01-15T08:30:03.627Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-15T08:30:03.838Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Fri, 15 Jan 2021 08:30:03 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-15T08:30:03.858Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/rootstorosestarot:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-01-15T08:30:04.197Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:30:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=192","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-15T08:30:04.198Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rootstorosestarot  
+ 
+[debug] [2021-01-15T08:30:04.418Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:30:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/Users/Levi/Desktop/website/rootstorosestarot'...
+[info] 
+[debug] [2021-01-15T08:30:04.421Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rootstorosestarot/webApps/-/config  
+ 
+[debug] [2021-01-15T08:30:04.956Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:30:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] "GET / HTTP/1.1" 200 3041 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] \"GET / HTTP/1.1\" 200 3041 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] "GET /static/css/main.121be83c.chunk.css HTTP/1.1" 200 1745 "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] \"GET /static/css/main.121be83c.chunk.css HTTP/1.1\" 200 1745 \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] "GET /static/js/main.f638d4dc.chunk.js HTTP/1.1" 200 16812 "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] \"GET /static/js/main.f638d4dc.chunk.js HTTP/1.1\" 200 16812 \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] "GET /static/js/2.2b7fca02.chunk.js HTTP/1.1" 200 568862 "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] \"GET /static/js/2.2b7fca02.chunk.js HTTP/1.1\" 200 568862 \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] "GET /favicon.ico HTTP/1.1" 200 3870 "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:12 +0000] \"GET /favicon.ico HTTP/1.1\" 200 3870 \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] "GET /static/css/main.121be83c.chunk.css HTTP/1.1" 200 1745 "http://localhost:5000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] \"GET /static/css/main.121be83c.chunk.css HTTP/1.1\" 200 1745 \"http://localhost:5000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] "GET /static/js/main.f638d4dc.chunk.js.map HTTP/1.1" 200 35230 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] \"GET /static/js/main.f638d4dc.chunk.js.map HTTP/1.1\" 200 35230 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] "GET /static/js/2.2b7fca02.chunk.js.map HTTP/1.1" 200 2118627 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] \"GET /static/js/2.2b7fca02.chunk.js.map HTTP/1.1\" 200 2118627 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] "GET /static/css/main.121be83c.chunk.css.map HTTP/1.1" 200 5287 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [15/Jan/2021:08:30:25 +0000] \"GET /static/css/main.121be83c.chunk.css.map HTTP/1.1\" 200 5287 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[debug] [2021-01-15T08:32:49.515Z] ----------------------------------------------------------------------
+[debug] [2021-01-15T08:32:49.518Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-01-15T08:32:49.519Z] CLI Version:   9.1.2
+[debug] [2021-01-15T08:32:49.519Z] Platform:      darwin
+[debug] [2021-01-15T08:32:49.519Z] Node Version:  v10.15.3
+[debug] [2021-01-15T08:32:49.520Z] Time:          Fri Jan 15 2021 00:32:49 GMT-0800 (Pacific Standard Time)
+[debug] [2021-01-15T08:32:49.520Z] ----------------------------------------------------------------------
+[debug] [2021-01-15T08:32:49.520Z] 
+[debug] [2021-01-15T08:32:49.532Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-15T08:32:49.532Z] > authorizing via signed-in user
+[debug] [2021-01-15T08:32:49.533Z] [iam] checking project rootstorosestarot for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2021-01-15T08:32:49.536Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/rootstorosestarot:testIamPermissions  
+ {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2021-01-15T08:32:49.861Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:32:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=191","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-15T08:32:49.864Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rootstorosestarot  
+ 
+[debug] [2021-01-15T08:32:50.090Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:32:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-15T08:32:50.091Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/rootstorosestarot  
+ 
+[debug] [2021-01-15T08:32:50.280Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:32:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'rootstorosestarot'...
+[info] 
+[info] i  deploying database, storage, firestore, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2021-01-15T08:32:50.286Z] >>> HTTP REQUEST GET https://firebasedatabase.googleapis.com/v1beta/projects/rootstorosestarot/locations/-/instances/rootstorosestarot-default-rtdb  
+ 
+[debug] [2021-01-15T08:32:50.807Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 15 Jan 2021 08:32:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-15T08:32:50.810Z] >>> HTTP REQUEST PUT https://rootstorosestarot-default-rtdb.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": false,
+    ".write": false
+  }
+}
+

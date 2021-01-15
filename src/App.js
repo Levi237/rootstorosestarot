@@ -490,7 +490,7 @@ export default class App extends Component {
         <Header/>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          { selectSpread.name === "three" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
+          { selectSpread.name === "simple" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
           { selectSpread.name === "cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
           { selectSpread.name === "celtic cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
       </AppContainer>
