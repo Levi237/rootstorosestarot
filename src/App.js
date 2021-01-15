@@ -406,7 +406,7 @@ export default class App extends Component {
     spreads: [
         {
             id: "spread-simple",
-            name: "three",
+            name: "simple",
             image: "./spread/simple_icon.jpg",
             cards: 3
         },{
