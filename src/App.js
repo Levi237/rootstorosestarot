@@ -406,14 +406,17 @@ export default class App extends Component {
     ], 
     spreads: [
         {
+            id: "spread-simple",
             name: "three",
             image: "./spread/simple_icon.jpg",
             cards: 3
         },{
+            id: "spread-cross",
             name: "cross",
             image: "./spread/cross_icon.jpg",
             cards: 5
         },{
+            id: "spread-celtic-cross",
             name: "celtic cross",
             image: "./spread/celtic-cross_icon.jpg",
             cards: 10
@@ -488,9 +491,9 @@ export default class App extends Component {
         <Header/>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          { selectSpread.name === "three" && <SimpleSpread hand={hand}/> }
-          { selectSpread.name === "cross" && <CrossSpread hand={hand}/> }
-          { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand}/> }
+          { selectSpread.name === "three" && <SimpleSpread hand={hand} selectSpread={selectSpread}/> }
+          { selectSpread.name === "cross" && <CrossSpread hand={hand} selectSpread={selectSpread}/> }
+          { selectSpread.name === "celtic cross" && <CelticCrossSpread hand={hand} selectSpread={selectSpread}/> }
       </AppContainer>
     );
   };
