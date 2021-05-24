@@ -407,33 +407,33 @@ export default class App extends Component {
         {
             id: "spread-three-simple",
             name: "3 card spread",
-            image: "./spread/simple_icon.jpg",
+            image: "./spread/three-card-spread.png",
             cards: 3
         },{
             id: "spread-five-simple",
             name: "5 card spread",
-            image: "./spread/simple_icon.jpg",
+            image: "./spread/five-card-spread.png",
             cards: 5
         },{
-            id: "spread-seven-horseshoe",
+            id: "spread-horseshoe",
             name: "7 card horseshoe",
-            image: "./spread/cross_icon.jpg",
+            image: "./spread/horseshoe-spread.png",
             cards: 7
         },{
             id: "spread-cross",
             name: "5 card cross",
-            image: "./spread/cross_icon.jpg",
+            image: "./spread/cross-spread.png",
             cards: 5
         },{
             id: "spread-ten-celtic-cross",
             name: "10 card celtic cross",
-            image: "./spread/celtic-cross_icon.jpg",
+            image: "./spread/ten-celtic-cross-spread.png",
             cards: 10
 
         },{
             id: "spread-thirteen-celtic-cross",
             name: "13 card celtic cross",
-            image: "./spread/celtic-cross_icon.jpg",
+            image: "./spread/thirteen-celtic-cross-spread.png",
             cards: 13
         }
     ],

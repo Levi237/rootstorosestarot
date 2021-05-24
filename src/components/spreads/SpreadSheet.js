@@ -43,43 +43,62 @@ const LocalWrapper = styled.div`
     position: relative;
     height: 115vw;
     max-height: 800px;
-
+//-----------------------------------------------------> SIMPLE SPREADS
     .spread-three-simple > section {
-        grid-template-columns: 5% 30% 30% 30% 5%;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 100%;
-        grid-template-areas: ' . one two three . ';
+        grid-template-areas: ' one two three ';
     }
     .spread-five-simple > section {
-        grid-template-columns: 1fr 3fr 3fr 3fr 3fr 3fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 100%;
-        grid-template-areas: ' . one two three four five . ';
+        grid-template-areas: ' one two three four five ';
     }
-    .spread-cross > section {
-        grid-template-columns: 5% 30% 30% 30% 5%;
+//-----------------------------------------------------> HORSESHOE SPREAD
+    .spread-horseshoe > section {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: 
-            ' . . two . . '
-            ' . four one five . '
-            ' . . three . . ';
+            ' one . . . . . seven '
+            ' . two three . five six . '
+            ' . . . four . . .';
+    }
+        
+    .spread-horseshoe> section > div:nth-of-type(2),
+    .spread-horseshoe> section > div:nth-of-type(6) {
+        transform: translateY(-50%);
+    }
+    .spread-horseshoe> section > div:nth-of-type(4) {
+        transform: translateY(-50%);
+    }
+//-----------------------------------------------------> CROSS SPREAD
+    .spread-cross > section {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+            ' . two . '
+            ' four one five '
+            ' . three . ';
     }
     .spread-ten-celtic-cross > section {
-        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
+        grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-template-areas: 
-            ' . . three . . seven . '
-            ' . five one six . eight . '
-            ' . . four . . nine . '
-            ' . . two . . ten . ';
+            ' . three . . seven '
+            ' five one six . eight '
+            ' . four . . nine '
+            ' . two . . ten ';
     }
+//-----------------------------------------------------> CELTIC CROSS SPREADS
     .spread-thirteen-celtic-cross > section {
-        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
+        grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: 
-            ' . eleven twelve thirteen . seven . '
-            ' . . three . . eight . '
-            ' . five one six . nine . '
-            ' . . four . . ten . '
-            ' . . two . . . . ';
+            ' eleven twelve thirteen . seven '
+            ' . three . . eight '
+            ' five one six . nine '
+            ' . four . . ten '
+            ' . two . . . ';
     }
     .spread-ten-celtic-cross > section > div:nth-of-type(2),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(2) {
@@ -88,6 +107,7 @@ const LocalWrapper = styled.div`
         width: 100%;
         transform: rotate(90deg);
     }
+
     .spread-ten-celtic-cross > section > div:nth-of-type(7),
     .spread-ten-celtic-cross > section > div:nth-of-type(8),
     .spread-ten-celtic-cross > section > div:nth-of-type(9),
@@ -114,15 +134,13 @@ const LocalWrapper = styled.div`
     .spread-ten-celtic-cross > section > div:nth-of-type(10) {
         transform: translateY(-24%);
     }
-    
+
     .spread-thirteen-celtic-cross > section > div:nth-of-type(7) {
         transform: translateY(16%);
-    }
-    
+    }   
     .spread-thirteen-celtic-cross > section > div:nth-of-type(8) {
         transform: translateY(8%);
     }
-    
     .spread-thirteen-celtic-cross > section > div:nth-of-type(9) {
         transform: translateY(0%);
     }
@@ -172,8 +190,8 @@ const ContainerHand = styled(Container)`
 `;
 const ContainerSpread = styled(Container)`
     position: relative;
-    img {
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-        filter: grayscale(100%);
-      }
+    // img {
+    //     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    //     filter: grayscale(100%);
+    //   }
 `;
