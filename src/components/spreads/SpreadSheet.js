@@ -79,45 +79,19 @@ const Container = styled.div`
         max-width: 600px;
         display: grid;
         > div {
-            &:first-of-type {
-                grid-area: one;
-            }
-            &:nth-of-type(2) {
-                grid-area: two;
-            }
-            &:nth-of-type(3) {
-                grid-area: three;
-            }
-            &:nth-of-type(4) {
-                grid-area: four;
-            }
-            &:nth-of-type(5) {
-                grid-area: five;
-            }
-            &:nth-of-type(6) {
-                grid-area: six;
-            }
-            &:nth-of-type(7) {
-                grid-area: seven;
-            }
-            &:nth-of-type(8) {
-                grid-area: eight;
-            }
-            &:nth-of-type(9) {
-                grid-area: nine;
-            }
-            &:nth-of-type(10) {
-                grid-area: ten;
-            }
-            &:nth-of-type(11) {
-                grid-area: eleven;
-            }
-            &:nth-of-type(12) {
-                grid-area: twelve;
-            }
-            &:nth-of-type(13) {
-                grid-area: thirteen;
-            }
+            &:first-of-type { grid-area: one; }
+            &:nth-of-type(2) { grid-area: two; }
+            &:nth-of-type(3) { grid-area: three; }
+            &:nth-of-type(4) { grid-area: four; }
+            &:nth-of-type(5) { grid-area: five; }
+            &:nth-of-type(6) { grid-area: six; }
+            &:nth-of-type(7) { grid-area: seven; }
+            &:nth-of-type(8) { grid-area: eight; }
+            &:nth-of-type(9) { grid-area: nine; }
+            &:nth-of-type(10) { grid-area: ten; }
+            &:nth-of-type(11) { grid-area: eleven; }
+            &:nth-of-type(12) { grid-area: twelve; }
+            &:nth-of-type(13) { grid-area: thirteen; }
             > img {
                 max-width: 80%;
             }
