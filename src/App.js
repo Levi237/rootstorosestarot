@@ -415,8 +415,8 @@ export default class App extends Component {
             image: "./spread/cross_icon.jpg",
             cards: 5
         },{
-            id: "spread-eleven-celtic-cross",
-            name: "celtic cross",
+            id: "spread-ten-celtic-cross",
+            name: "10 card celtic cross",
             image: "./spread/celtic-cross_icon.jpg",
             cards: 10
         },{
@@ -426,12 +426,12 @@ export default class App extends Component {
             cards: 5
         },{
             id: "spread-seven-horseshoe",
-            name: "horseshoe",
+            name: "7 card horseshoe",
             image: "./spread/cross_icon.jpg",
             cards: 5
         },{
             id: "spread-thirteen-celtic-cross",
-            name: "celtic cross",
+            name: "13 card celtic cross",
             image: "./spread/celtic-cross_icon.jpg",
             cards: 13
         }
@@ -505,9 +505,10 @@ export default class App extends Component {
         <Header/>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          { selectSpread.name === "simple" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
-          { selectSpread.name === "cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
-          { selectSpread.name === "celtic cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> }
+          <SpreadSheet hand={hand} selectSpread={selectSpread}/>
+          {/* { selectSpread.id === "spread-three-simple " && <SpreadSheet hand={hand} selectSpread={selectSpread}/> } */}
+          {/* { selectSpread.id === "spread-cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> } */}
+          {/* { selectSpread.id === "spread-celtic-cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> } */}
       </AppContainer>
     );
   };

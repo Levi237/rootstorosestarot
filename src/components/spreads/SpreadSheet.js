@@ -22,6 +22,7 @@ export default class SpreadSheet extends Component {
         })
         return(
             <LocalWrapper>
+
                 <ContainerSpread className={selectSpread.id}>
                     <section id="show">
                         {sheet}
@@ -43,31 +44,36 @@ const LocalWrapper = styled.div`
     height: 115vw;
     max-height: 800px;
 
-    .spread-simple > section {
+    .spread-three-simple > section {
         grid-template-columns: 5% 30% 30% 30% 5%;
         grid-template-rows: 100%;
         grid-template-areas: ' . one two three . ';
-      }
-      .spread-cross > section {
+    }
+    .spread-five-simple > section {
+        grid-template-columns: 1fr 3fr 3fr 3fr 3fr 3fr 1fr;
+        grid-template-rows: 100%;
+        grid-template-areas: ' . one two three four five . ';
+    }
+    .spread-cross > section {
         grid-template-columns: 5% 30% 30% 30% 5%;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: 
             ' . . two . . '
             ' . four one five . '
             ' . . three . . ';
-      }
-      .spread-celtic-cross > section {
+    }
+    .spread-ten-celtic-cross > section {
         grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
         grid-template-areas: 
-          ' . . three . . seven . '
-          ' . five one six . eight . '
-          ' . . two . . nine . '
-          ' . . four . . ten . ';
-      }
-      .spread-celtic-cross > section > div:nth-of-type(2) img {
+            ' . . three . . seven . '
+            ' . five one six . eight . '
+            ' . . two . . nine . '
+            ' . . four . . ten . ';
+    }
+    .spread-ten-celtic-cross > section > div:nth-of-type(2) img {
         transform: rotate(90deg);
-      }
+    }
 `;
 
 const Container = styled.div`
@@ -76,7 +82,7 @@ const Container = styled.div`
     > section {
         margin: 0 auto;
         width: 100vw;
-        max-width: 600px;
+        // max-width: 600px;
         display: grid;
         > div {
             &:first-of-type { grid-area: one; }
