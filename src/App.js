@@ -410,6 +410,16 @@ export default class App extends Component {
             image: "./spread/simple_icon.jpg",
             cards: 3
         },{
+            id: "spread-five-simple",
+            name: "5 card spread",
+            image: "./spread/simple_icon.jpg",
+            cards: 5
+        },{
+            id: "spread-seven-horseshoe",
+            name: "7 card horseshoe",
+            image: "./spread/cross_icon.jpg",
+            cards: 7
+        },{
             id: "spread-cross",
             name: "5 card cross",
             image: "./spread/cross_icon.jpg",
@@ -419,16 +429,7 @@ export default class App extends Component {
             name: "10 card celtic cross",
             image: "./spread/celtic-cross_icon.jpg",
             cards: 10
-        },{
-            id: "spread-five-simple",
-            name: "5 card spread",
-            image: "./spread/simple_icon.jpg",
-            cards: 5
-        },{
-            id: "spread-seven-horseshoe",
-            name: "7 card horseshoe",
-            image: "./spread/cross_icon.jpg",
-            cards: 5
+
         },{
             id: "spread-thirteen-celtic-cross",
             name: "13 card celtic cross",
@@ -506,15 +507,13 @@ export default class App extends Component {
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
           <SpreadSheet hand={hand} selectSpread={selectSpread}/>
-          {/* { selectSpread.id === "spread-three-simple " && <SpreadSheet hand={hand} selectSpread={selectSpread}/> } */}
-          {/* { selectSpread.id === "spread-cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> } */}
-          {/* { selectSpread.id === "spread-celtic-cross" && <SpreadSheet hand={hand} selectSpread={selectSpread}/> } */}
       </AppContainer>
     );
   };
 };
 
 const AppContainer = styled.div`
+  background-color: var(--green);
   width: 100vw;
   h1 {
     text-align: center;

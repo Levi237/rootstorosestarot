@@ -43,28 +43,24 @@ export default class Header extends Component {
 const LogoHeader = styled.h1`
     line-height: 100%;
     font-size: 20px;
-
     white-space: nowrap;
     overflow: hidden;
-
-
+    padding-left: 10px;
+    
     @media screen and (max-width: 900px) {
         padding-left: 5px;
     }
 `;
 
 const LocalWrapper = styled.header`
+    background-color: #fff;
+    width: 100%;
     height: 80px;
-    background-color: transparent;
-    margin-bottom: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 
     @media screen and (max-width: 900px) {
         height: 40px;
-        margin-bottom: 10px;
-        align-items: top!important;
-        justify-content: left;
     }
 `;
