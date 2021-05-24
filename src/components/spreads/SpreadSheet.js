@@ -80,6 +80,7 @@ const Container = styled.div`
     text-align: center;
     width: 90vw;
     > section {
+        position: relative;
         margin: 0 auto;
         width: 100vw;
         // max-width: 600px;
