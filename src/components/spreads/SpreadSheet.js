@@ -42,6 +42,32 @@ const LocalWrapper = styled.div`
     position: relative;
     height: 115vw;
     max-height: 800px;
+
+    .spread-simple > section {
+        grid-template-columns: 5% 30% 30% 30% 5%;
+        grid-template-rows: 100%;
+        grid-template-areas: ' . one two three . ';
+      }
+      .spread-cross > section {
+        grid-template-columns: 5% 30% 30% 30% 5%;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+            ' . . two . . '
+            ' . four one five . '
+            ' . . three . . ';
+      }
+      .spread-celtic-cross > section {
+        grid-template-columns: 1fr 3fr 3fr 3fr 1fr 3fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+          ' . . three . . seven . '
+          ' . five one six . eight . '
+          ' . . two . . nine . '
+          ' . . four . . ten . ';
+      }
+      .spread-celtic-cross > section > div:nth-of-type(2) img {
+        transform: rotate(90deg);
+      }
 `;
 
 const Container = styled.div`
@@ -82,6 +108,15 @@ const Container = styled.div`
             }
             &:nth-of-type(10) {
                 grid-area: ten;
+            }
+            &:nth-of-type(11) {
+                grid-area: eleven;
+            }
+            &:nth-of-type(12) {
+                grid-area: twelve;
+            }
+            &:nth-of-type(13) {
+                grid-area: thirteen;
             }
             > img {
                 max-width: 80%;

@@ -405,20 +405,35 @@ export default class App extends Component {
     ], 
     spreads: [
         {
-            id: "spread-simple",
-            name: "simple",
+            id: "spread-three-simple",
+            name: "3 card spread",
             image: "./spread/simple_icon.jpg",
             cards: 3
         },{
             id: "spread-cross",
-            name: "cross",
+            name: "5 card cross",
             image: "./spread/cross_icon.jpg",
             cards: 5
         },{
-            id: "spread-celtic-cross",
+            id: "spread-eleven-celtic-cross",
             name: "celtic cross",
             image: "./spread/celtic-cross_icon.jpg",
             cards: 10
+        },{
+            id: "spread-five-simple",
+            name: "5 card spread",
+            image: "./spread/simple_icon.jpg",
+            cards: 5
+        },{
+            id: "spread-seven-horseshoe",
+            name: "horseshoe",
+            image: "./spread/cross_icon.jpg",
+            cards: 5
+        },{
+            id: "spread-thirteen-celtic-cross",
+            name: "celtic cross",
+            image: "./spread/celtic-cross_icon.jpg",
+            cards: 13
         }
     ],
     shuffle: [],
