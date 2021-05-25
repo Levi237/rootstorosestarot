@@ -73,12 +73,12 @@ const LocalWrapper = styled.div`
     }
 //-----------------------------------------------------> CROSS SPREAD
     .spread-cross > section {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: 
-            ' . two . '
-            ' four one five '
-            ' . three . ';
+            ' . . two . . '
+            ' . four one five . '
+            ' . . three . . ';
     }
     .spread-ten-celtic-cross > section {
         grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
@@ -158,7 +158,7 @@ const LocalWrapper = styled.div`
 
 const Container = styled.div`
     text-align: center;
-    width: 60vw;
+    width: 70vw;
     > section {
         position: relative;
         margin: 0 auto;
@@ -183,6 +183,9 @@ const Container = styled.div`
             }
         }
     }
+    @media only screen and (max-width: 900px) {
+        width: 100vw;
+    }
 `;
 const ContainerHand = styled(Container)`
     position: absolute;
@@ -190,8 +193,8 @@ const ContainerHand = styled(Container)`
 `;
 const ContainerSpread = styled(Container)`
     position: relative;
-    // img {
-    //     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    //     filter: grayscale(100%);
-    //   }
+    img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
 `;
