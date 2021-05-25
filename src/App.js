@@ -487,10 +487,12 @@ export default class App extends Component {
   };
   selectSpread = (e) => {
     const t = e.currentTarget.name;
+    document.getElementById("spread-header").style.display = "none";
     document.getElementById("spread-container").style.display = "none";
     document.getElementById("deckDisplay").style.marginLeft = "0";
     document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("shuffle").style.display = "block";
+    
     this.state.spreads.filter(s => {
       if ( t === s.name ) {
         this.setState({

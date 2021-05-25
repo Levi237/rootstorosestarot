@@ -21,7 +21,7 @@ export default class Deck extends Component {
 
         return (
             <Container id="deck-container">
-            <h1>Pick your spread</h1>
+            <h1 id="spread-header">Pick your spread</h1>
                 <section id="shuffle">
                     <button onClick={(e) => shuffleThis(e)}>
                         Shuffle
