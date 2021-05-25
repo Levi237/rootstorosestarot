@@ -41,8 +41,8 @@ export default class SpreadSheet extends Component {
 
 const LocalWrapper = styled.div`
     position: relative;
-    height: 115vw;
-    max-height: 800px;
+    // height: 115vw;
+    // max-height: 800px;
 //-----------------------------------------------------> SIMPLE SPREADS
     .spread-three-simple > section {
         grid-template-columns: 1fr 1fr 1fr;
@@ -163,6 +163,8 @@ const Container = styled.div`
         position: relative;
         margin: 0 auto;
         width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
         display: grid;
         > div {
             &:first-of-type { grid-area: one; }
@@ -183,7 +185,7 @@ const Container = styled.div`
             }
         }
     }
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 640px) {
         width: 100vw;
     }
 `;
