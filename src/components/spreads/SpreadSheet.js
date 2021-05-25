@@ -22,7 +22,7 @@ export default class SpreadSheet extends Component {
         })
         return(
             <LocalWrapper>
-                <SpreadContainer>
+                <div>
                     <ContainerSpread className={selectSpread.id}>
                         <section id="show">
                             {sheet}
@@ -33,16 +33,40 @@ export default class SpreadSheet extends Component {
                             {showHand}
                         </section>
                     </ContainerDealt>
-                </SpreadContainer>
+                </div>
+                <div>
+                    <InfoContainer>
+
+                    </InfoContainer>
+                </div>
             </LocalWrapper>
         );
     };
 };
+const InfoContainer = styled.div`
+    width: 80%;
+    height: 100%;
+    background-color: #fff!important;
+`;
 
 const LocalWrapper = styled.div`
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
-    // height: 115vw;
-    // max-height: 800px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 100%;
+    grid-template-areas: ' spread info ';
+    > div {
+        position: relative;
+        display: inline-block;
+        &:first-of-type {
+            grid-area: spread;
+        }
+        &:last-of-type {
+            grid-area: info;
+        }
+    }
 //-----------------------------------------------------> SIMPLE SPREADS
     .spread-three-simple > section {
         grid-template-columns: 1fr 1fr 1fr;
@@ -64,11 +88,11 @@ const LocalWrapper = styled.div`
             ' . . . four . . .';
     }
         
-    .spread-horseshoe> section > div:nth-of-type(2),
-    .spread-horseshoe> section > div:nth-of-type(6) {
+    .spread-horseshoe > section > div:nth-of-type(2),
+    .spread-horseshoe > section > div:nth-of-type(6) {
         transform: translateY(-50%);
     }
-    .spread-horseshoe> section > div:nth-of-type(4) {
+    .spread-horseshoe > section > div:nth-of-type(4) {
         transform: translateY(-50%);
     }
 //-----------------------------------------------------> CROSS SPREAD
@@ -154,10 +178,6 @@ const LocalWrapper = styled.div`
     .spread-thirteen-celtic-cross > section > div:nth-of-type(13) {
         transform: translateX(-48%);
     }
-`;
-const SpreadContainer = styled.div`
-    width: 70vw;
-    position: relative;
 `;
 const Container = styled.div`
     text-align: center;
