@@ -22,18 +22,18 @@ export default class SpreadSheet extends Component {
         })
         return(
             <LocalWrapper>
-
-                <ContainerSpread className={selectSpread.id}>
-                    <section id="show">
-                        {sheet}
-                    </section>
-                </ContainerSpread>
-                <ContainerHand className={selectSpread.id}>
-                    <section>
-                        {showHand}
-                    </section>
-                </ContainerHand>
-
+                <SpreadContainer>
+                    <ContainerSpread className={selectSpread.id}>
+                        <section id="show">
+                            {sheet}
+                        </section>
+                    </ContainerSpread>
+                    <ContainerDealt className={selectSpread.id}>
+                        <section>
+                            {showHand}
+                        </section>
+                    </ContainerDealt>
+                </SpreadContainer>
             </LocalWrapper>
         );
     };
@@ -155,16 +155,20 @@ const LocalWrapper = styled.div`
         transform: translateX(-48%);
     }
 `;
-
+const SpreadContainer = styled.div`
+    width: 70vw;
+    position: relative;
+`;
 const Container = styled.div`
     text-align: center;
-    width: 70vw;
+    width: 100%;
+    position: relative;
     > section {
+        max-width: 600px;
+        margin: 0 auto;
         position: relative;
         margin: 0 auto;
         width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
         display: grid;
         > div {
             &:first-of-type { grid-area: one; }
@@ -189,7 +193,7 @@ const Container = styled.div`
         width: 100vw;
     }
 `;
-const ContainerHand = styled(Container)`
+const ContainerDealt = styled(Container)`
     position: absolute;
     top: 0;
 `;
