@@ -481,17 +481,15 @@ export default class App extends Component {
           };
         });
       };
-
-    while (shuffle.length > 11 && hand.length === selectSpread.cards - 1) {
+    while (shuffle.length > 0 && hand.length === selectSpread.cards - 1) {
         shuffle.pop();
-        console.log(shuffle, "shuffle pop?");
     };
     if (hand.length === selectSpread.cards - 1) {
         document.getElementById("shuffle").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
         setTimeout(() => {
             document.getElementById("deckDisplay").style.position = "absolute"; 
-        }, 3000);
+        }, 2000);
     };
 
   };

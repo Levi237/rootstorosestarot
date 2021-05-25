@@ -62,9 +62,11 @@ const Container = styled.div`
             height: 157px;
             padding: 20px 10px;
             overflow: scroll;
-            transition: margin-left 3s ease;
+            transition: all 3s ease;
             margin-left: -120%;
             // margin-bottom: -40%;
+            position: absolute;
+            top: -100%;
             > div {
                 width: 100px;
                 display: inline-block;
