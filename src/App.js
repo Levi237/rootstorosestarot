@@ -466,31 +466,41 @@ export default class App extends Component {
   };
   
   selectCard = (e) => {
-    const { selectSpread, deck, hand } = this.state;
+    const { selectSpread, deck, hand, shuffle } = this.state;
     const t = e.currentTarget.id;
     const random = Math.floor(Math.random(1 - 0) * 2);
+    if (hand.length < selectSpread.cards) {
+        document.getElementById(t).style.display = "none";
+        deck.filter(d => {
+          if ( t === d.id ) {
+              let newD = d
+              newD.rotation = random
+            this.setState({
+              hand: [...hand, newD]
+            })
+          };
+        });
+      };
+
+    while (shuffle.length > 11 && hand.length === selectSpread.cards - 1) {
+        shuffle.pop();
+        console.log(shuffle, "shuffle pop?");
+    };
     if (hand.length === selectSpread.cards - 1) {
         document.getElementById("shuffle").style.display = "none";
+        document.getElementById("deckDisplay").style.marginLeft = "-120%";
+        setTimeout(() => {
+            document.getElementById("deckDisplay").style.position = "absolute"; 
+        }, 3000);
     };
-    if (hand.length < selectSpread.cards) {
-      document.getElementById(t).style.display = "none";
-      deck.filter(d => {
-        if ( t === d.id ) {
-            let newD = d
-            newD.rotation = random
-          this.setState({
-            hand: [...hand, newD]
-          })
-        };
-      });
-    };
+
   };
   selectSpread = (e) => {
     const t = e.currentTarget.name;
     document.getElementById("spread-header").style.display = "none";
     document.getElementById("spread-container").style.display = "none";
     document.getElementById("deckDisplay").style.marginLeft = "0";
-    document.getElementById("deckDisplay").style.marginBottom = "0";
+    document.getElementById("deckDisplay").style.position = "relative";
     document.getElementById("shuffle").style.display = "block";
     
     this.state.spreads.filter(s => {
@@ -501,14 +511,29 @@ export default class App extends Component {
       };
     })
     this.showDeck();
+    setTimeout(() => {
+        this.animateDeck();
+    }, 2000);
   };
+  
+
+  animateDeck(){   
+    let getCard = document.getElementsByClassName('dealtCard');
+    for (let i = 0; i < getCard.length; i++) {
+        setTimeout(() => {
+            setTimeout(() => {
+                getCard[i].classList.remove('shuffleDeck');
+            }, i*20);
+        }, 0);
+    };
+};
   render(){
     const { hand, deck, shuffle, selectSpread, spreads } = this.state;
 
     return (
       <AppContainer> 
         <Header/>
-          <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle}/>
+          <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle} animateDeck={this.animateDeck}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
           <SpreadSheet hand={hand} selectSpread={selectSpread}/>
       </AppContainer>
