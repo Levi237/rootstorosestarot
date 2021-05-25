@@ -55,12 +55,8 @@ const LogoHeader = styled.h1`
 const LocalWrapper = styled.header`
     background-color: #fff;
     width: 100%;
-    height: 80px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: left;
-
-    @media screen and (max-width: 900px) {
-        height: 40px;
-    }
 `;
