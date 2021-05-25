@@ -19,12 +19,10 @@ export default class Spreads extends Component {
         const { spreads, selectSpread } = this.props
                 const spreadOptions = spreads.map((s, key) => {
             return (
-                <div key={key}>
-                <h2>{s.name}</h2>
-                    <button id={s.id} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
-                        <img src={s.image}/>
+                    <button key={key} id={s.id} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
+                        <h2>{s.name}</h2>
+                        <div style={{backgroundImage: `url(${s.image})`}}></div>
                     </button>
-                </div>
             );
         });
         return(
@@ -37,15 +35,27 @@ export default class Spreads extends Component {
 
 const LocalWrapper = styled.section`
     text-align: center;
-    button {
-        border: none;
-        background: transparent;
-        vertical-align: middle;
-        img {
-            width: 20vw;
-            min-width: 80px;
-            max-width: 150px;
-            margin: 5px;
+    > h2 {
+        margin-bottom: 5px;
+    }
+    > button {
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,.75);
+        display: inline-block;
+        width: 30vw;
+        max-width: 200px;
+        height: 30vw;
+        max-height: 200px;
+        border: 2px solid white;
+        margin: clamp(15px, 1vw, 1vw);
+        vertical-align: top;
+        background-color: transparent;
+        > div {
+            width: 100%;
+            padding-top: 75%;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
     }
 `;
