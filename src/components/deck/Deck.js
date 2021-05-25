@@ -21,6 +21,7 @@ export default class Deck extends Component {
 
         return (
             <Container id="deck-container">
+            <h1>Pick your spread</h1>
                 <section id="shuffle">
                     <button onClick={(e) => shuffleThis(e)}>
                         Shuffle
@@ -38,6 +39,13 @@ export default class Deck extends Component {
 
 const Container = styled.div`
     width: 100vw;
+    > h1 {
+        margin: 7.5% auto 5%;
+        font-family: 'Simonetta', cursive;
+        color: #fff;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
     > section {
         text-align: right;
         position: absolute;
@@ -54,6 +62,8 @@ const Container = styled.div`
             height: 157px;
             padding: 20px 10px;
             overflow: scroll;
+            margin-left: -120%;
+            margin-bottom: -40%;
             > div {
                 width: 100px;
                 display: inline-block;

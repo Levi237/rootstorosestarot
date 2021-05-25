@@ -35,9 +35,6 @@ export default class Spreads extends Component {
 
 const LocalWrapper = styled.section`
     text-align: center;
-    > h2 {
-        margin-bottom: 5px;
-    }
     > button {
         color: white;
         text-shadow: 2px 2px 5px rgba(0,0,0,.75);
@@ -47,15 +44,29 @@ const LocalWrapper = styled.section`
         height: 30vw;
         max-height: 200px;
         border: 2px solid white;
-        margin: clamp(15px, 1vw, 1vw);
+        margin: 1vw;
         vertical-align: top;
         background-color: transparent;
+        > h2 {
+        }
         > div {
             width: 100%;
             padding-top: 75%;
             background-size: contain;
             background-position: center center;
             background-repeat: no-repeat;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        > button {
+            width: calc(45vw - 4px);
+            max-width: calc(45vw - 4px);
+            height: calc(45vw - 4px);
+            max-height: calc(45vw - 4px);
+            > h2 {
+                // font-size: 3.6vw;
+            }
+            > div {}
         }
     }
 `;
