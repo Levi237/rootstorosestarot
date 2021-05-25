@@ -2,6 +2,7 @@
 
 :root {
   --green: #17610B;
+  --purple: #312539;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--green);
 }
 
 code {
@@ -24,19 +26,6 @@ h1, h2, h3, h4, p {
   line-height: 100%;
 }
 
-/* DECK ID TRIGGERS */
-/* #clear {
-  display: inline-block;
-} */
-/* #reshuffle {
- display: none;
-} */
-/* #shuffle {
-  display: inline-block;
-} */
-/* .dealtCard {
-
-} */
 .dealtCard:hover {
   transform: scale(1.25);
 }
@@ -63,12 +52,12 @@ h1, h2, h3, h4, p {
   }
 }
 .logo-first {
-  color: purple;
+  color: var(--purple);
 }
 .camo-logo {
   font-family: 'Sacramento', cursive;
   font-weight: thin;
-  color: purple;
+  color: var(--purple);
   opacity: 0;
   transition: all 1.5s;
   margin-left: -5px;
