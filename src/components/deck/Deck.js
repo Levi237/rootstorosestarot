@@ -35,7 +35,7 @@ export default class Deck extends Component {
 const Container = styled.div`
     width: 100vw;
     > h1 {
-        margin: 7.5% auto 5%;
+        margin: 60px auto 40px;
         font-family: var(--decorative-font);
         color: #fff;
         font-weight: 100;
