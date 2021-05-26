@@ -485,7 +485,7 @@ export default class App extends Component {
         shuffle.pop();
     };
     if (hand.length === selectSpread.cards - 1) {
-        document.getElementById("shuffle").style.visibility = "hidden";
+        document.getElementById("shuffle").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
         setTimeout(() => {
             document.getElementById("deckDisplay").style.marginBottom = "-40%"; 
@@ -500,7 +500,7 @@ export default class App extends Component {
     document.getElementById("deckDisplay").style.marginLeft = "0";
     document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("deckDisplay").style.position = "relative";
-    document.getElementById("shuffle").style.visibility = "visible";
+    document.getElementById("shuffle").style.display = "block";
     
     this.state.spreads.filter(s => {
       if ( t === s.name ) {

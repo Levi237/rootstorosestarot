@@ -9,9 +9,7 @@ export default class SpreadSheet extends Component {
         let num = selectSpread.cards;
         while (num > 0) {
             num -= 1
-            sheet.push(<div key={num}>
-                    <img src="./deck/back.jpg"/>
-                </div>)
+            sheet.push(<div key={num}><img src="./deck/back.jpg"/></div>)
         }
         const showHand = hand.map((h, k) => {
             return (
@@ -68,7 +66,7 @@ const InfoContainer = styled.div`
     h2 {
         color: var(--purple);
         text-align: center;
-        padding: 10px 0;
+        padding: 30px 0 10px;
     }
     li {
         font-family: var(--decorative-font);
@@ -78,6 +76,16 @@ const InfoContainer = styled.div`
             font-size: 120%;
             vertical-align: middle;
             line-height: 200%;
+        }
+    }
+    #shuffle {
+        text-align: center;
+        button {
+            margin: 10px auto -10px;
+            padding: 2% 15%;
+            font-size: 20px;
+            background-color: var(--purple);
+            color: var(--gold);
         }
     }
 `;

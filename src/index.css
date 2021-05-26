@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Simonetta&family=Sacramento&display=swap');
 
 :root {
-  --green: #17610B;
-  --purple: hsl(276, 21%, 18%);
+  --green: #17610b;
+  --purple: #2a1638;
+  --gold: #e2ca13;
   --decorative-font: 'Simonetta';
   --logo-font: 'Sacramento', cursive;
 }
@@ -33,7 +34,7 @@ h1, h2, h3, h4, p {
 }
 
 #shuffle {
-  visibility: hidden;
+  display: none;
 }
 
 .dealtCard {
