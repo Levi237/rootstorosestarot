@@ -2,7 +2,9 @@
 
 :root {
   --green: #17610B;
-  --purple: #312539;
+  --purple: hsl(276, 21%, 18%);
+  --header-font: 'Simonetta';
+  --decorative-font: 'Sacramento', cursive;
 }
 
 body {
@@ -55,7 +57,7 @@ h1, h2, h3, h4, p {
   color: var(--purple);
 }
 .camo-logo {
-  font-family: 'Sacramento', cursive;
+  font-family: var(--decorative-font);
   font-weight: thin;
   color: var(--purple);
   opacity: 0;
