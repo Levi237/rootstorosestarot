@@ -488,7 +488,7 @@ export default class App extends Component {
         document.getElementById("shuffle").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
         setTimeout(() => {
-            document.getElementById("deckDisplay").style.position = "absolute"; 
+            document.getElementById("deckDisplay").style.marginBottom = "-40%"; 
         }, 2000);
     };
 
@@ -498,6 +498,7 @@ export default class App extends Component {
     document.getElementById("spread-header").style.display = "none";
     document.getElementById("spread-container").style.display = "none";
     document.getElementById("deckDisplay").style.marginLeft = "0";
+    document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("deckDisplay").style.position = "relative";
     document.getElementById("shuffle").style.display = "block";
     
