@@ -118,7 +118,6 @@ const Container = styled.div`
     width: 100%;
     position: relative;
     > section {
-        // max-width: 600px;
         margin: 0 auto;
         position: relative;
         margin: 0 auto;
