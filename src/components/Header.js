@@ -35,11 +35,11 @@ export default class Header extends Component {
                 <LogoHeader>             
                     {mapLogo}
                 </LogoHeader>
-                {/* <section id="shuffle">
-                            <button onClick={(e) => shuffleThis(e)}>
+                <section id="shuffle-nav">
+                            <button onClick={(e) => this.props.shuffleThis(e)}>
                                 Shuffle
                             </button>
-                        </section> */}
+                        </section>
             </LocalWrapper>
         );
     };
@@ -64,4 +64,10 @@ const LocalWrapper = styled.header`
     display: flex;
     align-items: center;
     justify-content: left;
+    #shuffle-nav {
+        display: none;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
 `;
