@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled               from 'styled-components';
+
+import firebase             from 'firebase/app';
 // import { Switch, Route }    from 'react-router-dom';
 // import * as routes          from './constants/routes';
-import Signup               from './firebase';
+import SignIn               from './SignIn';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
@@ -10,6 +12,8 @@ import SpreadSheet          from './components/spreads/SpreadSheet';
 
 export default class App extends Component {
   state = {
+    user: null,
+    uid: null,
     deck: [
       {
           id: "00",
@@ -441,6 +445,26 @@ export default class App extends Component {
     hand: [],
     selectSpread: {},
   }
+  componentDidMount = () => {
+    this.authListener();
+  }
+
+  authListener(){
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user){
+        this.setState({
+          user: user.providerData[0],
+          uid: firebase.auth().currentUser.uid
+        });
+      }else{
+        this.setState({user: null, uid: null});
+      }
+    });
+  };
+  logout = () => {
+    firebase.auth().signOut();
+  }
+
   showDeck = () => {
     const { deck } = this.state;
     let newDeck = [...deck];
@@ -545,12 +569,12 @@ export default class App extends Component {
     };
 };
   render(){
-    const { hand, deck, shuffle, selectSpread, spreads } = this.state;
+    const { hand, deck, shuffle, selectSpread, spreads, uid } = this.state;
 
     return (
       <AppContainer> 
         <Header shuffleThis={this.shuffleThis}/>
-        <Signup />
+        <SignIn uid={uid}/>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
           <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>
