@@ -68,6 +68,8 @@ export default class SpreadSheet extends Component {
 const InfoContainer = styled.div`
     width: 80%;
     height: 100%;
+    max-height: 640px;
+    padding-bottom: 40px;
     background-color: #fff!important;
     font-family: var(--decorative-font);
     position: relative;
@@ -102,6 +104,9 @@ const InfoContainer = styled.div`
             color: var(--gold);
         }
     }
+    @media only screen and (max-width: 640px) {
+        margin: 40px auto;
+    }
 `;
 
 const LocalWrapper = styled.div`
@@ -121,6 +126,11 @@ const LocalWrapper = styled.div`
         &:last-of-type {
             grid-area: info;
         }
+    }
+    @media only screen and (max-width: 640px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: ' spread ' ' info ';
     }
 //-----------------------------------------------------> SIMPLE SPREADS
     .spread-three-simple > section {
@@ -170,6 +180,7 @@ const LocalWrapper = styled.div`
     }
 //-----------------------------------------------------> CELTIC CROSS SPREADS
     .spread-thirteen-celtic-cross > section {
+        margin-bottom: -20%;
         grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: 
