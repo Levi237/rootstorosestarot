@@ -3,7 +3,7 @@ import styled                   from 'styled-components';
 
 export default class SpreadSheet extends Component {
     render(){
-        const { hand, selectSpread, shuffleThis } = this.props;
+        const { hand, selectSpread, shuffleThis, restartThis } = this.props;
 
         let sheet = []
         let num = selectSpread.cards;
@@ -28,7 +28,7 @@ export default class SpreadSheet extends Component {
             )
         })
         return(
-            <LocalWrapper>
+            <LocalWrapper id="spreadsheet-container">
                 <div>
                     <ContainerSpread className={selectSpread.id}>
                         <section id="show">
@@ -46,6 +46,11 @@ export default class SpreadSheet extends Component {
                         <section id="shuffle">
                             <button onClick={(e) => shuffleThis(e)}>
                                 Shuffle
+                            </button>
+                        </section>
+                        <section id="restart">
+                            <button onClick={(e) => restartThis(e)}>
+                                Close
                             </button>
                         </section>
                         <h2>{selectSpread.name}</h2>
@@ -94,7 +99,7 @@ const LocalWrapper = styled.div`
     max-width: 1200px;
     margin: 40px auto;
     position: relative;
-    display: grid;
+    display: none;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 100%;
     grid-template-areas: ' spread info ';

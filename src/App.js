@@ -501,6 +501,7 @@ export default class App extends Component {
     document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("deckDisplay").style.position = "relative";
     document.getElementById("shuffle").style.display = "block";
+    document.getElementById("spreadsheet-container").style.display = "grid";
     
     this.state.spreads.filter(s => {
       if ( t === s.name ) {
@@ -514,7 +515,21 @@ export default class App extends Component {
         this.animateDeck();
     }, 2000);
   };
-  
+  restartThis = (e) => {
+    document.getElementById("shuffle").style.display = "none";
+    document.getElementById("deckDisplay").style.marginLeft = "-120%";
+    setTimeout(() => {
+        document.getElementById("deckDisplay").style.marginBottom = "-40%"; 
+        this.state.shuffle = [];
+    }, 1000);
+    setTimeout(() => {
+        document.getElementById("spread-header").style.display = "block";
+        document.getElementById("spread-container").style.display = "block";
+        document.getElementById("spreadsheet-container").style.display = "none";
+        this.state.selectSpread = {};
+        this.state.hand = [];
+    }, 1200);
+  }
 
   animateDeck(){   
     let getCard = document.getElementsByClassName('dealtCard');
@@ -534,7 +549,7 @@ export default class App extends Component {
         <Header/>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis}/>
+          <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>
       </AppContainer>
     );
   };
