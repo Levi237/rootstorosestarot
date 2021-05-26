@@ -3,7 +3,7 @@ import styled                   from 'styled-components';
 
 export default class SpreadSheet extends Component {
     render(){
-        const { hand, selectSpread } = this.props;
+        const { hand, selectSpread, shuffleThis } = this.props;
 
         let sheet = []
         let num = selectSpread.cards;
@@ -18,6 +18,13 @@ export default class SpreadSheet extends Component {
                 <div key={k} >
                     <img style={{transform: `rotate(${180*h.rotation + 'deg'})`}} src={`./deck/${h.id}.jpg`}/>
                 </div>
+            )
+        })
+        const showInfo = hand.map((h, k) => {
+            return (
+                <li key={k} >
+                    {h.id}: {h.title}
+                </li>
             )
         })
         return(
@@ -36,7 +43,15 @@ export default class SpreadSheet extends Component {
                 </div>
                 <div>
                     <InfoContainer>
-
+                        <section id="shuffle">
+                            <button onClick={(e) => shuffleThis(e)}>
+                                Shuffle
+                            </button>
+                        </section>
+                        <h2>{selectSpread.name}</h2>
+                        <ol>
+                            {showInfo}
+                        </ol>
                     </InfoContainer>
                 </div>
             </LocalWrapper>
@@ -47,6 +62,12 @@ const InfoContainer = styled.div`
     width: 80%;
     height: 100%;
     background-color: #fff!important;
+    h2 {
+        font-family: var(--header-font);
+        color: var(--purple);
+        text-align: center;
+        padding: 20px 0 10px;
+    }
 `;
 
 const LocalWrapper = styled.div`
