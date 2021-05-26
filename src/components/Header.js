@@ -35,6 +35,11 @@ export default class Header extends Component {
                 <LogoHeader>             
                     {mapLogo}
                 </LogoHeader>
+                {/* <section id="shuffle">
+                            <button onClick={(e) => shuffleThis(e)}>
+                                Shuffle
+                            </button>
+                        </section> */}
             </LocalWrapper>
         );
     };

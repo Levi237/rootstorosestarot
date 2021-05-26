@@ -66,26 +66,30 @@ export default class SpreadSheet extends Component {
     };
 };
 const InfoContainer = styled.div`
-    width: 80%;
-    height: 100%;
+    width: 90%;
     max-height: 640px;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
     background-color: #fff!important;
     font-family: var(--decorative-font);
     position: relative;
     h2 {
         color: var(--purple);
         text-align: center;
-        padding: 30px 0 10px;
+        padding: 30px 0 0;
+        font-size: 32px;
+        text-transform: capitalize;
     }
-    li {
-        font-family: var(--decorative-font);
-        color: var(--green);
-        span {
-            color: var(--purple);
-            font-size: 120%;
-            vertical-align: middle;
-            line-height: 200%;
+    ol {
+        margin-left: 20px;
+        li {
+            font-family: var(--decorative-font);
+            color: var(--green);
+            span {
+                color: var(--purple);
+                font-size: 120%;
+                vertical-align: middle;
+                line-height: 200%;
+            }
         }
     }
     > div:last-of-type {
@@ -110,11 +114,11 @@ const InfoContainer = styled.div`
 `;
 
 const LocalWrapper = styled.div`
-    max-width: 1200px;
-    margin: 40px auto;
+    // max-width: 1200px;
+    margin: 20px auto;
     position: relative;
     display: none;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: calc(100% - 360px) 360px;
     grid-template-rows: 100%;
     grid-template-areas: ' spread info ';
     > div {
@@ -168,6 +172,7 @@ const LocalWrapper = styled.div`
             ' . . two . . '
             ' . four one five . '
             ' . . three . . ';
+            max-width: 600px;
     }
     .spread-ten-celtic-cross > section {
         grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
@@ -177,10 +182,10 @@ const LocalWrapper = styled.div`
             ' five one six . eight '
             ' . four . . nine '
             ' . two . . ten ';
+            max-width: 500px;
     }
 //-----------------------------------------------------> CELTIC CROSS SPREADS
     .spread-thirteen-celtic-cross > section {
-        margin-bottom: -20%;
         grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: 
@@ -189,6 +194,8 @@ const LocalWrapper = styled.div`
             ' five one six . nine '
             ' . four . . ten '
             ' . two . . . ';
+        margin-bottom: -20%;
+        max-width: 500px;
     }
     .spread-ten-celtic-cross > section > div:nth-of-type(2),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(2) {
@@ -250,7 +257,7 @@ const Container = styled.div`
     width: 100%;
     position: relative;
     > section {
-        max-width: 600px;
+        // max-width: 600px;
         margin: 0 auto;
         position: relative;
         margin: 0 auto;
@@ -288,5 +295,6 @@ const ContainerSpread = styled(Container)`
     img {
         -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
         filter: grayscale(100%);
+        opacity: .2;
       }
 `;
