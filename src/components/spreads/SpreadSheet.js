@@ -48,15 +48,17 @@ export default class SpreadSheet extends Component {
                                 Shuffle
                             </button>
                         </section>
-                        <section id="restart">
-                            <button onClick={(e) => restartThis(e)}>
-                                Close
-                            </button>
-                        </section>
                         <h2>{selectSpread.name}</h2>
                         <ol>
                             {showInfo}
                         </ol>
+                        <div>
+                            <section id="restart">
+                                <button onClick={(e) => restartThis(e)}>
+                                    Close
+                                </button>
+                            </section>
+                        </div>
                     </InfoContainer>
                 </div>
             </LocalWrapper>
@@ -68,6 +70,7 @@ const InfoContainer = styled.div`
     height: 100%;
     background-color: #fff!important;
     font-family: var(--decorative-font);
+    position: relative;
     h2 {
         color: var(--purple);
         text-align: center;
@@ -83,11 +86,17 @@ const InfoContainer = styled.div`
             line-height: 200%;
         }
     }
+    > div:last-of-type {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+    }
+    #restart,
     #shuffle {
         text-align: center;
         button {
-            margin: 10px auto -10px;
-            padding: 2% 15%;
+            margin: 10px auto 0;
+            padding: 10px 36px;
             font-size: 20px;
             background-color: var(--purple);
             color: var(--gold);
