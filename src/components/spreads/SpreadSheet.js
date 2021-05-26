@@ -66,7 +66,7 @@ const InfoContainer = styled.div`
         font-family: var(--header-font);
         color: var(--purple);
         text-align: center;
-        padding: 20px 0 10px;
+        padding: 10px 0;
     }
 `;
 
