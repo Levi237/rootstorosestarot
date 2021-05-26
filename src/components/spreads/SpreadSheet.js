@@ -23,7 +23,9 @@ export default class SpreadSheet extends Component {
         const showInfo = hand.map((h, k) => {
             return (
                 <li key={k} >
-                    {h.id}: {h.title}
+                    <span>
+                        #{h.id}: {h.title}
+                    </span>
                 </li>
             )
         })
@@ -62,11 +64,21 @@ const InfoContainer = styled.div`
     width: 80%;
     height: 100%;
     background-color: #fff!important;
+    font-family: var(--decorative-font);
     h2 {
-        font-family: var(--header-font);
         color: var(--purple);
         text-align: center;
         padding: 10px 0;
+    }
+    li {
+        font-family: var(--decorative-font);
+        color: var(--green);
+        span {
+            color: var(--purple);
+            font-size: 120%;
+            vertical-align: middle;
+            line-height: 200%;
+        }
     }
 `;
 
