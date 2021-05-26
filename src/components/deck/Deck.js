@@ -64,7 +64,7 @@ const Container = styled.div`
             overflow: scroll;
             transition: all 3s ease;
             margin-left: -120%;
-            // margin-bottom: -40%;
+            margin-bottom: -40%;
             position: absolute;
             top: -100%;
             > div {
