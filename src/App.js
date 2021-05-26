@@ -532,9 +532,9 @@ export default class App extends Component {
     return (
       <AppContainer> 
         <Header/>
-          <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffleThis={this.shuffleThis} shuffle={shuffle} animateDeck={this.animateDeck}/>
+          <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          <SpreadSheet hand={hand} selectSpread={selectSpread}/>
+          <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis}/>
       </AppContainer>
     );
   };

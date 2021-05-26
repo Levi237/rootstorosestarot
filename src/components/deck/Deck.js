@@ -22,11 +22,6 @@ export default class Deck extends Component {
         return (
             <Container id="deck-container">
             <h1 id="spread-header">Pick your spread</h1>
-                <section id="shuffle">
-                    <button onClick={(e) => shuffleThis(e)}>
-                        Shuffle
-                    </button>
-                </section>
                 <div id="displayContainer">
                     <div id="deckDisplay">
                         { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg"/></div>}
@@ -41,7 +36,7 @@ const Container = styled.div`
     width: 100vw;
     > h1 {
         margin: 7.5% auto 5%;
-        font-family: 'Simonetta', cursive;
+        font-family: var(--header-font);
         color: #fff;
         font-weight: 100;
         text-transform: uppercase;
