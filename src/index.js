@@ -3,8 +3,9 @@ import ReactDOM                     from 'react-dom';
 import { BrowserRouter as Router }  from 'react-router-dom';
 
 import firebase                     from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/firebase-storage';
+// import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
 
 import './index.css';
 import App from './App';
@@ -23,8 +24,10 @@ firebase.initializeApp({
   appId:  `${process.env.REACT_APP_FIREBASE_APPID}`,
   measurementId: `${process.env.REACT_APP_FIREBASE_MEASUREMENTID}`
 });
+const auth = firebase.auth();
 const storage = firebase.storage();
-export { storage, firebase as default }
+export { auth, storage, firebase as default }
+
 
 ReactDOM.render(
   <Router>

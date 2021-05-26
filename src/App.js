@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled               from 'styled-components';
 // import { Switch, Route }    from 'react-router-dom';
 // import * as routes          from './constants/routes';
-
+import Signup               from './firebase';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
@@ -486,6 +486,7 @@ export default class App extends Component {
     };
     if (hand.length === selectSpread.cards - 1) {
         document.getElementById("shuffle").style.display = "none";
+        document.getElementById("shuffle-nav").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
         setTimeout(() => {
             document.getElementById("deckDisplay").style.marginBottom = "-40%"; 
@@ -501,6 +502,7 @@ export default class App extends Component {
     document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("deckDisplay").style.position = "relative";
     document.getElementById("shuffle").style.display = "block";
+    document.getElementById("shuffle-nav").style.display = "block";
     document.getElementById("spreadsheet-container").style.display = "grid";
     
     this.state.spreads.filter(s => {
@@ -517,6 +519,7 @@ export default class App extends Component {
   };
   restartThis = (e) => {
     document.getElementById("shuffle").style.display = "none";
+    document.getElementById("shuffle-nav").style.display = "none";
     document.getElementById("deckDisplay").style.marginLeft = "-120%";
     setTimeout(() => {
         document.getElementById("deckDisplay").style.marginBottom = "-40%"; 
@@ -546,7 +549,8 @@ export default class App extends Component {
 
     return (
       <AppContainer> 
-        <Header/>
+        <Header shuffleThis={this.shuffleThis}/>
+        <Signup />
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
           <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>
