@@ -51,7 +51,7 @@ const InfoContainer = styled.div`
 
 const LocalWrapper = styled.div`
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto;
     position: relative;
     display: grid;
     grid-template-columns: 3fr 2fr;
