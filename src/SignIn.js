@@ -71,7 +71,6 @@ export default class SignIn extends Component{
             <Modal show={show} onClose={this.showModal}>
                 <div className="enter-container">
                     <div className="enter-form">
-                {/* { newSpread && <button className="close xClose" onClick={(e) => {onClose(e)}}>X</button> } */}
                         <div className="errorNotification">{errorNotification}</div>
                         <div id="title">{formTitle}</div>
                             <div className="body">
