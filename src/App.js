@@ -446,7 +446,7 @@ export default class App extends Component {
     shuffle: [],
     hand: [],
     selectSpread: {},
-    show: false,
+    show: "",
   }
   componentDidMount = () => {
     this.authListener();
@@ -461,12 +461,16 @@ export default class App extends Component {
         });
       }else{
         this.setState({user: null, uid: null});
-      }
+      };
     });
   };
   logout = () => {
     firebase.auth().signOut();
-  }
+    this.setState({
+        user: null,
+        uid: null
+    });
+  };
 
   showDeck = () => {
     const { deck } = this.state;
@@ -573,7 +577,6 @@ export default class App extends Component {
 };
 showModal = (e) => {
     this.setState({
-      ...this.state,
       show: e.currentTarget.name
     })
 };
@@ -582,13 +585,15 @@ showModal = (e) => {
 
     return (
       <AppContainer> 
-        <Header shuffleThis={this.shuffleThis}/>
-        <Modal show={show} onClose={this.showModal}>
-        <SignIn uid={uid} show={show}/>
-        </Modal>
-          <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
-          <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-          <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>
+        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} logout={this.logout}/>
+        { !uid && 
+            <Modal show={show} onClose={this.showModal}>
+                <SignIn show={show}/>
+            </Modal>
+        }
+        <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
+        <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
+        <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>
       </AppContainer>
     );
   };

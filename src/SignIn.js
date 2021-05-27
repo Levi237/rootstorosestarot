@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-export default class SignIn extends Component{
+export default class SignIn extends Component {
     state = {
         email: "",
         password: "",
@@ -25,23 +25,23 @@ export default class SignIn extends Component{
             });
     };
     register = e => {
-        e.preventDefault();
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .catch((error) => {
-                this.setState({fireErrors: error.message})
-            })
+        if (this.state.password === this.state.passwordConfirm ) {
+            e.preventDefault();
+            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+                .catch((error) => {
+                    this.setState({fireErrors: error.message});
+                });
+        } else {
+            alert('passwords dont match');
+        };
     };
 
     getAction = action => {
-        if (this.state.password === this.state.passwordConfirm ) {
             if(action === "reg"){
                 this.setState({formTitle: "Register New User", loginBtn: false, fireErrors: ""})
             }else{
                 this.setState({formTitle: "Login", loginBtn: true, fireErrors: ""})
             }
-        } else {
-            alert('passwords dont match');
-        }
     };
 
     showModal = (e) => {
@@ -52,7 +52,7 @@ export default class SignIn extends Component{
     };
     render(){
         const { fireErrors, loginBtn, formTitle, email, password, passwordConfirm } = this.state
-        const { uid, onClose } = this.props
+        // const { uid } = this.props
 
         let errorNotification = fireErrors ? 
             <div className="Error">{fireErrors}</div> : null;
@@ -64,21 +64,22 @@ export default class SignIn extends Component{
             <button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>;
 
         return(
-                <div className="enter-container">
-                    <div className="enter-form">
-                        <div className="errorNotification">{errorNotification}</div>
-                        <div id="title">{formTitle}</div>
-                            <div className="body">
-                                <form>
-                                    <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
-                                    <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
-                                    {!loginBtn &&  <input type="password" value={passwordConfirm} onChange={this.handleChange} name="passwordConfirm" placeholder="confirm password"  />}
-                                    {submitBtn}
-                                </form>
-                                {login_register}
-                            </div>
-                    </div>
+
+            <div className="enter-container">
+                <div className="enter-form">
+                    <div className="errorNotification">{errorNotification}</div>
+                    <div id="title">{formTitle}</div>
+                        <div className="body">
+                            <form>
+                                <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
+                                <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
+                                {!loginBtn &&  <input type="password" value={passwordConfirm} onChange={this.handleChange} name="passwordConfirm" placeholder="confirm password"  />}
+                                {submitBtn}
+                            </form>
+                            {login_register}
+                        </div>
                 </div>
+            </div>
         );
     };
 };
