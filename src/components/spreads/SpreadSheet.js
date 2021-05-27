@@ -44,7 +44,7 @@ export default class SpreadSheet extends Component {
                 <div>
                     <InfoContainer>
                         <section id="shuffle">
-                            <button onClick={(e) => shuffleThis(e)}>
+                            <button className="purpleBtn" onClick={(e) => shuffleThis(e)}>
                                 Shuffle
                             </button>
                         </section>
@@ -54,7 +54,7 @@ export default class SpreadSheet extends Component {
                         </ol>
                         <div>
                             <section id="restart">
-                                <button onClick={(e) => restartThis(e)}>
+                                <button className="purpleBtn" onClick={(e) => restartThis(e)}>
                                     Close
                                 </button>
                             </section>
@@ -104,8 +104,6 @@ const InfoContainer = styled.div`
             margin: 10px auto 0;
             padding: 10px 36px;
             font-size: 20px;
-            background-color: var(--purple);
-            color: var(--gold);
         }
     }
     @media only screen and (max-width: 640px) {

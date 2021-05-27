@@ -20,7 +20,7 @@ export default class Model extends Component {
                     </button>
 
                     {this.props.children}
-                    
+
                 </div>
             </ModalWrapper>
         )
@@ -29,6 +29,7 @@ export default class Model extends Component {
 
 const ModalWrapper = styled.div`
     position: absolute;
+    z-index: 9000000;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -36,6 +37,8 @@ const ModalWrapper = styled.div`
     align-items: center;
     > div {
         background-color: #fff;
-        padding: 5% 10%;
+        padding: 40px 60px 60px;
+        text-align: right;
+        min-width: 240px;
     }
 `;

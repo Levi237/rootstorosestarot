@@ -27,7 +27,7 @@ export default class Header extends Component {
         };
     };
     render(){
-        const { showModal, uid, shuffleThis, logout } = this.props;
+        const { showModal, user, uid, shuffleThis, logout } = this.props;
         const mapLogo = [...this.state.logoHeader].map((l,k) => {
             return <span key={k} className="camo-logo">{l}</span>
         })
@@ -37,15 +37,16 @@ export default class Header extends Component {
                     {mapLogo}
                 </LogoHeader>
                 <section id="shuffle-nav">
-                    <button onClick={(e) => shuffleThis(e)}>
+                    <button className="whiteBtn" onClick={(e) => shuffleThis(e)}>
                         Shuffle
                     </button>
                 </section>
                 <section id="login-logout">
+                { user && <React.Fragment><span>{user.email}&nbsp;&nbsp;</span> <div></div></React.Fragment>}
                 { uid === null ?
-                    <button onClick={(e) => {showModal(e)}} name="login" value="login">Login</button>
+                    <div onClick={(e) => {showModal(e)}} name="login" value="login">Login</div>
                     :
-                    <button onClick={(e) => {logout(e)}} name="logout" value="logout">Logout</button>
+                    <div onClick={(e) => {logout(e)}} name="logout" value="logout">Logout</div>
                 }
                 </section>
             </LocalWrapper>
@@ -81,5 +82,9 @@ const LocalWrapper = styled.header`
     #login-logout {
         position: absolute;
         right: 10px;
+        > div {
+            display: inline-block;
+            text-transform: uppercase;
+        }
     }
 `;

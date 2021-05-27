@@ -3,7 +3,9 @@
 :root {
   --green: #17610b;
   --purple: #2a1638;
+  --lightpurple: rgba(42, 22, 56, .2);
   --gold: #e2ca13;
+  --lightgrey: #555555;
   --decorative-font: 'Simonetta';
   --logo-font: 'Sacramento', cursive;
 }
