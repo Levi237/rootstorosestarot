@@ -77,15 +77,16 @@ const InfoContainer = styled.div`
     background-color: #fff!important;
     font-family: var(--decorative-font);
     position: relative;
+    text-align: center;
     h2 {
         color: var(--purple);
-        text-align: center;
         padding: 30px 0 0;
         font-size: 32px;
         text-transform: capitalize;
     }
     ol {
         margin-left: 20px;
+        text-align: left;
         li {
             font-family: var(--decorative-font);
             color: var(--green);
@@ -103,8 +104,9 @@ const InfoContainer = styled.div`
         width: 100%;
     }
     #restart,
-    #shuffle {
-        text-align: center;
+    #save {
+        display: inline-block;
+        margin: 0 10px;
         button {
             margin: 10px auto 0;
             padding: 10px 36px;
