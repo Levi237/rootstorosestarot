@@ -21,7 +21,7 @@ export default class Deck extends Component {
 
         return (
             <Container id="deck-container">
-            <h1 id="spread-header">Pick your spread</h1>
+            <h1 id="spread-header">pick your layout</h1>
                 <div id="displayContainer">
                     <div id="deckDisplay">
                         { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg"/></div>}
