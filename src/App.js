@@ -464,14 +464,19 @@ export default class App extends Component {
       };
     });
   };
+  clearModal = () => {
+    this.setState({
+        show: ""
+    })
+}
   logout = () => {
     firebase.auth().signOut();
     this.setState({
         user: null,
         uid: null
     });
+    this.clearModal();
   };
-
   showDeck = () => {
     const { deck } = this.state;
     let newDeck = [...deck];
@@ -586,11 +591,12 @@ showModal = (e) => {
     return (
       <AppContainer> 
         <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout}/>
-        { !uid && 
+
             <Modal show={show} onClose={this.showModal}>
-                <Login show={show}/>
+            { show === "login" && <Login show={show} clearModal={this.clearModal}/> }
+            { show === "account" && <div>hello account</div>}  
             </Modal>
-        }
+
         <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
         <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
         <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>

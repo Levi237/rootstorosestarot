@@ -26,6 +26,7 @@ export default class Login extends Component {
             .catch((error) => {
                 this.setState({fireErrors: error.message})
             });
+        this.props.clearModal();
     };
     register = e => {
         if (this.state.password === this.state.passwordConfirm ) {
@@ -47,12 +48,6 @@ export default class Login extends Component {
             }
     };
 
-    showModal = (e) => {
-        this.setState({
-          ...this.state,
-          show: e.currentTarget.name
-        })
-    };
     render(){
         const { fireErrors, loginBtn, formTitle, email, password, passwordConfirm } = this.state
         // const { uid } = this.props
