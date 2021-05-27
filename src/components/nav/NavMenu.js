@@ -8,7 +8,7 @@ export default class Nav extends Component {
 
 
     render(){
-        const { toggleHamburger, logout, user, showModal, showSpreadLayouts, clearAll } = this.props;
+        const { toggleHamburger, logout, user, showModal, clearAll } = this.props;
         
         return(
             <NavContainer id="menu" className="inactive">
@@ -16,14 +16,17 @@ export default class Nav extends Component {
                     <CloseBtn className="close xClose" onClick={() => {toggleHamburger()}}>
                         x
                     </CloseBtn>
-                    { user ? <h2>{user.email}</h2> : <h2>Roots to Roses Tarot</h2>}
+                    { user 
+                        ? <h2>{user.email}</h2> 
+                        : <h2>Roots to Roses Tarot</h2>
+                    }
                     <NavLink activeClassName="nav-active" to={routes.ROOT} onClick={(e) => {toggleHamburger(); clearAll();}}>HOME</NavLink>      
                     { user && <NavLink activeClassName="nav-active" to={routes.ACCT} onClick={(e) => {toggleHamburger(); clearAll();}}>MY READINGS</NavLink> }
                     <NavLink activeClassName="nav-active" to={routes.LAYS} onClick={(e) => {toggleHamburger(); clearAll();}}>TAROT LAYOUTS</NavLink>          
-                    { user && <input type="submit" onClick={() => {logout(); toggleHamburger();}} value="logout" /> }
-                    { !user && <input type="submit" onClick={(e) => {showModal(e); toggleHamburger();}} name="login" value="login" />
+                    { user 
+                        ? <input type="submit" onClick={() => {logout(); toggleHamburger();}} value="logout" />
+                        : <input type="submit" onClick={(e) => {showModal(e); toggleHamburger();}} name="login" value="login" /> 
                     }
-                    {/* <input type="submit" onClick={} value="FAQ" /> */}
                 </div>
             </NavContainer>
         );
@@ -45,6 +48,7 @@ const NavContainer = styled.div`
     position: fixed;
 
     h2 {
+        font-family: var(--decorative-font);
         margin-bottom: 20px;
     }
     a,

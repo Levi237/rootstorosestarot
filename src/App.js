@@ -7,6 +7,7 @@ import * as routes          from './constants/routes';
 import Modal from './Modal';
 
 import Login                from './Login';
+import HomePage             from './components/home';
 import NavMenu              from './components/nav/NavMenu';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
@@ -607,27 +608,53 @@ toggleHamburger = () => {
 
     return (
       <AppContainer> 
-        <NavMenu toggleHamburger={this.toggleHamburger} showModal={this.showModal} logout={this.logout} user={user} showSpreadLayouts={this.showSpreadLayouts} clearAll={this.clearAll}/>
+        <NavMenu 
+            clearAll={this.clearAll}
+            logout={this.logout} 
+            showModal={this.showModal} 
+            showSpreadLayouts={this.showSpreadLayouts} 
+            toggleHamburger={this.toggleHamburger} 
+            user={user} 
+            />
         <Modal show={show} onClose={this.showModal}>
             { show === "login" && <Login show={show} clearModal={this.clearModal}/> }
             { show === "account" && <div>hello account</div>}  
         </Modal>
-        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout} toggleHamburger={this.toggleHamburger}/>
+        <Header 
+            logout={this.logout} 
+            showModal={this.showModal} 
+            shuffleThis={this.shuffleThis} 
+            toggleHamburger={this.toggleHamburger}
+            uid={uid} 
+            user={user} 
+            />
         <Switch>
         <Route path={routes.ROOT} exact render={() => 
-            <div> Hello World </div>
-                 }/>
+            <HomePage /> }/>
         <Route path={routes.ACCT} exact render={() => 
-            <div> MY TAROT CARD READINGS </div>
-                 }/>
+            <div> MY TAROT CARD READINGS </div> }/>
         <Route path={routes.FAQS} exact render={() => 
-            <div> MY TAROT CARD READINGS </div>
-                 }/>
+            <div> MY TAROT CARD READINGS </div> }/>
         <Route path={routes.LAYS} exact render={() => 
             <>
-                <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
-                <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-                <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} showSpreadLayouts={this.showSpreadLayouts}/>
+                <Deck 
+                    animateDeck={this.animateDeck}
+                    deck={deck} 
+                    hand={hand} 
+                    selectCard={this.selectCard} 
+                    selectSpread={selectSpread} 
+                    shuffle={shuffle} 
+                    />
+                <Spreads 
+                    selectSpread={this.selectSpread}
+                    spreads={spreads} 
+                    />
+                <SpreadSheet 
+                    hand={hand} 
+                    selectSpread={selectSpread} 
+                    shuffleThis={this.shuffleThis} 
+                    showSpreadLayouts={this.showSpreadLayouts}
+                    />
             </>
          }/>
         </Switch>
