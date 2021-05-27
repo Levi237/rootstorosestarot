@@ -6,7 +6,7 @@ import firebase             from 'firebase/app';
 // import * as routes          from './constants/routes';
 import Modal from './Modal';
 
-import SignIn               from './SignIn';
+import Login               from './Login';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
@@ -581,14 +581,14 @@ showModal = (e) => {
     })
 };
   render(){
-    const { hand, deck, shuffle, selectSpread, spreads, uid, show } = this.state;
+    const { hand, deck, shuffle, selectSpread, spreads, user, uid, show } = this.state;
 
     return (
       <AppContainer> 
-        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} logout={this.logout}/>
+        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout}/>
         { !uid && 
             <Modal show={show} onClose={this.showModal}>
-                <SignIn show={show}/>
+                <Login show={show}/>
             </Modal>
         }
         <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
@@ -604,5 +604,21 @@ const AppContainer = styled.div`
   width: 100vw;
   h1 {
     text-align: center;
+  }
+  .purpleBtn {
+    background-color: var(--purple);
+    color: var(--gold);
+    transition: opacity .3s ease;
+    &:hover {
+        opacity: .8;
+    }
+  }
+  .whiteBtn {
+    background-color: white;
+    color: var(--purple);
+    transition: all .3s ease;
+    &:hover {
+        background-color: var(--lightpurple);
+    };
   }
 `;
