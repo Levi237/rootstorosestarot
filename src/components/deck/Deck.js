@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 export default class Deck extends Component {
     render(){
-        const { shuffle, shuffleThis, selectCard } = this.props;
-
-        // const deal = document.getElementsByClassName("dealDeck");
-        // while ( deal.length > 0) {
-        //     console.log(deal.length, "deal")
-        //     setTimeout(function(){deal[0].classList.remove('dealDeck')}, 1000);
-        //     document.getElementsByClassName("dealDeck").classList.remove("dealDeck")
-        // }
+        const { shuffle, selectCard } = this.props;
 
         const dealCards = shuffle.map((card, key) => {
             return (
