@@ -6,7 +6,7 @@ export default class Nav extends Component {
 
 
     render(){
-        const { toggleHamburger } = this.props;
+        const { toggleHamburger, logout } = this.props;
         
         return(
             <NavContainer id="menu" className="inactive">
@@ -14,10 +14,10 @@ export default class Nav extends Component {
                     <CloseBtn className="close xClose" onClick={() => {toggleHamburger()}}>
                         x
                     </CloseBtn>
-                    <div>HOME</div>
-                    <div>ACCOUNT</div>
-                    <div>LOGOUT</div>
-                    <div>FAQ</div>
+                    {/* <input onClick={} value="HOME" /> */}
+                    {/* <input onClick={} value="ACCOUNT" /> */}
+                    <input type="submit" onClick={() => {toggleHamburger(); logout();}} value="LOGOUT" />
+                    {/* <input onClick={} value="FAQ" /> */}
                 </div>
             </NavContainer>
         );
@@ -33,19 +33,22 @@ const NavContainer = styled.div`
     height: 100%;
     overflow: hidden;
     background-color: #fff;
-    color: #FFF;
+    color: var(--purple);
+    padding-top: 60px;
 
     position: fixed;
 
-    a {
+    div {
         text-decoration: none;
         display: block;
         height: 36px;
         padding-top: 10px;
-        color: #FFF;
+        color: var(--purple);
+        transition: color .3s ease;
     }
-    a:hover {
-        color: var(--lightgreen);
+    div:hover {
+        color: var(--green);
+        cursor: pointer;
     }
     
     button {
@@ -53,7 +56,7 @@ const NavContainer = styled.div`
         top: 5px;
         right: 5px;
         padding: 5px;
-        color: #FFF;
+        color: var(--purple);
         border: none;
         font-size: 14px;
     }
