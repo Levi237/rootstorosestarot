@@ -6,7 +6,7 @@ export default class Nav extends Component {
 
 
     render(){
-        const { toggleHamburger, logout } = this.props;
+        const { toggleHamburger, logout, user, showModal } = this.props;
         
         return(
             <NavContainer id="menu" className="inactive">
@@ -14,10 +14,13 @@ export default class Nav extends Component {
                     <CloseBtn className="close xClose" onClick={() => {toggleHamburger()}}>
                         x
                     </CloseBtn>
-                    {/* <input onClick={} value="HOME" /> */}
-                    {/* <input onClick={} value="ACCOUNT" /> */}
+                    {/* <input type="submit" onClick={} value="HOME" /> */}
+                    { user ?
                     <input type="submit" onClick={() => {toggleHamburger(); logout();}} value="LOGOUT" />
-                    {/* <input onClick={} value="FAQ" /> */}
+                    :
+                    <input type="submit" onClick={(e) => {showModal(e)}} name="login" value="login" />
+                    }
+                    {/* <input type="submit" onClick={} value="FAQ" /> */}
                 </div>
             </NavContainer>
         );

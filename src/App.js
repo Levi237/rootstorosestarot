@@ -597,7 +597,7 @@ toggleHamburger = () => {
 
     return (
       <AppContainer> 
-          <NavMenu toggleHamburger={this.toggleHamburger} logout={this.logout} />
+          <NavMenu toggleHamburger={this.toggleHamburger} showModal={this.showModal} logout={this.logout} user={user}/>
         <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout} toggleHamburger={this.toggleHamburger}/>
 
             <Modal show={show} onClose={this.showModal}>
