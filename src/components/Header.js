@@ -27,6 +27,7 @@ export default class Header extends Component {
         };
     };
     render(){
+        const { showModal, uid, shuffleThis, logout } = this.props;
         const mapLogo = [...this.state.logoHeader].map((l,k) => {
             return <span key={k} className="camo-logo">{l}</span>
         })
@@ -36,9 +37,16 @@ export default class Header extends Component {
                     {mapLogo}
                 </LogoHeader>
                 <section id="shuffle-nav">
-                    <button onClick={(e) => this.props.shuffleThis(e)}>
+                    <button onClick={(e) => shuffleThis(e)}>
                         Shuffle
                     </button>
+                </section>
+                <section id="login-logout">
+                { uid === null ?
+                    <button onClick={(e) => {showModal(e)}} name="login" value="login">Login</button>
+                    :
+                    <button onClick={(e) => {logout(e)}} name="logout" value="logout">Logout</button>
+                }
                 </section>
             </LocalWrapper>
         );
@@ -69,5 +77,9 @@ const LocalWrapper = styled.header`
         position: absolute;
         width: 100%;
         text-align: center;
+    }
+    #login-logout {
+        position: absolute;
+        right: 10px;
     }
 `;
