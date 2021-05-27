@@ -521,7 +521,7 @@ export default class App extends Component {
         shuffle.pop();
     };
     if (hand.length === selectSpread.cards - 1) {
-        document.getElementById("shuffle").style.display = "none";
+        // document.getElementById("shuffle").style.display = "none";
         document.getElementById("shuffle-nav").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
         setTimeout(() => {
@@ -537,7 +537,7 @@ export default class App extends Component {
     document.getElementById("deckDisplay").style.marginLeft = "0";
     document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("deckDisplay").style.position = "relative";
-    document.getElementById("shuffle").style.display = "block";
+    // document.getElementById("shuffle").style.display = "block";
     document.getElementById("shuffle-nav").style.display = "block";
     document.getElementById("spreadsheet-container").style.display = "grid";
     
@@ -554,7 +554,7 @@ export default class App extends Component {
     }, 2000);
   };
   restartThis = (e) => {
-    document.getElementById("shuffle").style.display = "none";
+    // document.getElementById("shuffle").style.display = "none";
     document.getElementById("shuffle-nav").style.display = "none";
     document.getElementById("deckDisplay").style.marginLeft = "-120%";
     setTimeout(() => {

@@ -43,11 +43,11 @@ export default class SpreadSheet extends Component {
                 </div>
                 <div>
                     <InfoContainer>
-                        <section id="shuffle">
+                        {/* <section id="shuffle">
                             <button className="purpleBtn" onClick={(e) => shuffleThis(e)}>
                                 Shuffle
                             </button>
-                        </section>
+                        </section> */}
                         <h2>{selectSpread.name}</h2>
                         <ol>
                             {showInfo}
@@ -56,6 +56,11 @@ export default class SpreadSheet extends Component {
                             <section id="restart">
                                 <button className="purpleBtn" onClick={(e) => restartThis(e)}>
                                     Close
+                                </button>
+                            </section>
+                            <section id="save">
+                                <button className="purpleBtn" onClick={(e) => restartThis(e)}>
+                                    Save
                                 </button>
                             </section>
                         </div>
