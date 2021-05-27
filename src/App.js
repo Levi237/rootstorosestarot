@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled               from 'styled-components';
 
 import firebase             from 'firebase/app';
-// import { Switch, Route }    from 'react-router-dom';
-// import * as routes          from './constants/routes';
+import { Switch, Route }    from 'react-router-dom';
+import * as routes          from './constants/routes';
 import Modal from './Modal';
 
 import Login                from './Login';
@@ -600,10 +600,24 @@ toggleHamburger = () => {
             { show === "account" && <div>hello account</div>}  
         </Modal>
         <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout} toggleHamburger={this.toggleHamburger}/>
-
-        <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
-        <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-        <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} showSpreadLayouts={this.showSpreadLayouts}/>
+        <Switch>
+        <Route path={routes.ROOT} exact render={() => 
+            <div> Hello World </div>
+                 }/>
+        <Route path={routes.ACCT} exact render={() => 
+            <div> MY TAROT CARD READINGS </div>
+                 }/>
+        <Route path={routes.FAQS} exact render={() => 
+            <div> MY TAROT CARD READINGS </div>
+                 }/>
+        <Route path={routes.LAYS} exact render={() => 
+            <>
+                <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
+                <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
+                <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} showSpreadLayouts={this.showSpreadLayouts}/>
+            </>
+         }/>
+        </Switch>
       </AppContainer>
     );
   };

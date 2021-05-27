@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
+import { NavLink } from 'react-router-dom';
+import * as routes from '../../constants/routes';
 
 export default class Nav extends Component {
 
@@ -14,9 +16,10 @@ export default class Nav extends Component {
                     <CloseBtn className="close xClose" onClick={() => {toggleHamburger()}}>
                         x
                     </CloseBtn>
-                    {/* <input type="submit" onClick={} value="HOME" /> */}
-                    { user && <input type="submit" onClick={() => {toggleHamburger();}} value="ACCOUNT" /> }
-                    <input type="submit" onClick={(e) => {showSpreadLayouts(e); toggleHamburger();}} value="Tarot Layouts" />               
+                    { user && <h2>{user.email}</h2> }
+                    <NavLink activeClassName="nav-active" to={routes.ROOT} onClick={(e) => {toggleHamburger();}}>HOME</NavLink>      
+                    { user && <NavLink activeClassName="nav-active" to={routes.ACCT} onClick={(e) => {toggleHamburger();}}>MY READINGS</NavLink> }
+                    <NavLink activeClassName="nav-active" to={routes.LAYS} onClick={(e) => {toggleHamburger();}}>TAROT LAYOUTS</NavLink>          
                     { user && <input type="submit" onClick={() => {logout(); toggleHamburger();}} value="logout" /> }
                     { !user && <input type="submit" onClick={(e) => {showModal(e); toggleHamburger();}} name="login" value="login" />
                     }
@@ -40,7 +43,7 @@ const NavContainer = styled.div`
     padding-top: 60px;
 
     position: fixed;
-
+    a,
     div {
         text-decoration: none;
         display: block;
@@ -49,19 +52,21 @@ const NavContainer = styled.div`
         color: var(--purple);
         transition: color .3s ease;
         text-align: center;
+        font-size: 16px;
         > input {
             display: block;
+            font-size: 16px;
             border: none;
             background-color: transparent;
             width: 200px;
             margin: 10px auto;
-            font-size: 16px;
             text-align: center;
             text-transform: uppercase;
         }
     }
+    a:hover,
     div > input:hover {
-        color: var(--green);
+        color: var(--green)!important;
         cursor: pointer;
     }
 

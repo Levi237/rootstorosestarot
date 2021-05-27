@@ -1,4 +1,4 @@
 export const ROOT = '/';
-export const THREE = '/three';
-export const CROSS = './cross';
-export const CELTIC = '/celtic-cross';
+export const LAYS = '/spread_layouts';
+export const ACCT = '/my_tarot_spreads';
+export const FAQS = '/faq';
