@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import * as routes from '../../constants/routes';
 
 export default class Nav extends Component {
 
@@ -16,15 +14,10 @@ export default class Nav extends Component {
                     <CloseBtn className="close xClose" onClick={() => {toggleHamburger()}}>
                         x
                     </CloseBtn>
-                    <br /><br /><br />
-                    <NavLink activeClassName="nav-active" to={routes.HOME} onClick={() => {toggleHamburger()}}>HOME</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.INFO} onClick={() => {toggleHamburger()}}>ABOUT US</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.SERV} onClick={() => {toggleHamburger()}}>WELLNESS SERVICES</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.WELL} onClick={() => {toggleHamburger()}}>PERSONAL WELLNESS</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.CORP} onClick={() => {toggleHamburger()}}>CORPORATE WELLNESS</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.YOGA} onClick={() => {toggleHamburger()}}>YOGA THERAPY</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.PREG} onClick={() => {toggleHamburger()}}>MATERNAL HEALTH</NavLink>
-                    <NavLink activeClassName="nav-active" to={routes.COAC} onClick={() => {toggleHamburger()}}>SPEAKING & COACHING</NavLink>
+                    <div>HOME</div>
+                    <div>ACCOUNT</div>
+                    <div>LOGOUT</div>
+                    <div>FAQ</div>
                 </div>
             </NavContainer>
         );
@@ -39,7 +32,7 @@ const NavContainer = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #744A9E;
+    background-color: #fff;
     color: #FFF;
 
     position: fixed;
@@ -74,7 +67,8 @@ const NavContainer = styled.div`
 `;
 const CloseBtn = styled.button`
     background-color: transparent;
-    border: 1px solid white!important;
+    border: 1px solid var(--purple)!important;
+    color: var(--purple)!important;
     border-radius: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -84,7 +78,7 @@ const CloseBtn = styled.button`
     min-height: 30px;
     min-width: 30px;
     &:hover {
-        border: 1px solid var(--lightgreen)!important;
-        color: var(--lightgreen);
+        border: 1px solid var(--green)!important;
+        color: var(--green)!important;
     }
 `;

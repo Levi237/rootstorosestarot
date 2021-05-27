@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled               from 'styled-components';
 
+import HamburgerNav from './nav/HamburgerNav';
 export default class Header extends Component {
     state = {
         logoHeader: "Roots to Roses Tarot"
@@ -27,7 +28,7 @@ export default class Header extends Component {
         };
     };
     render(){
-        const { showModal, user, uid, shuffleThis, logout } = this.props;
+        const { showModal, user, uid, shuffleThis, logout, toggleHamburger } = this.props;
         const mapLogo = [...this.state.logoHeader].map((l,k) => {
             return <span key={k} className="camo-logo">{l}</span>
         })
@@ -53,6 +54,7 @@ export default class Header extends Component {
                     :
                     <button onClick={(e) => {logout(e)}} name="logout" value="logout">Logout</button>
                 }
+                &emsp;<HamburgerNav toggleHamburger={toggleHamburger} />
                 </section>
             </LocalWrapper>
         );
@@ -78,6 +80,11 @@ const LocalWrapper = styled.header`
     display: flex;
     align-items: center;
     justify-content: left;
+    > section {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
     #shuffle-nav {
         display: none;
         position: absolute;

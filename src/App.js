@@ -7,6 +7,7 @@ import firebase             from 'firebase/app';
 import Modal from './Modal';
 
 import Login               from './Login';
+import NavMenu               from './components/nav/NavMenu';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
@@ -584,13 +585,20 @@ showModal = (e) => {
     this.setState({
       show: e.currentTarget.name
     })
+}
+toggleHamburger = () => {
+    const hamburgerMenu = document.getElementById('menu');
+    hamburgerMenu.classList.toggle('active');
+    hamburgerMenu.classList.toggle('inactive');
 };
+
   render(){
     const { hand, deck, shuffle, selectSpread, spreads, user, uid, show } = this.state;
 
     return (
       <AppContainer> 
-        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout}/>
+          <NavMenu  toggleHamburger={this.toggleHamburger} />
+        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout} toggleHamburger={this.toggleHamburger}/>
 
             <Modal show={show} onClose={this.showModal}>
             { show === "login" && <Login show={show} clearModal={this.clearModal}/> }
