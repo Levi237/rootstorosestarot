@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
-import Modal from './Modal';
-
 export default class SignIn extends Component{
     state = {
-        show: false,
         email: "",
         password: "",
         passwordConfirm: "",
@@ -55,7 +51,7 @@ export default class SignIn extends Component{
         })
     };
     render(){
-        const { fireErrors, loginBtn, formTitle, email, password, passwordConfirm, show } = this.state
+        const { fireErrors, loginBtn, formTitle, email, password, passwordConfirm } = this.state
         const { uid, onClose } = this.props
 
         let errorNotification = fireErrors ? 
@@ -68,7 +64,6 @@ export default class SignIn extends Component{
             <button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>;
 
         return(
-            <Modal show={show} onClose={this.showModal}>
                 <div className="enter-container">
                     <div className="enter-form">
                         <div className="errorNotification">{errorNotification}</div>
@@ -84,7 +79,6 @@ export default class SignIn extends Component{
                             </div>
                     </div>
                 </div>
-            </Modal>
         );
     };
 };

@@ -1,81 +1,318 @@
 import React, { Component } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { Redirect }         from 'react-router-dom';
+import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
-export default class Enter extends Component{
+// import Labels               from './Labels';
+// import Label                from './const/Label';
+import TestLabel            from './TEST-LABEL';
+// import TestToggle           from './TEST-TOGGLE';
+
+import UploadImage          from './UploadImage';
+import Modal                from './modal/Modal';
+
+import firebase             from 'firebase/app';
+import 'firebase/firestore';
+
+import './Form.css';
+
+import * as routes from '../constants/routes';
+
+const Arrow = ({ text, className }) => {
+  return (
+      <div className={className}>{text}</div>
+      );
+    };
+    const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
+    const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
+    
+export default class Form extends Component {
     state = {
-        email: "",
-        password: "",
-        passwordConfirm: "",
-        fireErrors:"",
-        formTitle: "Login",
-        loginBtn: true,
+        examples: [],
+        header: "HEATMAKERS",
+        style: "X Hot Sauce X",
+        label: "label2",
+        icon: "real-chili.jpg",
+        chili: [],
+        spice: {
+            name: "Pick a",
+            items: []
+        },
+        extra: [],
+        vinegar: {
+            name: "Pick a",
+        },
+        show: false,
+        toggle: false,
+        examplesVisibility: false,
+        close: false,
+        img: null,
+
+        labelMaker: {
+            // topBar: null,
+            // headerBar: null,
+            // outerBorder: null,
+            // innerBorder: null, 
+            // nameBar: null,
+            // bottomBar: null,
+            // imgCover: null,
+            // imgIcon: null,
+            // icon: null,
+            // background: null,
+        }
     };
 
+    componentDidMount = () => {
+        const { recipes, edit, uid } = this.props
+        if (edit){
+            recipes.forEach(recipe => {
+                if (recipe.id.includes(edit)){
+                    this.setState({
+                        header: recipe.header,
+                        style: recipe.style,
+                        label: recipe.label,
+                        icon: recipe.icon,
+                        chili: recipe.chili,
+                        spice: recipe.spice,
+                        extra: recipe.extra,
+                        vinegar: recipe.vinegar,
+                        img: recipe.img,
+                    })
+                }
+            })
+        } else {
+            this.loadExamples();
+        }
+        this.setState({ uid })
+    };
+
+    updateRecipe = async (e, recipe) => {
+        e.preventDefault();
+        const _id = this.props.edit
+        const update = await firebase
+            .firestore()
+            .collection('recipes')
+            .doc(_id)
+            .update({
+                header: recipe.header,
+                style: recipe.style,
+                label: recipe.label,
+                icon: recipe.icon,
+                chili: recipe.chili,
+                spice: recipe.spice,
+                extra: recipe.extra,
+                vinegar: recipe.vinegar,
+                img: recipe.img,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+            this.setState({
+                close: true,
+            })   
+            return update    
+    };
+    loadExamples(){
+        firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
+            const examples = serverUpdate.docs.map(_doc => {
+                const data = _doc.data();
+                data['id'] = _doc.id;
+                return data
+            });
+            this.setState({ examples })
+        })
+    };
+    updateImageSelected = img => {
+        this.setState({ img })
+    };
+    exampleToggle = (e, value) => {
+        e.preventDefault();
+        this.setState({
+            chili: value.chili,
+            spice: value.spice,
+            extra: value.extra,
+            vinegar: value.vinegar
+        }) 
+    };
+    extraToggle = (e, value) => {
+        const { extra } = this.state;
+        e.preventDefault();
+        if (extra.includes(value)){
+            this.setState(prevState => ({ 
+                extra: prevState.extra.filter(x => (
+                    x.id !== value.id
+                ))
+            }));
+         }else{
+            this.setState({
+                extra: [...extra, value]
+            })
+        }
+    };
+    chiliToggle = (e, value) => {
+        const { chili } = this.state
+        e.preventDefault();;
+        if ((chili[0] && chili[0].id === value.id) || (chili[1] && chili[1].id === value.id)){
+            this.setState(prevState => ({ 
+                chili: prevState.chili.filter(x => (
+                    x.id !== value.id
+                )) 
+            }));
+        }else if(chili.length < 2 ){
+            this.setState({
+                chili: [...chili, value]
+            })
+        }
+    };
+    setToggle = (e, value) => {
+        this.setState({
+            [e.target.name]: value
+        })
+    };
+    toggleChange = e => {
+        this.setState({
+            [e.target.name]: !e.target.value
+        })
+    };
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         });
     };
-
-    login = e => {
-        e.preventDefault();
-        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-            .catch((error) => {
-                this.setState({fireErrors: error.message})
-            });
+    setLabel = (e) => {
+        let labelImage = [];
+        const data = e.currentTarget.id
+        labelImage = data.split(" ")
+        this.setState({
+            label: labelImage[0],
+            icon: labelImage[1]
+        })
     };
-    register = e => {
-        e.preventDefault();
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .catch((error) => {
-                this.setState({fireErrors: error.message})
-            })
+    onClose = (e) => {
+        this.props.onClose && this.props.onClose(e);
     };
-
-    getAction = action => {
-        if (this.state.password === this.state.passwordConfirm ) {
-            if(action === "reg"){
-                this.setState({formTitle: "Register New User", loginBtn: false, fireErrors: ""})
-            }else{
-                this.setState({formTitle: "Login", loginBtn: true, fireErrors: ""})
-            }
-        } else {
-            alert('passwords dont match');
-        }
+    showModal = (e) => {
+        this.setState({
+          ...this.state,
+          show: e.currentTarget.name
+        })
     };
-
-
     render(){
-        const { fireErrors, loginBtn, formTitle, email, password, passwordConfirm } = this.state
-        // const { newSpread, onClose } = this.props
+        const { chili, spice, vinegar, extra, examples, style, labelMaker, img, icon, header, close, show, examplesVisibility } = this.state
+        const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
 
-        let errorNotification = fireErrors ? 
-            <div className="Error">{fireErrors}</div> : null;
-        let submitBtn = loginBtn ? 
-            <button className="loginBtn" type="submit" onClick={this.login}>Enter</button> : 
-            <button className="loginBtn" type="submit" onClick={this.register}>Register</button>;
-        let login_register = loginBtn ? 
-            <button className="registerBtn" onClick={() => this.getAction('reg')}>Register</button> : 
-            <button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>;
+        let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] };        
+        let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] };
+        let extra1 = ""; if ( extra[0] ){ extra1 = extra[0] };
+        let extra2 = ""; if ( extra[1] ){ extra2 = extra[1] };
+        let extra3 = ""; if ( extra[2] ){ extra3 = extra[2] };
+        let extra4 = ""; if ( extra[3] ){ extra4 = extra[3] };
+        let extra5 = ""; if ( extra[4] ){ extra5 = extra[4] };
+        let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] };
+        let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] };
 
-        return(
-            <div className="enter-container ">
-                <div className="enter-form">
-            {/* { newSpread && <button className="close xClose" onClick={(e) => {onClose(e)}}>X</button> } */}
-                    <div className="errorNotification">{errorNotification}</div>
-                    <div id="title">{formTitle}</div>
-                        <div className="body">
-                            <form>
-                                <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
-                                <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
-                                <input type="password" value={passwordConfirm} onChange={this.handleChange} name="passwordConfirm" placeholder="confirm password"  />
-                                {submitBtn}
-                            </form>
-                            {login_register}
+        const chiliList = chilis.map((ch, key) => {
+            return (
+                <section className="chiliSection" key={key}>
+                    <button name="chili" value={ch} className={(chili1.id === ch.id || chili2.id === ch.id ? "toggleOn select-btn" : "select-btn")} onClick={(e) => {this.chiliToggle(e, ch)}} type="button"></button>
+                    <section><img src={`../chilis/${ch.src}`} alt={ch.name}/><br/>{ch.name}</section>
+                </section>
+            )
+        })
+        const spiceList = spices.map((sp, i) => {
+            const spiceItems= sp.items.map((item, key) => {
+                return <li key={key}>{item}</li>
+            })
+            return (
+                <section className="spiceSection" key={i}> 
+                    <button name="spice" value={sp} className={(spice.id === sp.id ? "toggleOn select-btn" : "select-btn")} onClick={(e) => {this.setToggle(e, sp)}} type="button"></button>
+                    <section>{sp.name}<ul>{spiceItems}</ul></section>
+                </section>
+            )
+        })
+        const extraList = extras.map((ex, key) => {
+            return (
+                <section className="chiliSection" id={`${ex.name}`} key={key}>
+                    <button name="extra" value={ex} className={(extra1.id === ex.id || extra2.id === ex.id || extra3.id === ex.id || extra4.id === ex.id || extra5.id === ex.id || extra6.id === ex.id || extra7.id === ex.id ? "toggleOn select-btn" : "select-btn")} onClick={(e) => {this.extraToggle(e, ex)}} type="button"></button>
+                    <section><img src={`../extras/${ex.img}`} alt={`${ex.name}`}/><br/>{ex.name}</section>
+                </section>
+            )
+        })
+        const vinegarList = vinegars.map((vi, key) => {
+            return(
+                <section className="chiliSection" key={key}>
+                    <button name="vinegar" className={(vinegar.name === vi.name? "toggleOn select-btn" : "select-btn")} onClick={(e) => {this.setToggle(e, vi)}} type="button"></button>
+                    <section><img src={`../vinegars/${vi.img}`} alt={`${vi.name}`}/><br/>{vi.name}</section>
+                </section>
+            )
+        })
+
+        const showExamples = examples.map((ex, i) => {
+            return(
+                <section className="chiliSection" key={i}>
+                <button name={ex} value={ex} className={((chili === ex.chili && spice === ex.spice) ? "active select-btn" : "select-btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
+                <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
+            </section>
+            )
+        })
+        
+        return(<>
+            <Modal show={show} onClose={this.showModal}>
+                { show === "upload" && 
+                    <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} /> }
+                { show === "samples" && 
+                    <div>Provide Samples</div>}
+                { show === "text" && 
+                    <div>Provide Modal to add Text and change colors</div> }
+                { show === "info" && 
+                    <div>Provide Explanation of Label Maker</div> }
+            </Modal>
+            <div className="form-container">
+
+                <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { createNewRecipe(e, this.state)}}>
+                { newRecipe && <Redirect to={'/save-recipe'} /> }  
+                { close     && <Redirect to={routes.HOME}/> }
+                    <div className="box2">
+                    { examplesVisibility 
+                    ? <>
+                        <button name="examplesVisibility" value={examplesVisibility} onClick={this.toggleChange}>Close</button>
+                        <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                      </>
+                    : <button name="examplesVisibility" value={examplesVisibility} onClick={this.handleChange}>Examples</button>
+                    }
+                        <div className="myProgress">
+                        { chili[1] 
+                        ? <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
+                        : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           
+                        }
                         </div>
-                </div>
+                        <div className="chiliSection">
+                            <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                        </div>
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                            <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                            <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                            <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                    </div>   
+                    <div className="box1">
+
+                        <TestLabel icon={icon} img={img} labelMaker={labelMaker} showModal={this.showModal} user={user}/>
+
+                        {edit &&
+                            <>
+                                <button className="save-btn" type="submit">Update</button>
+                                <button className="save-btn" type="submit" onClick={closeEditForm} >Close</button>
+                            </>
+                        }
+                        {!edit && 
+                            <>
+                                { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
+                                { (!header || !style || !chili[0]) && <input className="save-btn" type="text" placeholder="..."/>}
+                            </>
+                        }                       
+                    </div>      
+                </form>
             </div>
-        );
+        </>);
     };
 };

@@ -4,6 +4,8 @@ import styled               from 'styled-components';
 import firebase             from 'firebase/app';
 // import { Switch, Route }    from 'react-router-dom';
 // import * as routes          from './constants/routes';
+import Modal from './Modal';
+
 import SignIn               from './SignIn';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
@@ -444,6 +446,7 @@ export default class App extends Component {
     shuffle: [],
     hand: [],
     selectSpread: {},
+    show: false,
   }
   componentDidMount = () => {
     this.authListener();
@@ -568,13 +571,21 @@ export default class App extends Component {
         }, 0);
     };
 };
+showModal = (e) => {
+    this.setState({
+      ...this.state,
+      show: e.currentTarget.name
+    })
+};
   render(){
-    const { hand, deck, shuffle, selectSpread, spreads, uid } = this.state;
+    const { hand, deck, shuffle, selectSpread, spreads, uid, show } = this.state;
 
     return (
       <AppContainer> 
         <Header shuffleThis={this.shuffleThis}/>
-        <SignIn uid={uid}/>
+        <Modal show={show} onClose={this.showModal}>
+        <SignIn uid={uid} show={show}/>
+        </Modal>
           <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
           <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
           <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>

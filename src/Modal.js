@@ -20,9 +20,9 @@ export default class Model extends Component {
 
                     {this.props.children}
                     
-                    <button className="close" onClick={(e) => {this.onClose(e)}}>
+                    {/* <button className="close" onClick={(e) => {this.onClose(e)}}>
                         Go Back
-                    </button>
+                    </button> */}
                 </div>
 
             </div>

@@ -36,10 +36,10 @@ export default class Header extends Component {
                     {mapLogo}
                 </LogoHeader>
                 <section id="shuffle-nav">
-                            <button onClick={(e) => this.props.shuffleThis(e)}>
-                                Shuffle
-                            </button>
-                        </section>
+                    <button onClick={(e) => this.props.shuffleThis(e)}>
+                        Shuffle
+                    </button>
+                </section>
             </LocalWrapper>
         );
     };
