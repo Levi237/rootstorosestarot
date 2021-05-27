@@ -557,17 +557,30 @@ export default class App extends Component {
     document.getElementById("deckDisplay").style.marginLeft = "-120%";
     setTimeout(() => {
         document.getElementById("deckDisplay").style.marginBottom = "-40%"; 
-        this.state.shuffle = [];
+        this.clearDeck();
     }, 1000);
     setTimeout(() => {
         document.getElementById("spread-header").style.display = "block";
         document.getElementById("spread-container").style.display = "block";
         document.getElementById("spreadsheet-container").style.display = "none";
-        this.state.selectSpread = {};
-        this.state.hand = [];
+        this.clearSelections();
     }, 1200);
   }
-
+  clearAll = () => {
+    this.clearDeck();
+    this.clearSelections();
+  }
+  clearDeck = () => {
+    this.setState({
+        shuffle: []
+      })
+  }
+clearSelections = () => {
+    this.setState({
+        selectSpread: {},
+        hand: []
+      })
+}
   animateDeck(){   
     let getCard = document.getElementsByClassName('dealtCard');
     for (let i = 0; i < getCard.length; i++) {
@@ -594,7 +607,7 @@ toggleHamburger = () => {
 
     return (
       <AppContainer> 
-        <NavMenu toggleHamburger={this.toggleHamburger} showModal={this.showModal} logout={this.logout} user={user} showSpreadLayouts={this.showSpreadLayouts}/>
+        <NavMenu toggleHamburger={this.toggleHamburger} showModal={this.showModal} logout={this.logout} user={user} showSpreadLayouts={this.showSpreadLayouts} clearAll={this.clearAll}/>
         <Modal show={show} onClose={this.showModal}>
             { show === "login" && <Login show={show} clearModal={this.clearModal}/> }
             { show === "account" && <div>hello account</div>}  

@@ -8,7 +8,7 @@ export default class Nav extends Component {
 
 
     render(){
-        const { toggleHamburger, logout, user, showModal, showSpreadLayouts } = this.props;
+        const { toggleHamburger, logout, user, showModal, showSpreadLayouts, clearAll } = this.props;
         
         return(
             <NavContainer id="menu" className="inactive">
@@ -16,10 +16,10 @@ export default class Nav extends Component {
                     <CloseBtn className="close xClose" onClick={() => {toggleHamburger()}}>
                         x
                     </CloseBtn>
-                    { user && <h2>{user.email}</h2> }
-                    <NavLink activeClassName="nav-active" to={routes.ROOT} onClick={(e) => {toggleHamburger();}}>HOME</NavLink>      
-                    { user && <NavLink activeClassName="nav-active" to={routes.ACCT} onClick={(e) => {toggleHamburger();}}>MY READINGS</NavLink> }
-                    <NavLink activeClassName="nav-active" to={routes.LAYS} onClick={(e) => {toggleHamburger();}}>TAROT LAYOUTS</NavLink>          
+                    { user ? <h2>{user.email}</h2> : <h2>Roots to Roses Tarot</h2>}
+                    <NavLink activeClassName="nav-active" to={routes.ROOT} onClick={(e) => {toggleHamburger(); clearAll();}}>HOME</NavLink>      
+                    { user && <NavLink activeClassName="nav-active" to={routes.ACCT} onClick={(e) => {toggleHamburger(); clearAll();}}>MY READINGS</NavLink> }
+                    <NavLink activeClassName="nav-active" to={routes.LAYS} onClick={(e) => {toggleHamburger(); clearAll();}}>TAROT LAYOUTS</NavLink>          
                     { user && <input type="submit" onClick={() => {logout(); toggleHamburger();}} value="logout" /> }
                     { !user && <input type="submit" onClick={(e) => {showModal(e); toggleHamburger();}} name="login" value="login" />
                     }
@@ -43,6 +43,10 @@ const NavContainer = styled.div`
     padding-top: 60px;
 
     position: fixed;
+
+    h2 {
+        margin-bottom: 20px;
+    }
     a,
     div {
         text-decoration: none;
