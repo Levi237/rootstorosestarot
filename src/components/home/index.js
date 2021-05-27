@@ -48,18 +48,27 @@ const HomeWrapper = styled.div`
     }
 `;
 const HomeIntro = styled.section`
-    width: 640px;
-    margin: 0 auto;
+    max-width: 640px;
+    margin: 40px auto;
+    h2 {
+        margin-bottom: 20px;
+    }
+    p:first-of-type {
+        margin-bottom: 20px;
+    }
     > section {
         display: inline-block;
-        &:first-of-type{
-            width: 200px
+        &:first-of-type {
+            width: 31.25%;
             img {
-                width: 200px;
+                width: 100%;
             }
         }
         &:last-of-type{
-            width: 400px;
+            width: 62.5%;
+            margin-top: 6.25%;
+            margin-left: 6.25%;
+            vertical-align: top;
         }
     }
     
