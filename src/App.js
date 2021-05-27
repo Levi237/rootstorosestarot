@@ -6,8 +6,8 @@ import firebase             from 'firebase/app';
 // import * as routes          from './constants/routes';
 import Modal from './Modal';
 
-import Login               from './Login';
-import NavMenu               from './components/nav/NavMenu';
+import Login                from './Login';
+import NavMenu              from './components/nav/NavMenu';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
 import Spreads              from './components/spreads';
@@ -522,7 +522,6 @@ export default class App extends Component {
         shuffle.pop();
     };
     if (hand.length === selectSpread.cards - 1) {
-        // document.getElementById("shuffle").style.display = "none";
         document.getElementById("shuffle-nav").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
         setTimeout(() => {
@@ -538,7 +537,6 @@ export default class App extends Component {
     document.getElementById("deckDisplay").style.marginLeft = "0";
     document.getElementById("deckDisplay").style.marginBottom = "0";
     document.getElementById("deckDisplay").style.position = "relative";
-    // document.getElementById("shuffle").style.display = "block";
     document.getElementById("shuffle-nav").style.display = "block";
     document.getElementById("spreadsheet-container").style.display = "grid";
     
@@ -554,8 +552,7 @@ export default class App extends Component {
         this.animateDeck();
     }, 2000);
   };
-  restartThis = (e) => {
-    // document.getElementById("shuffle").style.display = "none";
+  showSpreadLayouts = (e) => {
     document.getElementById("shuffle-nav").style.display = "none";
     document.getElementById("deckDisplay").style.marginLeft = "-120%";
     setTimeout(() => {
@@ -597,17 +594,16 @@ toggleHamburger = () => {
 
     return (
       <AppContainer> 
-          <NavMenu toggleHamburger={this.toggleHamburger} showModal={this.showModal} logout={this.logout} user={user}/>
-        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout} toggleHamburger={this.toggleHamburger}/>
-
-            <Modal show={show} onClose={this.showModal}>
+        <NavMenu toggleHamburger={this.toggleHamburger} showModal={this.showModal} logout={this.logout} user={user} showSpreadLayouts={this.showSpreadLayouts}/>
+        <Modal show={show} onClose={this.showModal}>
             { show === "login" && <Login show={show} clearModal={this.clearModal}/> }
             { show === "account" && <div>hello account</div>}  
-            </Modal>
+        </Modal>
+        <Header shuffleThis={this.shuffleThis} showModal={this.showModal} uid={uid} user={user} logout={this.logout} toggleHamburger={this.toggleHamburger}/>
 
         <Deck selectSpread={selectSpread} deck={deck} hand={hand} selectCard={this.selectCard} shuffle={shuffle} animateDeck={this.animateDeck}/>
         <Spreads spreads={spreads} selectSpread={this.selectSpread}/>
-        <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} restartThis={this.restartThis}/>
+        <SpreadSheet hand={hand} selectSpread={selectSpread} shuffleThis={this.shuffleThis} showSpreadLayouts={this.showSpreadLayouts}/>
       </AppContainer>
     );
   };

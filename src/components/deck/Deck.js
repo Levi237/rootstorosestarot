@@ -68,7 +68,7 @@ const Container = styled.div`
             }
         }
     }
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 640px) {
         > section {
             text-align: right;
             right: 5px;

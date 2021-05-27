@@ -6,7 +6,7 @@ export default class Nav extends Component {
 
 
     render(){
-        const { toggleHamburger, logout, user, showModal } = this.props;
+        const { toggleHamburger, logout, user, showModal, showSpreadLayouts } = this.props;
         
         return(
             <NavContainer id="menu" className="inactive">
@@ -15,10 +15,10 @@ export default class Nav extends Component {
                         x
                     </CloseBtn>
                     {/* <input type="submit" onClick={} value="HOME" /> */}
-                    { user ?
-                    <input type="submit" onClick={() => {toggleHamburger(); logout();}} value="LOGOUT" />
-                    :
-                    <input type="submit" onClick={(e) => {showModal(e)}} name="login" value="login" />
+                    { user && <input type="submit" onClick={() => {toggleHamburger();}} value="ACCOUNT" /> }
+                    <input type="submit" onClick={(e) => {showSpreadLayouts(e); toggleHamburger();}} value="Tarot Layouts" />               
+                    { user && <input type="submit" onClick={() => {logout(); toggleHamburger();}} value="logout" /> }
+                    { !user && <input type="submit" onClick={(e) => {showModal(e); toggleHamburger();}} name="login" value="login" />
                     }
                     {/* <input type="submit" onClick={} value="FAQ" /> */}
                 </div>
@@ -48,12 +48,23 @@ const NavContainer = styled.div`
         padding-top: 10px;
         color: var(--purple);
         transition: color .3s ease;
+        text-align: center;
+        > input {
+            display: block;
+            border: none;
+            background-color: transparent;
+            width: 200px;
+            margin: 10px auto;
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+        }
     }
-    div:hover {
+    div > input:hover {
         color: var(--green);
         cursor: pointer;
     }
-    
+
     button {
         position: absolute;
         top: 5px;

@@ -3,7 +3,7 @@ import styled                   from 'styled-components';
 
 export default class SpreadSheet extends Component {
     render(){
-        const { hand, selectSpread, shuffleThis, restartThis } = this.props;
+        const { hand, selectSpread, showSpreadLayouts } = this.props;
 
         let sheet = []
         let num = selectSpread.cards;
@@ -43,23 +43,18 @@ export default class SpreadSheet extends Component {
                 </div>
                 <div>
                     <InfoContainer>
-                        {/* <section id="shuffle">
-                            <button className="purpleBtn" onClick={(e) => shuffleThis(e)}>
-                                Shuffle
-                            </button>
-                        </section> */}
                         <h2>{selectSpread.name}</h2>
                         <ol>
                             {showInfo}
                         </ol>
                         <div>
                             <section id="restart">
-                                <button className="purpleBtn" onClick={(e) => restartThis(e)}>
+                                <button className="purpleBtn" onClick={(e) => showSpreadLayouts(e)}>
                                     Close
                                 </button>
                             </section>
                             <section id="save">
-                                <button className="purpleBtn" onClick={(e) => restartThis(e)}>
+                                <button className="purpleBtn" onClick={(e) => showSpreadLayouts(e)}>
                                     Save
                                 </button>
                             </section>
