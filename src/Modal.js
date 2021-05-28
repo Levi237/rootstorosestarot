@@ -11,7 +11,7 @@ export default class Model extends Component {
         if (!this.props.show){
             return null;
         }
-        const { } = this.props
+        // const { } = this.props
         return(
             <ModalWrapper className="modal">
                 <div>
