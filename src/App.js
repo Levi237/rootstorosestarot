@@ -630,7 +630,7 @@ toggleHamburger = () => {
             />
         <Switch>
         <Route path={routes.ROOT} exact render={() => 
-            <HomePage /> }/>
+            <HomePage clearAll={this.clearAll}/> }/>
         <Route path={routes.ACCT} exact render={() => 
             <div> MY TAROT CARD READINGS </div> }/>
         <Route path={routes.FAQS} exact render={() => 
