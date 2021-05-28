@@ -43,18 +43,12 @@ export default class Header extends Component {
                     </button>
                 </section>
                 <section id="login-logout">
-                { user && 
-                    <React.Fragment>
-                        <span>{user.email}</span>&emsp;
-                        <button onClick={(e) => {showModal(e)}} name="account" value="account">Account</button>&emsp;
-                    </React.Fragment>
-                }
                 { uid === null ?
                     <button onClick={(e) => {showModal(e)}} name="login" value="login">Login</button>
                     :
-                    <button onClick={(e) => {logout(e)}} name="logout" value="logout">Logout</button>
+                    <span>{user.email}&emsp;</span>
                 }
-                &emsp;<HamburgerNav toggleHamburger={toggleHamburger} />
+                <HamburgerNav toggleHamburger={toggleHamburger} />
                 </section>
             </LocalWrapper>
         );
