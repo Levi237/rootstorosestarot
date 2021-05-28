@@ -1,7 +1,21 @@
-import React, { Component }     from 'react';
-import styled                   from 'styled-components';
+import React, { Component } from 'react';
+import styled               from 'styled-components';
 
+import firebase             from 'firebase/app';
 export default class SpreadSheet extends Component {
+
+    saveForm = async () => {
+        const { hand } = this.props;
+        const newFromDB = await firebase.firestore()
+            .collection('spreads')
+            .add({
+                hand: hand,
+                uid: firebase.auth().currentUser.uid,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+        return newFromDB
+    };
+
     render(){
         const { hand, selectSpread, showSpreadLayouts } = this.props;
 
@@ -54,7 +68,7 @@ export default class SpreadSheet extends Component {
                                 </button>
                             </section>
                             <section id="save">
-                                <button className="purpleBtn" onClick={(e) => showSpreadLayouts(e)}>
+                                <button className="purpleBtn" onClick={this.saveForm()}>
                                     Save
                                 </button>
                             </section>
