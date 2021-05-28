@@ -28,7 +28,7 @@ export default class Deck extends Component {
 const Container = styled.div`
     width: 100vw;
     > h1 {
-        margin: 60px auto 40px;
+        margin: 50px auto 40px;
         font-family: var(--decorative-font);
         color: #fff;
         font-weight: 100;
@@ -66,6 +66,9 @@ const Container = styled.div`
                     width: 100%;
                 }
             }
+        }
+        img {
+            pointer-events: none;
         }
     }
     @media screen and (max-width: 640px) {
