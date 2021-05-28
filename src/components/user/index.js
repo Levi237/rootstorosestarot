@@ -15,7 +15,6 @@ const UserPage = ({user}) => {
             <section>
                 <div>
                     <br/><br/>
-                    {/* <h1>levieiko@gmail.com</h1> */}
                     <h1>{user.email}</h1>
                     <ul>
                         <li>
