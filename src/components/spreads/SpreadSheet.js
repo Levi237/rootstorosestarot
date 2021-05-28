@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import styled               from 'styled-components';
 
 import firebase             from 'firebase/app';
+import 'firebase/firestore';
 export default class SpreadSheet extends Component {
 
-    saveForm = async () => {
+    saveHand = async () => {
         const { hand } = this.props;
-        const newFromDB = await firebase.firestore()
-            .collection('spreads')
-            .add({
+        console.log("saveHand => hand", hand)
+        const newFromDB = await firebase.firestore().collection('spreads').add({
                 hand: hand,
                 uid: firebase.auth().currentUser.uid,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
             })
         return newFromDB
     };
@@ -68,7 +68,7 @@ export default class SpreadSheet extends Component {
                                 </button>
                             </section>
                             <section id="save">
-                                <button className="purpleBtn" onClick={this.saveForm()}>
+                                <button className="purpleBtn" onClick={() => {this.saveHand();}}>
                                     Save
                                 </button>
                             </section>
