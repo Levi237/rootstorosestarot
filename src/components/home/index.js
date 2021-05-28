@@ -10,7 +10,7 @@ const HomePage = ({clearAll}) => {
             <h1>W<small>ELCOME TO</small></h1>
             <h1>R<small>OOTS TO </small><span>R<small>OSES</small></span> T<small>AROT</small></h1>
             <HomeIntro>
-                <section><img src="/deck/back.jpg"/></section>
+                <section><img src="/deck/back.jpg" alt="deck back"/></section>
                 <section>
                     <h2>
                         Lorem ipsum dolor sit amet, 

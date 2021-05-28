@@ -23,12 +23,12 @@ export default class SpreadSheet extends Component {
         let num = selectSpread.cards;
         while (num > 0) {
             num -= 1
-            sheet.push(<div key={num}><img src="./deck/back.jpg"/></div>)
+            sheet.push(<div key={num}><img src="./deck/back.jpg" alt="deck back"/></div>)
         }
         const showHand = hand.map((h, k) => {
             return (
                 <div key={k} >
-                    <img style={{transform: `rotate(${180*h.rotation + 'deg'})`}} src={`./deck/${h.id}.jpg`}/>
+                    <img style={{transform: `rotate(${180*h.rotation + 'deg'})`}} src={`./deck/${h.id}.jpg`} alt={`${h.title}`}/>
                 </div>
             )
         })

@@ -17,7 +17,7 @@ export default class Deck extends Component {
             <h1 id="spread-header">pick your tarot layout</h1>
                 <div id="displayContainer">
                     <div id="deckDisplay">
-                        { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg"/></div>}
+                        { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg" alt="deck back"/></div>}
                     </div>
                 </div>
             </Container>
