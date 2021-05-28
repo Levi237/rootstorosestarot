@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HomePage = ({}) => {
+import { NavLink } from 'react-router-dom';
+import * as routes from '../../constants/routes';
+
+const HomePage = ({clearAll}) => {
     return(
         <HomeWrapper>
             <h1>W<small>ELCOME TO</small></h1>
-            <h1>R<small>OOTS TO </small>R<small>OSES</small> T<small>AROT</small></h1>
+            <h1>R<small>OOTS TO </small><span>R<small>OSES</small></span> T<small>AROT</small></h1>
             <HomeIntro>
                 <section><img src="/deck/back.jpg"/></section>
                 <section>
@@ -25,6 +28,7 @@ const HomePage = ({}) => {
                         sunt in culpa qui officia deserunt mollit anim 
                         id est laborum.
                     </p>
+            <NavLink to={routes.LAYS} onClick={(e) => {clearAll();}}>View Tarot Spreads</NavLink>      
                 </section>
             </HomeIntro>
         </HomeWrapper>
@@ -45,6 +49,9 @@ const HomeWrapper = styled.div`
             font-weight: 600;
             margin-top: 60px;
         }
+        span {
+            color: var(--gold);
+        }
     }
 `;
 const HomeIntro = styled.section`
@@ -53,8 +60,14 @@ const HomeIntro = styled.section`
     h2 {
         margin-bottom: 20px;
     }
-    p:first-of-type {
+    p {
         margin-bottom: 20px;
+    }
+    a {
+        color: var(--gold);
+        &:hover {
+            opacity: .8;
+        }
     }
     > section {
         display: inline-block;
@@ -71,7 +84,24 @@ const HomeIntro = styled.section`
             vertical-align: top;
         }
     }
-    
+    @media screen and (max-width: 640px) {
+        width: 90%;
+        > section {
+            display: block;
+            margin: 20px auto 60px!important;
+            &:first-of-type {
+                width: 60%;
+
+                img {
+                    width: 100%;
+                }
+            }
+            &:last-of-type{
+                width: 100%;
+                vertical-align: top;
+            }
+        }
+    }
 `;
 
 export default HomePage;
