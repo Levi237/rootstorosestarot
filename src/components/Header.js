@@ -28,7 +28,7 @@ export default class Header extends Component {
         };
     };
     render(){
-        const { showModal, user, uid, shuffleThis, logout, toggleHamburger } = this.props;
+        const { showModal, user, uid, shuffleThis, toggleHamburger } = this.props;
         const mapLogo = [...this.state.logoHeader].map((l,k) => {
             return <span key={k} className="camo-logo">{l}</span>
         })
