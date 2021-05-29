@@ -13,7 +13,6 @@ import reportWebVitals from './reportWebVitals';
 
 import dotenv from 'dotenv';
 dotenv.config();
-// require('dotenv').config();
 
 firebase.initializeApp({
   apiKey: `${process.env.REACT_APP_FIREBASE_APIKEY}`,
