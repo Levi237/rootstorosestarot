@@ -92,5 +92,11 @@ const LocalWrapper = styled.header`
             display: inline-block;
             text-transform: uppercase;
         }
+        button {
+            border: none;
+            background: transparent;
+            text-decoration: underline!important;
+            margin-right: 10px;
+        }
     }
 `;
