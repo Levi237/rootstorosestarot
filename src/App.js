@@ -454,21 +454,21 @@ export default class App extends Component {
             email: "levieiko@gmail.com",
             displayName: null
         }
-    }
+    };
     componentDidMount = () => {
         this.authListener();
-    }
+    };
 
     authListener(){
         firebase.auth().onAuthStateChanged((user) => {
-        if(user){
-            this.setState({
-            user: user.providerData[0],
-            uid: firebase.auth().currentUser.uid
-            });
-        }else{
-            this.setState({user: null, uid: null});
-        };
+            if(user){
+                this.setState({
+                user: user.providerData[0],
+                uid: firebase.auth().currentUser.uid
+                });
+            }else{
+                this.setState({user: null, uid: null});
+            };
         });
     };
     logout = () => {
@@ -490,7 +490,7 @@ export default class App extends Component {
             newDeck.splice(index, 1);
         };
         this.setState({
-        shuffle: [...shuffledDeck]
+            shuffle: [...shuffledDeck]
         });
     };
     shuffleThis = () => {
@@ -498,7 +498,7 @@ export default class App extends Component {
         for (let i = 0; i < dealtDeck.length; i++) {
             dealtDeck[i].classList.add('shuffleDeck');
             setTimeout(() => {
-                dealtDeck[i].classList.remove('shuffleDeck')
+                dealtDeck[i].classList.remove('shuffleDeck');
             }, 2000);
         };
     };
@@ -595,7 +595,7 @@ export default class App extends Component {
     };
     showModal = (e) => {
         this.setState({
-        show: e.currentTarget.name
+            show: e.currentTarget.name
         });
     };
     clearModal = () => {
