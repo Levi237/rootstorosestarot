@@ -541,13 +541,15 @@ export default class App extends Component {
         document.getElementById("spreadsheet-container").style.display = "grid";
         
         this.state.spreads.filter(s => {
-        if ( t === s.name ) {
-            this.setState({
-                selectSpread: s
-            });
-        };
-        })
+            if ( t === s.name ) {
+                this.setState({
+                    selectSpread: s
+                });
+            };
+        });
+        
         this.showDeck();
+
         setTimeout(() => {
             this.animateDeck();
         }, 2000);
@@ -565,22 +567,22 @@ export default class App extends Component {
             document.getElementById("spreadsheet-container").style.display = "none";
             this.clearSelections();
         }, 1200);
-    }
+    };
     clearAll = () => {
         this.clearDeck();
         this.clearSelections();
-    }
+    };
     clearDeck = () => {
         this.setState({
             shuffle: []
-        })
-    }
+        });
+    };
     clearSelections = () => {
         this.setState({
             selectSpread: {},
             hand: []
-        })
-    }
+        });
+    };
     animateDeck(){   
         let getCard = document.getElementsByClassName('dealtCard');
         for (let i = 0; i < getCard.length; i++) {
@@ -594,13 +596,13 @@ export default class App extends Component {
     showModal = (e) => {
         this.setState({
         show: e.currentTarget.name
-        })
-    }
+        });
+    };
     clearModal = () => {
         this.setState({
             show: ""
-        })
-    }
+        });
+    };
     toggleHamburger = () => {
         const hamburgerMenu = document.getElementById('menu');
         hamburgerMenu.classList.toggle('active');
