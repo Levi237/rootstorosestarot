@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import styled               from 'styled-components';
 
-import firebase             from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 export default class SpreadSheet extends Component {
 
     saveHand = async () => {
-        const { hand } = this.props;
-        console.log("saveHand => hand", hand)
+        const { hand, selectSpread } = this.props;
         const newFromDB = await firebase.firestore().collection('spreads').add({
                 hand: hand,
+                layout: selectSpread,
                 uid: firebase.auth().currentUser.uid,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             })

@@ -658,6 +658,7 @@ export default class App extends Component {
                     selectSpread={selectSpread} 
                     shuffleThis={this.shuffleThis} 
                     showSpreadLayouts={this.showSpreadLayouts}
+                    user={user}
                     />
             </>
          }/>

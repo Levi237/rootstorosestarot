@@ -11,9 +11,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// import dotenv from 'dotenv';
-// dotenv.config();
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+// require('dotenv').config();
 
 firebase.initializeApp({
   apiKey: `${process.env.REACT_APP_FIREBASE_APIKEY}`,
@@ -25,9 +25,10 @@ firebase.initializeApp({
   appId:  `${process.env.REACT_APP_FIREBASE_APPID}`,
   measurementId: `${process.env.REACT_APP_FIREBASE_MEASUREMENTID}`
 });
-// const auth = firebase.auth();
+const auth = firebase.auth();
+const firestore = firebase.firestore();
 const storage = firebase.storage();
-export { storage, firebase as default }
+export { auth, firestore, storage, firebase as default }
 
 
 ReactDOM.render(
