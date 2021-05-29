@@ -510,13 +510,13 @@ export default class App extends Component {
         if (hand.length < selectSpread.cards) {
             document.getElementById(t).style.display = "none";
             deck.filter(d => {
-            if ( t === d.id ) {
-                let newD = d
-                newD.rotation = random
-                this.setState({
-                hand: [...hand, newD]
-                })
-            };
+                if ( t === d.id ) {
+                    let newD = d;
+                    newD.rotation = random;
+                    this.setState({
+                        hand: [...hand, newD]
+                    });
+                };
             });
         };
         while (shuffle.length > 0 && hand.length === selectSpread.cards - 1) {
