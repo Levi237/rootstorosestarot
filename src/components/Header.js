@@ -61,7 +61,6 @@ const LogoHeader = styled.h1`
     white-space: nowrap;
     overflow: hidden;
     padding-left: 10px;
-    
     @media screen and (max-width: 900px) {
         padding-left: 5px;
     }
@@ -69,6 +68,7 @@ const LogoHeader = styled.h1`
 
 const LocalWrapper = styled.header`
     background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0,0,0,.2);
     width: 100%;
     height: 40px;
     display: flex;
