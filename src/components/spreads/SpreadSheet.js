@@ -10,7 +10,7 @@ export default class SpreadSheet extends Component {
         const { hand, selectSpread } = this.props;
         const newFromDB = await firebase.firestore().collection('spreads').add({
                 hand: hand,
-                layout: selectSpread,
+                spread: selectSpread,
                 uid: firebase.auth().currentUser.uid,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             })
