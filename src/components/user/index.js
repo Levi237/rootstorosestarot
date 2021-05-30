@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-import SpreadSheet from '../spreads/SpreadSheet';
+import DisplaySpread from '../spreads/DisplaySpread';
 
-const UserPage = ({user, hand, selectSpread, showSpreadLayouts}) => {
+export default class UserPage extends Component {
+state = {
+    selectedSpread: []
+};
 
+// showSpread = (e) => {
+//     const { userSpreads } = this.props;
+//     const pickSpread = e.currentTarget.timestamp;
+//     const userSpread = userSpreads.map(m => {
+//         if (m.timestamp === pickSpread){
+//             this.setState({
+//                 selectedSpread: userSpread
+//             });
+//         };
+//     });
+// };
+    render(){
+        const {selectedSpread} = this.state;
+        const {user, userSpreads, selectSpread} = this.props;
 
     return(
         <DashboardWrapper>
@@ -18,7 +35,7 @@ const UserPage = ({user, hand, selectSpread, showSpreadLayouts}) => {
                 <div>
                     <ul>
                         <li>
-                            88/88/88 88:88pm - 88 card celtic cross
+                            {/* <button>{userSpreads[0].timestamp}</button> */}
                         </li>
                         <li>
                             88/88/88 88:88pm - 88 card celtic cross
@@ -43,17 +60,15 @@ const UserPage = ({user, hand, selectSpread, showSpreadLayouts}) => {
             </section>
 
             <section>
-                <SpreadSheet 
-                    hand={hand} 
-                    selectSpread={selectSpread} 
-                    showSpreadLayouts={showSpreadLayouts}
-                    // user={user}
-                    user={user}
-                    />
+            <DisplaySpread 
+                hand={selectedSpread}
+                selectSpread={selectSpread}
+            />
             </section>
 
         </DashboardWrapper>
     );
+};
 };
 
 const DashboardWrapper = styled.div`
@@ -126,4 +141,3 @@ const DashboardWrapper = styled.div`
         }
     }
 `;
-export default UserPage;
