@@ -27,7 +27,7 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const storage = firebase.storage();
-export { auth, firestore, storage, firebase as default }
+export { auth, firestore, storage, firebase as default };
 
 
 ReactDOM.render(
