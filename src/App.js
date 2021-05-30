@@ -486,12 +486,13 @@ export default class App extends Component {
         this.clearModal();
     };
     userSpreadsList(){
-        console.log("userSpreadsList")
         firebase.firestore().collection('spreads').onSnapshot(serverUpdate => {
             const userSpreads = serverUpdate.docs.map(_doc => {
                 const data = _doc.data();
-                data['id'] = _doc.id;
-                return data
+                if (data.uid === this.state.uid) {
+                    data['id'] = _doc.id;
+                    return data
+                }
             });
             this.setState({userSpreads})
         })
