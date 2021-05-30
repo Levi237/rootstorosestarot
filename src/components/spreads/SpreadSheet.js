@@ -4,6 +4,8 @@ import styled               from 'styled-components';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+
+import DisplaySpread from './DisplaySpread';
 export default class SpreadSheet extends Component {
 
     saveHand = async () => {
@@ -44,7 +46,11 @@ export default class SpreadSheet extends Component {
         });
         return(
             <LocalWrapper id="spreadsheet-container">
-                <div>
+            <DisplaySpread 
+                hand={hand}
+                selectSpread={selectSpread}
+            />
+                {/* <div>
                     <ContainerSpread className={selectSpread.id}>
                         <section id="show">
                             {sheet}
@@ -55,7 +61,7 @@ export default class SpreadSheet extends Component {
                             {showHand}
                         </section>
                     </ContainerDealt>
-                </div>
+                </div> */}
                 <div>
                     <InfoContainer>
                         <h2>{selectSpread.name}</h2>
