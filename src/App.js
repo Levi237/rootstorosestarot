@@ -460,10 +460,7 @@ export default class App extends Component {
         this.authListener();
         this.userSpreadsList();
     };
-    // componentDidUpdate = () => {
-    //     this.userSpreadsList();
-    // };
-    // Authenticate User
+    //-- Authenticate User
     authListener(){
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
@@ -476,7 +473,7 @@ export default class App extends Component {
             };
         });
     };
-    // Logout User
+    //-- Logout User
     logout = () => {
         firebase.auth().signOut();
         this.setState({
@@ -485,20 +482,24 @@ export default class App extends Component {
         });
         this.clearModal();
     };
-    // Grab layouts from User uid
+    //-- Grab layouts from User uid
     userSpreadsList(){
         firebase.firestore().collection('spreads').onSnapshot(serverUpdate => {
-            const userSpreads = serverUpdate.docs.map(_doc => {
+            const sp = serverUpdate.docs.map(_doc => {
                 const data = _doc.data();
-                if (data.uid === this.state.uid) {
-                    data['id'] = _doc.id;
-                    return data;
+                console.log(data, "data")
+                data['id'] = _doc.id;
+                return data;
+            });
+            console.log(sp, "userSpreads")
+            sp.filter(f => { 
+                if(f.uid === this.state.uid){
+                    this.setState({ userSpreads: [...this.state.userSpreads, f] });
                 };
             });
-            this.setState({ userSpreads });
         });
     };
-    // Shuffle deck and display
+    //-- Shuffle deck and display
     showDeck = () => {
         const { deck } = this.state;
         let newDeck = [...deck];
@@ -513,7 +514,7 @@ export default class App extends Component {
             shuffle: [...shuffledDeck]
         });
     };
-    // Shuffle deck again
+    //-- Shuffle deck again
     shuffleThis = () => {
         let dealtDeck = document.getElementsByClassName('dealtCard');
         for (let i = 0; i < dealtDeck.length; i++) {
@@ -523,7 +524,7 @@ export default class App extends Component {
             }, 2000);
         };
     };
-    // pick card from shuffled deck, add to hand.
+    //-- pick card from shuffled deck, add to hand.
     selectCard = (e) => {
         const { selectSpread, deck, hand, shuffle } = this.state;
         const t = e.currentTarget.id;
@@ -562,7 +563,7 @@ export default class App extends Component {
         document.getElementById("shuffle-nav").style.display = "block";
         document.getElementById("spreadsheet-container").style.display = "grid";
         
-        this.state.spreads.filter(s => {
+        this.state.layouts.filter(s => {
             if ( t === s.name ) {
                 this.setState({
                     selectSpread: s
@@ -571,12 +572,12 @@ export default class App extends Component {
         });
         
         this.showDeck();
-        // delay deck animation til block is in view
+        //-- delay deck animation til block is in view
         setTimeout(() => {
             this.animateDeck();
         }, 2000);
     };
-    // Show the layout options a user can select
+    //-- Show the layout options a user can select
     showSpreadLayouts = (e) => {
         document.getElementById("shuffle-nav").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
@@ -592,7 +593,7 @@ export default class App extends Component {
         }, 1200);
     };
 
-    // clear states when user is done with task
+    //-- clear states when user is done with task
     clearAll = () => {
         this.clearDeck();
         this.clearSelections();
@@ -621,7 +622,7 @@ export default class App extends Component {
         };
     };
 
-    // Modals
+    //-- Modals
     showModal = (e) => {
         this.setState({
             show: e.currentTarget.name
@@ -639,7 +640,7 @@ export default class App extends Component {
     };
 
   render(){
-    const { hand, deck, shuffle, selectSpread, layouts, user, uid, show } = this.state;
+    const { hand, deck, shuffle, selectSpread, userSpreads, layouts, user, uid, show } = this.state;
 
     return (
       <AppContainer> 
@@ -669,6 +670,7 @@ export default class App extends Component {
             <UserPage 
                 hand={hand} 
                 selectSpread={selectSpread} 
+                userSpreads={userSpreads} 
                 showSpreadLayouts={this.showSpreadLayouts}
                 // user={user}
                 user={this.state.fakeUser}/> 
