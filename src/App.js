@@ -485,18 +485,19 @@ export default class App extends Component {
         });
         this.clearModal();
     };
+    // Grab layouts from User uid
     userSpreadsList(){
         firebase.firestore().collection('spreads').onSnapshot(serverUpdate => {
             const userSpreads = serverUpdate.docs.map(_doc => {
                 const data = _doc.data();
                 if (data.uid === this.state.uid) {
                     data['id'] = _doc.id;
-                    return data
-                }
+                    return data;
+                };
             });
-            this.setState({userSpreads})
-        })
-    }
+            this.setState({userSpreads});
+        });
+    };
     // Shuffle deck and display
     showDeck = () => {
         const { deck } = this.state;
