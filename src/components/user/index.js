@@ -9,7 +9,7 @@ import DisplaySpread from '../spreads/DisplaySpread';
 
 export default class UserPage extends Component {
 state = {
-    selectedSpread: []
+    selectedSpread: ["test"]
 };
 
 // showSpread = (e) => {
@@ -26,7 +26,14 @@ state = {
     render(){
         const {selectedSpread} = this.state;
         const {user, userSpreads, selectSpread} = this.props;
+        console.log(userSpreads, "??")
 
+        const userSpreadsList = userSpreads.map((us, k) => {
+            console.log(us, "us")
+            return (
+                <li key={k}>{us.uid}</li>
+            )
+        });
     return(
         <DashboardWrapper>
 
@@ -34,27 +41,7 @@ state = {
                     <h1>{user.email}</h1>
                 <div>
                     <ul>
-                        <li>
-                            {/* <button>{userSpreads[0].timestamp}</button> */}
-                        </li>
-                        <li>
-                            88/88/88 88:88pm - 88 card celtic cross
-                        </li>
-                        <li>
-                            88/88/88 88:88pm - 88 card celtic cross
-                        </li>
-                        <li>
-                            88/88/88 88:88pm - 88 card celtic cross
-                        </li>
-                        <li>
-                            88/88/88 88:88pm - 88 card celtic cross
-                        </li>
-                        <li>
-                            88/88/88 88:88pm - 88 card celtic cross
-                        </li>
-                        <li>
-                            88/88/88 88:88pm - 88 card celtic cross
-                        </li>
+                        {userSpreadsList}
                     </ul>
                 </div>
             </section>

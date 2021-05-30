@@ -46,22 +46,10 @@ export default class SpreadSheet extends Component {
         });
         return(
             <LocalWrapper id="spreadsheet-container">
-            <DisplaySpread 
-                hand={hand}
-                selectSpread={selectSpread}
-            />
-                {/* <div>
-                    <ContainerSpread className={selectSpread.id}>
-                        <section id="show">
-                            {sheet}
-                        </section>
-                    </ContainerSpread>
-                    <ContainerDealt className={selectSpread.id}>
-                        <section>
-                            {showHand}
-                        </section>
-                    </ContainerDealt>
-                </div> */}
+                <DisplaySpread 
+                    hand={hand}
+                    selectSpread={selectSpread}
+                />
                 <div>
                     <InfoContainer>
                         <h2>{selectSpread.name}</h2>

@@ -680,6 +680,7 @@ export default class App extends Component {
                 hand={hand} 
                 selectSpread={selectSpread} 
                 showSpreadLayouts={this.showSpreadLayouts}
+                userSpreads={userSpreads} 
                 // user={user}
                 user={this.state.fakeUser}/> 
             }/>
