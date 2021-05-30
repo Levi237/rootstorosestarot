@@ -8,21 +8,24 @@ import 'firebase/auth';
 import DisplaySpread from '../spreads/DisplaySpread';
 
 export default class UserPage extends Component {
-state = {
-    selectedSpread: ["test"]
-};
+    state = {
+        selectedSpread: []
+    };
 
-// showSpread = (e) => {
-//     const { userSpreads } = this.props;
-//     const pickSpread = e.currentTarget.timestamp;
-//     const userSpread = userSpreads.map(m => {
-//         if (m.timestamp === pickSpread){
-//             this.setState({
-//                 selectedSpread: userSpread
-//             });
-//         };
-//     });
-// };
+    showSpread = (e) => {
+        const { userSpreads } = this.props;
+        const pickSpread = e.currentTarget.value;
+        console.log(pickSpread, "e.currentTarget.value", userSpreads)
+        const userSpread = userSpreads.filter(m => {
+            console.log(m)
+            if (m.timestamp === pickSpread){
+                console.log(m.timestamp, "m.timestamp")
+                this.setState({
+                    selectedSpread: m
+                });
+            };
+        });
+    };
     render(){
         const {selectedSpread} = this.state;
         const {user, userSpreads, selectSpread} = this.props;
@@ -31,14 +34,14 @@ state = {
             let dateCreated = us.timestamp.toDate().toDateString();
             console.log(us, "us")
             return (
-                <li key={k}>{dateCreated}</li>
+                <li key={k}><button onClick={(e) => {this.showSpread(e)}} value={us.timestamp}>{dateCreated} - {us.spread.name}</button></li>
             )
         });
     return(
         <DashboardWrapper>
 
             <section>
-                    <h1>{user.email}</h1>
+                    <h1>Welcome, {user.email}</h1>
                 <div>
                     <ul>
                         {userSpreadsList}
@@ -80,10 +83,14 @@ const DashboardWrapper = styled.div`
                 overflow: scroll;
                 li {
                     padding: 5px 0;
-                    font-size: 18px;
-                    &:hover {
-                        color: blue;
-                        cursor: pointer;
+                    button {
+                        font-size: 18px;
+                        border: none;
+                        background-color: transparent;
+                        &:hover {
+                            color: blue;
+                            cursor: pointer;
+                        }
                     }
                 }
             }
