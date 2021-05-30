@@ -13,8 +13,8 @@ export default class SpreadSheet extends Component {
                 spread: selectSpread,
                 uid: firebase.auth().currentUser.uid,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            })
-        return newFromDB
+            });
+        return newFromDB;
     };
 
     render(){
