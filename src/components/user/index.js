@@ -5,43 +5,53 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const UserPage = ({user}) => {
+import SpreadSheet from '../spreads/SpreadSheet';
+
+const UserPage = ({user, hand, selectSpread, showSpreadLayouts}) => {
 
 
     return(
         <DashboardWrapper>
-            <section>
 
-            </section>
             <section>
-                <div>
-                    <br/><br/>
                     <h1>{user.email}</h1>
+                <div>
                     <ul>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                         <li>
-                            01/12/21 03:30pm - 13 card celtic cross
+                            88/88/88 88:88pm - 88 card celtic cross
                         </li>
                     </ul>
                 </div>
             </section>
+
+            <section>
+                <SpreadSheet 
+                    hand={hand} 
+                    selectSpread={selectSpread} 
+                    showSpreadLayouts={showSpreadLayouts}
+                    // user={user}
+                    user={user}
+                    />
+            </section>
+
         </DashboardWrapper>
     );
 };
@@ -50,27 +60,70 @@ const DashboardWrapper = styled.div`
     width: 100vw;
     min-height: calc(100vh - 40px);
     display: grid;
-    grid-template-columns: calc(100vw - 400px) 400px;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'main sidebar';
+    grid-template-areas: 'info spread';
     > section {
-        &:first-of-type {
-            grid-area: main;
-        }
         &:last-of-type {
-            grid-area: sidebar;
+            grid-area: spread;
+        }
+        &:first-of-type {
+            grid-area: info;
             > div {
+                padding: 5%;
                 background-color: white;
-                width: 90%;
-                min-height: calc(100% - 100px);
-                margin-top: 50px;
+                width: 80%;
+                min-height: calc(90% - 200px);
+                margin: 100px auto 0;
+                overflow: scroll;
                 li {
                     padding: 5px 0;
+                    font-size: 18px;
+                    &:hover {
+                        color: blue;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        grid-template-columns: 280px calc(100vw - 280px);
+        > section {
+            &:last-of-type {
+
+            }
+            &:first-of-type {
+
+                > div {
+                    padding: 5%;
+                    background-color: white;
+                    width: 80%;
+                    min-height: calc(90% - 200px);
+                    // margin: 100px auto 0;
+                    li {
+
+                    }
                 }
             }
         }
     }
     @media only screen and (max-width: 640px) {
+        grid-template-columns: 100vw;
+        > section {
+            &:last-of-type {
+
+            }
+            &:first-of-type {
+
+                > div {
+                    margin: 0 auto;
+                    li {
+
+                    }
+                }
+            }
+        }
     }
 `;
 export default UserPage;

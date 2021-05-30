@@ -460,9 +460,9 @@ export default class App extends Component {
         this.authListener();
         this.userSpreadsList();
     };
-    componentDidUpdate = () => {
-        // this.userSpreadsList();
-    };
+    // componentDidUpdate = () => {
+    //     this.userSpreadsList();
+    // };
     // Authenticate User
     authListener(){
         firebase.auth().onAuthStateChanged((user) => {
@@ -495,7 +495,7 @@ export default class App extends Component {
                     return data;
                 };
             });
-            this.setState({userSpreads});
+            this.setState({ userSpreads });
         });
     };
     // Shuffle deck and display
@@ -665,9 +665,22 @@ export default class App extends Component {
             />
         <Switch>
         <Route path={routes.ROOT} exact render={() => 
-            <HomePage clearAll={this.clearAll}/> }/>
+            // <HomePage clearAll={this.clearAll}/> }/>
+            <UserPage 
+                hand={hand} 
+                selectSpread={selectSpread} 
+                showSpreadLayouts={this.showSpreadLayouts}
+                // user={user}
+                user={this.state.fakeUser}/> 
+            }/>
         <Route path={routes.ACCT} exact render={() => 
-            <UserPage user={this.state.fakeUser}/> }/>
+            <UserPage 
+                hand={hand} 
+                selectSpread={selectSpread} 
+                showSpreadLayouts={this.showSpreadLayouts}
+                // user={user}
+                user={this.state.fakeUser}/> 
+            }/>
         <Route path={routes.FAQS} exact render={() => 
             <div> MY TAROT CARD READINGS </div> }/>
         <Route path={routes.LAYS} exact render={() => 
@@ -687,7 +700,6 @@ export default class App extends Component {
                 <SpreadSheet 
                     hand={hand} 
                     selectSpread={selectSpread} 
-                    shuffleThis={this.shuffleThis} 
                     showSpreadLayouts={this.showSpreadLayouts}
                     user={user}
                     />
