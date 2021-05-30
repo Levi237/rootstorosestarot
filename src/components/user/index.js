@@ -26,12 +26,12 @@ state = {
     render(){
         const {selectedSpread} = this.state;
         const {user, userSpreads, selectSpread} = this.props;
-        console.log(userSpreads, "??")
 
         const userSpreadsList = userSpreads.map((us, k) => {
+            let dateCreated = us.timestamp.toDate().toDateString();
             console.log(us, "us")
             return (
-                <li key={k}>{us.uid}</li>
+                <li key={k}>{dateCreated}</li>
             )
         });
     return(

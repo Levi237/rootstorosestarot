@@ -490,11 +490,9 @@ export default class App extends Component {
         .onSnapshot(serverUpdate => {
             const sp = serverUpdate.docs.map(_doc => {
                 const data = _doc.data();
-                console.log(data, "data")
                 data['id'] = _doc.id;
                 return data;
             });
-            console.log(sp, "userSpreads")
             sp.filter(f => { 
                 if(f.uid === this.state.uid){
                     this.setState({ userSpreads: [...this.state.userSpreads, f] });
