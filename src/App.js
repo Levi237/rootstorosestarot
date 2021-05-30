@@ -484,7 +484,10 @@ export default class App extends Component {
     };
     //-- Grab layouts from User uid
     userSpreadsList(){
-        firebase.firestore().collection('spreads').onSnapshot(serverUpdate => {
+        firebase.firestore()
+        .collection('spreads')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot(serverUpdate => {
             const sp = serverUpdate.docs.map(_doc => {
                 const data = _doc.data();
                 console.log(data, "data")
