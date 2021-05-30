@@ -450,6 +450,7 @@ export default class App extends Component {
         hand: [],
         selectSpread: {},
         show: "",
+        userSpreads: [],
         fakeUser: {
             email: "levieiko@gmail.com",
             displayName: null
@@ -458,7 +459,10 @@ export default class App extends Component {
     componentDidMount = () => {
         this.authListener();
     };
-
+    componentDidUpdate = () => {
+        // this.userSpreads();
+    };
+// Authenticate User
     authListener(){
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
@@ -471,6 +475,7 @@ export default class App extends Component {
             };
         });
     };
+    // Logout User
     logout = () => {
         firebase.auth().signOut();
         this.setState({
@@ -479,6 +484,22 @@ export default class App extends Component {
         });
         this.clearModal();
     };
+    userSpreadsList = () => {
+        if (this.state.user) {
+            firebase
+            .firestore()
+            .collection('spreads')
+            .onSnapshot(serverUpdate => {
+              const userSpreads = serverUpdate.docs.map(_doc => {
+                  const data = _doc.data();
+                  data['id'] = _doc.id;
+                  return data;
+              });
+              this.setState({ userSpreads });
+            });
+        };
+    };
+    // Shuffle deck and display
     showDeck = () => {
         const { deck } = this.state;
         let newDeck = [...deck];
@@ -493,6 +514,7 @@ export default class App extends Component {
             shuffle: [...shuffledDeck]
         });
     };
+    // Shuffle deck again
     shuffleThis = () => {
         let dealtDeck = document.getElementsByClassName('dealtCard');
         for (let i = 0; i < dealtDeck.length; i++) {
@@ -502,7 +524,7 @@ export default class App extends Component {
             }, 2000);
         };
     };
-    
+    // pick card from shuffled deck, add to hand.
     selectCard = (e) => {
         const { selectSpread, deck, hand, shuffle } = this.state;
         const t = e.currentTarget.id;
@@ -530,6 +552,7 @@ export default class App extends Component {
             }, 1000);
         };
     };
+    // Choose tarot spread layout
     selectSpread = (e) => {
         const t = e.currentTarget.name;
         document.getElementById("spread-header").style.display = "none";
@@ -549,11 +572,12 @@ export default class App extends Component {
         });
         
         this.showDeck();
-
+        // delay deck animation til block is in view
         setTimeout(() => {
             this.animateDeck();
         }, 2000);
     };
+    // Show the layout options a user can select
     showSpreadLayouts = (e) => {
         document.getElementById("shuffle-nav").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
@@ -568,6 +592,8 @@ export default class App extends Component {
             this.clearSelections();
         }, 1200);
     };
+
+    // clear states when user is done with task
     clearAll = () => {
         this.clearDeck();
         this.clearSelections();
@@ -583,6 +609,8 @@ export default class App extends Component {
             hand: []
         });
     };
+
+    // delay deal of shuffled deck for animation
     animateDeck(){   
         let getCard = document.getElementsByClassName('dealtCard');
         for (let i = 0; i < getCard.length; i++) {
@@ -593,6 +621,8 @@ export default class App extends Component {
             }, 0);
         };
     };
+
+    // Modals
     showModal = (e) => {
         this.setState({
             show: e.currentTarget.name
