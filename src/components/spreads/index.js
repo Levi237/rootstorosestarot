@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export default class Spreads extends Component {
+export default class Layouts extends Component {
     // componentDidUpdate(){
     //     this.animateDeck();
     // };
@@ -16,12 +16,12 @@ export default class Spreads extends Component {
     //     };
     // };
     render(){
-        const { spreads, selectSpread } = this.props
-                const spreadOptions = spreads.map((s, key) => {
+        const { layouts, selectSpread } = this.props
+                const spreadOptions = layouts.map((l, key) => {
             return (
-                    <button key={key} id={s.id} name={s.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
-                        <h2>{s.name}</h2>
-                        <div style={{backgroundImage: `url(${s.image})`}}></div>
+                    <button key={key} id={l.id} name={l.name} className="dealtSpread" onClick={(e) => selectSpread(e)}>
+                        <h2>{l.name}</h2>
+                        <div style={{backgroundImage: `url(${l.image})`}}></div>
                     </button>
             );
         });

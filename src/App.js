@@ -12,7 +12,7 @@ import UserPage             from './components/user';
 import NavMenu              from './components/nav/NavMenu';
 import Header               from './components/Header';
 import Deck                 from './components/deck/Deck';
-import Spreads              from './components/spreads';
+import Layouts              from './components/spreads';
 import SpreadSheet          from './components/spreads/SpreadSheet';
 
 export default class App extends Component {
@@ -412,7 +412,7 @@ export default class App extends Component {
             content: "blah blah blah"
         }
         ], 
-        spreads: [
+        layouts: [
             {
                 id: "spread-three-simple",
                 name: "3 card spread",
@@ -458,11 +458,12 @@ export default class App extends Component {
     };
     componentDidMount = () => {
         this.authListener();
+        this.userSpreadsList();
     };
     componentDidUpdate = () => {
-        // this.userSpreads();
+        // this.userSpreadsList();
     };
-// Authenticate User
+    // Authenticate User
     authListener(){
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
@@ -484,21 +485,17 @@ export default class App extends Component {
         });
         this.clearModal();
     };
-    userSpreadsList = () => {
-        if (this.state.user) {
-            firebase
-            .firestore()
-            .collection('spreads')
-            .onSnapshot(serverUpdate => {
-              const userSpreads = serverUpdate.docs.map(_doc => {
-                  const data = _doc.data();
-                  data['id'] = _doc.id;
-                  return data;
-              });
-              this.setState({ userSpreads });
+    userSpreadsList(){
+        console.log("userSpreadsList")
+        firebase.firestore().collection('spreads').onSnapshot(serverUpdate => {
+            const userSpreads = serverUpdate.docs.map(_doc => {
+                const data = _doc.data();
+                data['id'] = _doc.id;
+                return data
             });
-        };
-    };
+            this.setState({userSpreads})
+        })
+    }
     // Shuffle deck and display
     showDeck = () => {
         const { deck } = this.state;
@@ -640,7 +637,7 @@ export default class App extends Component {
     };
 
   render(){
-    const { hand, deck, shuffle, selectSpread, spreads, user, uid, show } = this.state;
+    const { hand, deck, shuffle, selectSpread, layouts, user, uid, show } = this.state;
 
     return (
       <AppContainer> 
@@ -681,9 +678,9 @@ export default class App extends Component {
                     selectSpread={selectSpread} 
                     shuffle={shuffle} 
                     />
-                <Spreads 
+                <Layouts 
                     selectSpread={this.selectSpread}
-                    spreads={spreads} 
+                    layouts={layouts} 
                     />
                 <SpreadSheet 
                     hand={hand} 
