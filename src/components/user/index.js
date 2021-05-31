@@ -13,15 +13,12 @@ export default class UserPage extends Component {
     };
 
     showSpread = (e) => {
-        const { userSpreads } = this.props;
         const pickSpread = e.currentTarget.value;
-        console.log(pickSpread, "e.currentTarget.value", userSpreads)
-        const userSpread = userSpreads.filter(m => {
-            console.log(m)
-            if (m.timestamp === pickSpread){
-                console.log(m.timestamp, "m.timestamp")
+        this.props.userSpreads.filter(m => {
+            let x = m.timestamp.toDate().toDateString();
+            if (x === pickSpread){
                 this.setState({
-                    selectedSpread: m
+                    selectedSpread: [...this.state.selectedSpread, m]
                 });
             };
         });
@@ -34,7 +31,7 @@ export default class UserPage extends Component {
             let dateCreated = us.timestamp.toDate().toDateString();
             console.log(us, "us")
             return (
-                <li key={k}><button onClick={(e) => {this.showSpread(e)}} value={us.timestamp}>{dateCreated} - {us.spread.name}</button></li>
+                <li key={k}><button onClick={(e) => {this.showSpread(e)}} value={`${dateCreated}`}>{dateCreated} - {us.spread.name}</button></li>
             )
         });
     return(
