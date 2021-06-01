@@ -11,7 +11,12 @@ const HomePage = ({clearAll, pickRandomCard, displayCard}) => {
             <h1>W<small>ELCOME TO</small></h1>
             <h1>R<small>OOTS TO </small><span>R<small>OSES</small></span> T<small>AROT</small></h1>
             <HomeIntro>
-                <section><img src="/deck/back.jpg" alt="deck back"/><button onClick={() => {pickRandomCard();}}>Click Me!</button></section>
+                <section>
+                    { displayCard 
+                        ? <img alt={displayCard.title} src={`./deck/${displayCard.id}.jpg`}/> 
+                        : <><img src="/deck/back.jpg" alt="deck back"/><button onClick={() => {pickRandomCard();}}>Click Me!</button></>
+                    }
+                </section>
                 <section>
                     <h3>
                         Please enjoy our humble beginnings.  There is definitely more to come!
