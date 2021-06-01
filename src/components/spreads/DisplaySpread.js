@@ -158,6 +158,11 @@ const LocalWrapper = styled.div`
         margin-top: -25px;
         width: calc(100vh - 240px);
     }
+    @media only screen and (max-width: 640px) {
+        .spread-thirteen-celtic-cross > section {
+            margin-top: 0px;
+        }
+    }
     .spread-ten-celtic-cross > section > div:nth-of-type(2),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(2) {
         position: absolute;
