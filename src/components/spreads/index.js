@@ -2,19 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 export default class Layouts extends Component {
-    // componentDidUpdate(){
-    //     this.animateDeck();
-    // };
-    // animateDeck(){   
-    //     let getCard = document.getElementsByClassName('dealtCard');
-    //     for (let i = 0; i < getCard.length; i++) {
-    //         setTimeout(() => {
-    //             setTimeout(() => {
-    //                 getCard[i].classList.remove('shuffleDeck');
-    //             }, i*20);
-    //         }, 0);
-    //     };
-    // };
+
     render(){
         const { layouts, selectSpread } = this.props
                 const spreadOptions = layouts.map((l, key) => {
