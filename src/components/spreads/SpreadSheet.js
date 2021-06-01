@@ -20,7 +20,7 @@ export default class SpreadSheet extends Component {
     };
 
     render(){
-        const { hand, selectSpread, showSpreadLayouts } = this.props;
+        const { hand, selectSpread, showSpreadLayouts, user, showModal } = this.props;
 
         let sheet = [];
         let num = selectSpread.cards;
@@ -28,13 +28,7 @@ export default class SpreadSheet extends Component {
             num -= 1;
             sheet.push(<div key={num}><img src="./deck/back.jpg" alt="deck back"/></div>);
         };
-        const showHand = hand.map((h, k) => {
-            return (
-                <div key={k} >
-                    <img style={{transform: `rotate(${180*h.rotation + 'deg'})`}} src={`./deck/${h.id}.jpg`} alt={`${h.title}`}/>
-                </div>
-            );
-        })
+
         const showInfo = hand.map((h, k) => {
             return (
                 <li key={k} >
@@ -44,6 +38,7 @@ export default class SpreadSheet extends Component {
                 </li>
             );
         });
+
         return(
             <LocalWrapper id="spreadsheet-container">
                 <DisplaySpread 
@@ -63,9 +58,11 @@ export default class SpreadSheet extends Component {
                                 </button>
                             </section>
                             <section id="save">
-                                <button className="purpleBtn" onClick={() => {this.saveHand();}}>
-                                    Save
-                                </button>
+                            { user
+
+                                ? <button className="purpleBtn" onClick={() => {this.saveHand();}}>Save</button>
+                                : <button className="purpleBtn" onClick={(e) => {showModal(e)}} name="login">Save</button>
+                            }
                             </section>
                         </div>
                     </InfoContainer>
