@@ -676,16 +676,7 @@ export default class App extends Component {
             />
         <Switch>
         <Route path={routes.ROOT} exact render={() => 
-            // <HomePage clearAll={this.clearAll}/> }/>
-            <UserPage 
-                hand={hand} 
-                selectSpread={selectSpread} 
-                userSpreads={userSpreads} 
-                showSpreadLayouts={this.showSpreadLayouts}
-                user={user}
-                showSpreadLayout={this.showSpreadLayout}
-                user={this.state.fakeUser}
-                /> 
+            <HomePage clearAll={this.clearAll}/> }/>
             }/>
         <Route path={routes.ACCT} exact render={() => 
             <UserPage 
@@ -693,9 +684,8 @@ export default class App extends Component {
                 selectSpread={selectSpread} 
                 showSpreadLayouts={this.showSpreadLayouts}
                 userSpreads={userSpreads} 
-                // user={user}
+                user={user}
                 showSpreadLayout={this.showSpreadLayout}
-                user={this.state.fakeUser}
                 /> 
             }/>
         <Route path={routes.FAQS} exact render={() => 
