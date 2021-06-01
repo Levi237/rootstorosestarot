@@ -46,9 +46,9 @@ const Container = styled.div`
         width: 100vw;
         overflow: scroll;
         div#deckDisplay {
-            width: 3280px;
-            height: 157px;
-            padding: 20px 10px;
+            width: calc(30px * 78 + 42px);
+            height: calc(72px * 1.57);
+            padding: 18px 10px;
             overflow: scroll;
             transition: all 3s ease;
             margin-left: -120%;
@@ -56,9 +56,9 @@ const Container = styled.div`
             position: absolute;
             top: -100%;
             > div {
-                width: 100px;
+                width: 72px;
                 display: inline-block;
-                margin-left: -60px;
+                margin-left: -42px;
                 &:first-of-type {
                     margin-left: 0;
                 }
