@@ -26,7 +26,7 @@ export default class UserPage extends Component {
                 data['id'] = _doc.id;
                 return data;
             });
-            sp.filter(f => { 
+            sp.forEach(f => { 
                 if(f.uid === this.props.uid){
                     this.setState({ userSpreads: [...this.state.userSpreads, f] });
                 };
