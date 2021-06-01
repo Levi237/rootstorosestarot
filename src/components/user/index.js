@@ -35,7 +35,7 @@ export default class UserPage extends Component {
     };
     showSpread = (e) => {
         const target = e.currentTarget.value;
-        this.state.userSpreads.filter(m => {
+        this.state.userSpreads.forEach(m => {
             let x = m.timestamp.toDate().toLocaleString();
             if (x === target){
                 this.setState({
