@@ -9,7 +9,7 @@ import DisplaySpread from '../spreads/DisplaySpread';
 
 export default class UserPage extends Component {
     state = {
-        selected: [],
+        selected: null,
         userSpreads: [],
     };
     componentDidMount(){
@@ -39,7 +39,7 @@ export default class UserPage extends Component {
             let x = m.timestamp.toDate().toLocaleString();
             if (x === target){
                 this.setState({
-                    selected: [m]
+                    selected: m
                 });
             };
         });
@@ -65,10 +65,10 @@ export default class UserPage extends Component {
                     </div>
                 </section>
                 <section>
-                {(selected[0] && user) &&
+                {(selected && user) &&
                     <DisplaySpread 
-                        hand={selected[0].hand}
-                        selectSpread={selected[0].spread}
+                        hand={selected.hand}
+                        selectSpread={selected.spread}
                     />
                 }
                 </section>
