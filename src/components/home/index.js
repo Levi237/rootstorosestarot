@@ -4,31 +4,29 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as routes from '../../constants/routes';
 
-const HomePage = ({clearAll}) => {
+const HomePage = ({clearAll, pickRandomCard, displayCard}) => {
+
     return(
         <HomeWrapper>
             <h1>W<small>ELCOME TO</small></h1>
             <h1>R<small>OOTS TO </small><span>R<small>OSES</small></span> T<small>AROT</small></h1>
             <HomeIntro>
-                <section><img src="/deck/back.jpg" alt="deck back"/></section>
+                <section><img src="/deck/back.jpg" alt="deck back"/><button onClick={() => {pickRandomCard();}}>Click Me!</button></section>
                 <section>
-                    <h2>
-                        Lorem ipsum dolor sit amet, 
-                    </h2>
+                    <h3>
+                        Please enjoy our humble beginnings.  There is definitely more to come!
+                    </h3>
                     <p>
-                        consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim 
-                        ad minim veniam, quis nostrud exercitation ullamco 
-                        laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate 
-                        velit esse cillum dolore eu fugiat nulla pariatur. 
+                        This website has been created with the intention of bringing 
+                        tarot cards into the digital world. Choose a spread and your 
+                        deck gets shuffled and put on display for your to scroll through 
+                        and select your cards.  Feel luckier with 3 shuffles? Click the 
+                        shuffle button as many times as you like while you are drawing cards. 
                     </p>
                     <p>
-                        Excepteur sint occaecat cupidatat non proident, 
-                        sunt in culpa qui officia deserunt mollit anim 
-                        id est laborum.
+                        If you like your spread you can create an account, login and save it!
                     </p>
-            <NavLink to={routes.LAYS} onClick={(e) => {clearAll();}}>View Tarot Spreads</NavLink>      
+            <NavLink to={routes.LAYS} onClick={() => {clearAll();}}>View Tarot Spreads</NavLink>      
                 </section>
             </HomeIntro>
         </HomeWrapper>
@@ -57,7 +55,7 @@ const HomeWrapper = styled.div`
 const HomeIntro = styled.section`
     max-width: 640px;
     margin: 40px auto;
-    h2 {
+    h3 {
         margin-bottom: 20px;
     }
     p {
@@ -71,10 +69,17 @@ const HomeIntro = styled.section`
     }
     > section {
         display: inline-block;
+        position: relative;
         &:first-of-type {
             width: 31.25%;
             img {
                 width: 100%;
+            }
+            button {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
         }
         &:last-of-type{
