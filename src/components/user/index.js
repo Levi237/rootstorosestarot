@@ -9,53 +9,56 @@ import DisplaySpread from '../spreads/DisplaySpread';
 
 export default class UserPage extends Component {
     state = {
-        selectedSpread: []
+        selected: []
     };
 
     showSpread = (e) => {
-        const pickSpread = e.currentTarget.value;
+        const target = e.currentTarget.value;
         this.props.userSpreads.filter(m => {
-            let x = m.timestamp.toDate().toDateString();
-            if (x === pickSpread){
+            let x = m.timestamp.toDate().toLocaleString();
+            // let x = m.timestamp.toDate().toDateString();
+            if (x === target){
                 this.setState({
-                    selectedSpread: [...this.state.selectedSpread, m]
+                    selected: [m]
                 });
             };
         });
     };
     render(){
-        const {selectedSpread} = this.state;
-        const {user, userSpreads, selectSpread} = this.props;
-
+        const { selected } = this.state;
+        const { user, userSpreads } = this.props;
+        // console.log(selected[0].hand[0], "<========[0]============>")
         const userSpreadsList = userSpreads.map((us, k) => {
-            let dateCreated = us.timestamp.toDate().toDateString();
-            console.log(us, "us")
+            // let dateCreated = us.timestamp.toDate().toDateString();
+            let dateCreated = us.timestamp.toDate().toLocaleString();
             return (
-                <li key={k}><button onClick={(e) => {this.showSpread(e)}} value={`${dateCreated}`}>{dateCreated} - {us.spread.name}</button></li>
-            )
+                <li key={k}><button onClick={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>{dateCreated} - {us.spread.name}</button></li>
+            );
         });
-    return(
-        <DashboardWrapper>
+        return(
+            <DashboardWrapper>
 
-            <section>
-                    <h1>Welcome, {user.email}</h1>
-                <div>
-                    <ul>
-                        {userSpreadsList}
-                    </ul>
-                </div>
-            </section>
+                <section>
+                        <h1>Welcome, {user.email}</h1>
+                    <div>
+                        <ul>
+                            {userSpreadsList}
+                        </ul>
+                    </div>
+                </section>
 
-            <section>
-            <DisplaySpread 
-                hand={selectedSpread}
-                selectSpread={selectSpread}
-            />
-            </section>
+                <section>
+                {selected[0] &&
+                    <DisplaySpread 
+                        hand={selected[0].hand}
+                        selectSpread={selected[0].spread}
+                    />
+                }
+                </section>
 
-        </DashboardWrapper>
-    );
-};
+            </DashboardWrapper>
+        );
+    };
 };
 
 const DashboardWrapper = styled.div`
@@ -68,6 +71,9 @@ const DashboardWrapper = styled.div`
     > section {
         &:last-of-type {
             grid-area: spread;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         &:first-of-type {
             grid-area: info;
