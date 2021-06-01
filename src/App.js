@@ -690,6 +690,7 @@ export default class App extends Component {
                         hand={hand} 
                         selectSpread={selectSpread} 
                         showSpreadLayouts={this.showSpreadLayouts}
+                        showModal={this.showModal}
                         user={user}
                         />
                 </>
