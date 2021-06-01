@@ -558,6 +558,7 @@ export default class App extends Component {
         const t = e.currentTarget.name;
         document.getElementById("spread-header").style.display = "none";
         document.getElementById("spread-container").style.display = "none";
+        // this.showSpreadLayout();
         document.getElementById("deckDisplay").style.marginLeft = "0";
         document.getElementById("deckDisplay").style.marginBottom = "0";
         document.getElementById("deckDisplay").style.position = "relative";
@@ -578,6 +579,14 @@ export default class App extends Component {
             this.animateDeck();
         }, 2000);
     };
+    // Show Spread Layout
+    // showSpreadLayout = () => {
+    //     document.getElementById("deckDisplay").style.marginLeft = "0";
+    //     document.getElementById("deckDisplay").style.marginBottom = "0";
+    //     document.getElementById("deckDisplay").style.position = "relative";
+    //     document.getElementById("shuffle-nav").style.display = "block";
+    //     document.getElementById("spreadsheet-container").style.display = "grid";
+    // };
     //-- Show the layout options a user can select
     showSpreadLayouts = (e) => {
         document.getElementById("shuffle-nav").style.display = "none";
@@ -673,8 +682,10 @@ export default class App extends Component {
                 selectSpread={selectSpread} 
                 userSpreads={userSpreads} 
                 showSpreadLayouts={this.showSpreadLayouts}
-                // user={user}
-                user={this.state.fakeUser}/> 
+                user={user}
+                showSpreadLayout={this.showSpreadLayout}
+                user={this.state.fakeUser}
+                /> 
             }/>
         <Route path={routes.ACCT} exact render={() => 
             <UserPage 
@@ -683,7 +694,9 @@ export default class App extends Component {
                 showSpreadLayouts={this.showSpreadLayouts}
                 userSpreads={userSpreads} 
                 // user={user}
-                user={this.state.fakeUser}/> 
+                showSpreadLayout={this.showSpreadLayout}
+                user={this.state.fakeUser}
+                /> 
             }/>
         <Route path={routes.FAQS} exact render={() => 
             <div> MY TAROT CARD READINGS </div> }/>
