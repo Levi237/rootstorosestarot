@@ -450,15 +450,15 @@ export default class App extends Component {
         hand: [],
         selectSpread: {},
         show: "",
-        userSpreads: [],
-        fakeUser: {
-            email: "levieiko@gmail.com",
-            displayName: null
-        }
+        // userSpreads: [],
+        // fakeUser: {
+        //     email: "levieiko@gmail.com",
+        //     displayName: null
+        // }
     };
     componentDidMount = () => {
         this.authListener();
-        this.userSpreadsList();
+        // this.userSpreadsList();
     };
     //-- Authenticate User
     authListener(){
@@ -483,23 +483,23 @@ export default class App extends Component {
         this.clearModal();
     };
     //-- Grab layouts from User uid
-    userSpreadsList(){
-        firebase.firestore()
-        .collection('spreads')
-        .orderBy('timestamp', 'desc')
-        .onSnapshot(serverUpdate => {
-            const sp = serverUpdate.docs.map(_doc => {
-                const data = _doc.data();
-                data['id'] = _doc.id;
-                return data;
-            });
-            sp.filter(f => { 
-                if(f.uid === this.state.uid){
-                    this.setState({ userSpreads: [...this.state.userSpreads, f] });
-                };
-            });
-        });
-    };
+    // userSpreadsList(){
+    //     firebase.firestore()
+    //     .collection('spreads')
+    //     .orderBy('timestamp', 'desc')
+    //     .onSnapshot(serverUpdate => {
+    //         const sp = serverUpdate.docs.map(_doc => {
+    //             const data = _doc.data();
+    //             data['id'] = _doc.id;
+    //             return data;
+    //         });
+    //         sp.filter(f => { 
+    //             if(f.uid === this.state.uid){
+    //                 this.setState({ userSpreads: [...this.state.userSpreads, f] });
+    //             };
+    //         });
+    //     });
+    // };
     //-- Shuffle deck and display
     showDeck = () => {
         const { deck } = this.state;
@@ -682,9 +682,10 @@ export default class App extends Component {
             <UserPage 
                 hand={hand} 
                 selectSpread={selectSpread} 
-                showSpreadLayouts={this.showSpreadLayouts}
+                // showSpreadLayouts={this.showSpreadLayouts}
                 userSpreads={userSpreads} 
                 user={user}
+                uid={uid}
                 showSpreadLayout={this.showSpreadLayout}
                 /> 
             }/>
