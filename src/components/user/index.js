@@ -10,8 +10,8 @@ import DisplaySpread from '../spreads/DisplaySpread';
 export default class UserPage extends Component {
     state = {
         selected: [],
-        user: null,
-        uid: null,
+        // user: null,
+        // uid: null,
         userSpreads: [],
     };
     componentDidMount(){
