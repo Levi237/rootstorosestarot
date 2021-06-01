@@ -9,12 +9,41 @@ import DisplaySpread from '../spreads/DisplaySpread';
 
 export default class UserPage extends Component {
     state = {
-        selected: []
+        selected: [],
+        user: null,
+        uid: null,
+        userSpreads: [],
     };
-
+    componentDidMount(){
+        this.setLocalUserState();
+        this.userSpreadsList();
+    }
+    // setLocalUserState = () => {
+    //     this.setState({
+    //         user: firebase.auth().currentUser.providerData,
+    //         uid: firebase.auth().currentUser.uid
+    //     })
+    // }
+    userSpreadsList(){
+        firebase.firestore()
+        .collection('spreads')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot(serverUpdate => {
+            const sp = serverUpdate.docs.map(_doc => {
+                const data = _doc.data();
+                data['id'] = _doc.id;
+                return data;
+            });
+            sp.filter(f => { 
+                if(f.uid === this.props.uid){
+                    this.setState({ userSpreads: [...this.state.userSpreads, f] });
+                };
+            });
+        });
+    };
     showSpread = (e) => {
         const target = e.currentTarget.value;
-        this.props.userSpreads.filter(m => {
+        this.state.userSpreads.filter(m => {
             let x = m.timestamp.toDate().toLocaleString();
             if (x === target){
                 this.setState({
@@ -24,8 +53,8 @@ export default class UserPage extends Component {
         });
     };
     render(){
-        const { selected } = this.state;
-        const { user, userSpreads } = this.props;
+        const { selected, userSpreads } = this.state;
+        const { user } = this.props;
         const userSpreadsList = userSpreads.map((us, k) => {
             let dateCreated = us.timestamp.toDate().toLocaleString();
             return (
@@ -35,7 +64,8 @@ export default class UserPage extends Component {
         return(
             <DashboardWrapper>
                 <section>
-                        <h1 class="desktop">Welcome, {user.email}</h1>
+                    {user && <h1 class="desktop">Welcome, {user.email}</h1>}
+                        
                     <div>
                         <ul>
                             {userSpreadsList}
@@ -43,7 +73,7 @@ export default class UserPage extends Component {
                     </div>
                 </section>
                 <section>
-                {selected[0] &&
+                {(selected[0] && user) &&
                     <DisplaySpread 
                         hand={selected[0].hand}
                         selectSpread={selected[0].spread}
