@@ -44,9 +44,9 @@ export default class Header extends Component {
                 </section>
                 <section id="login-logout">
                 { uid === null ?
-                    <button onClick={(e) => {showModal(e)}} name="login" value="login">Login</button>
+                    <button className="desktop-inline" onClick={(e) => {showModal(e)}} name="login" value="login">Login</button>
                     :
-                    <span>{user.email}&emsp;</span>
+                    <span className="desktop-inline">{user.email}&emsp;</span>
                 }
                 <HamburgerNav toggleHamburger={toggleHamburger} />
                 </section>
