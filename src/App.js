@@ -657,7 +657,7 @@ export default class App extends Component {
                 <HomePage 
                     clearAll={this.clearAll} 
                     pickRandomCard={this.pickRandomCard}
-                    displayCard={this.state.shuffle[0]}
+                    showCard={this.state.shuffle[0]}
                     />
                 }/>
             <Route path={routes.ACCT} exact render={() => 

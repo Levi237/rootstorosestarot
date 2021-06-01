@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as routes from '../../constants/routes';
 
-const HomePage = ({clearAll, pickRandomCard, displayCard}) => {
+const HomePage = ({clearAll, pickRandomCard, showCard}) => {
 
     return(
         <HomeWrapper>
@@ -12,8 +12,8 @@ const HomePage = ({clearAll, pickRandomCard, displayCard}) => {
             <h1>R<small>OOTS TO </small><span>R<small>OSES</small></span> T<small>AROT</small></h1>
             <HomeIntro>
                 <section>
-                    { displayCard 
-                        ? <img alt={displayCard.title} src={`./deck/${displayCard.id}.jpg`}/> 
+                    { showCard 
+                        ? <img alt={showCard.title} src={`./deck/${showCard.id}.jpg`}/> 
                         : <><img src="/deck/back.jpg" alt="deck back"/><button onClick={() => {pickRandomCard();}}>Click Me!</button></>
                     }
                 </section>
