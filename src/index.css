@@ -30,7 +30,37 @@ h1, h2, h3, h4, p {
   margin-block-end: 0;
   line-height: 100%;
 }
-
+/* Mobile vs Destop */
+.mobile-block,
+.mobile-inline,
+.mobile-grid {
+  display: none;
+}
+.desktop-block {
+  display: block;
+}
+.desktop-inline {
+  display: inline-block;
+}
+.desktop-grid {
+  display: grid;
+}
+@media screen and (max-width: 640px){
+  .desktop-block,
+  .desktop-inline,
+  .desktop-grid {
+    display: none;
+  }
+  .mobile-block {
+    display: block;
+  }
+  .mobile-inline {
+    display: inline-block;
+  }
+  .mobile-grid {
+    display: grid;
+  }
+}
 /* Deck */
 .dealtCard:hover {
   transform: scale(1.25);
