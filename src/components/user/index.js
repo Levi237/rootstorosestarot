@@ -10,20 +10,12 @@ import DisplaySpread from '../spreads/DisplaySpread';
 export default class UserPage extends Component {
     state = {
         selected: [],
-        // user: null,
-        // uid: null,
         userSpreads: [],
     };
     componentDidMount(){
-        this.setLocalUserState();
         this.userSpreadsList();
     }
-    // setLocalUserState = () => {
-    //     this.setState({
-    //         user: firebase.auth().currentUser.providerData,
-    //         uid: firebase.auth().currentUser.uid
-    //     })
-    // }
+//-------------> Get user spreads history
     userSpreadsList(){
         firebase.firestore()
         .collection('spreads')
@@ -134,16 +126,13 @@ const DashboardWrapper = styled.div`
         grid-template-columns: 280px calc(100vw - 280px);
         > section {
             &:last-of-type {
-
             }
             &:first-of-type {
-
                 > div {
                     padding: 5%;
                     background-color: white;
                     width: 80%;
                     min-height: calc(90% - 200px);
-                    // margin: 100px auto 0;
                     li {
 
                     }
@@ -165,14 +154,11 @@ const DashboardWrapper = styled.div`
         }
         > section {
             &:last-of-type {
-
             }
             &:first-of-type {
-
                 > div {
                     margin: 0 auto;
                     li {
-
                     }
                 }
             }

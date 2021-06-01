@@ -450,15 +450,9 @@ export default class App extends Component {
         hand: [],
         selectSpread: {},
         show: "",
-        // userSpreads: [],
-        // fakeUser: {
-        //     email: "levieiko@gmail.com",
-        //     displayName: null
-        // }
     };
     componentDidMount = () => {
         this.authListener();
-        // this.userSpreadsList();
     };
     //-- Authenticate User
     authListener(){
@@ -482,24 +476,7 @@ export default class App extends Component {
         });
         this.clearModal();
     };
-    //-- Grab layouts from User uid
-    // userSpreadsList(){
-    //     firebase.firestore()
-    //     .collection('spreads')
-    //     .orderBy('timestamp', 'desc')
-    //     .onSnapshot(serverUpdate => {
-    //         const sp = serverUpdate.docs.map(_doc => {
-    //             const data = _doc.data();
-    //             data['id'] = _doc.id;
-    //             return data;
-    //         });
-    //         sp.filter(f => { 
-    //             if(f.uid === this.state.uid){
-    //                 this.setState({ userSpreads: [...this.state.userSpreads, f] });
-    //             };
-    //         });
-    //     });
-    // };
+
     //-- Shuffle deck and display
     showDeck = () => {
         const { deck } = this.state;
@@ -558,7 +535,6 @@ export default class App extends Component {
         const t = e.currentTarget.name;
         document.getElementById("spread-header").style.display = "none";
         document.getElementById("spread-container").style.display = "none";
-        // this.showSpreadLayout();
         document.getElementById("deckDisplay").style.marginLeft = "0";
         document.getElementById("deckDisplay").style.marginBottom = "0";
         document.getElementById("deckDisplay").style.position = "relative";
@@ -579,14 +555,7 @@ export default class App extends Component {
             this.animateDeck();
         }, 2000);
     };
-    // Show Spread Layout
-    // showSpreadLayout = () => {
-    //     document.getElementById("deckDisplay").style.marginLeft = "0";
-    //     document.getElementById("deckDisplay").style.marginBottom = "0";
-    //     document.getElementById("deckDisplay").style.position = "relative";
-    //     document.getElementById("shuffle-nav").style.display = "block";
-    //     document.getElementById("spreadsheet-container").style.display = "grid";
-    // };
+
     //-- Show the layout options a user can select
     showSpreadLayouts = (e) => {
         document.getElementById("shuffle-nav").style.display = "none";
@@ -682,7 +651,6 @@ export default class App extends Component {
             <UserPage 
                 hand={hand} 
                 selectSpread={selectSpread} 
-                // showSpreadLayouts={this.showSpreadLayouts}
                 userSpreads={userSpreads} 
                 user={user}
                 uid={uid}
