@@ -98,7 +98,7 @@ const InfoContainer = styled.div`
                 color: var(--purple);
                 font-size: 120%;
                 vertical-align: middle;
-                line-height: 200%;
+                line-height: 160%;
             }
         }
     }
