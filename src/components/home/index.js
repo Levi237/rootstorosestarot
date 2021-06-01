@@ -89,7 +89,6 @@ const HomeIntro = styled.section`
         }
         &:last-of-type{
             width: 62.5%;
-            margin-top: 6.25%;
             margin-left: 6.25%;
             vertical-align: top;
         }
