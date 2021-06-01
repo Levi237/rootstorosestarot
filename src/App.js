@@ -450,6 +450,7 @@ export default class App extends Component {
         hand: [],
         selectSpread: {},
         show: "",
+        randomCard: false
     };
     componentDidMount = () => {
         this.authListener();
@@ -478,7 +479,7 @@ export default class App extends Component {
     };
 
     //-- Shuffle deck and display
-    showDeck = () => {
+    shuffleDeck = () => {
         const { deck } = this.state;
         let newDeck = [...deck];
         let shuffledDeck = [];
@@ -502,6 +503,14 @@ export default class App extends Component {
             }, 2000);
         };
     };
+    //-- Generate random single card
+    pickRandomCard = () => {
+        console.log("pickRandomCard");
+        this.shuffleDeck();
+        this.setState({
+            randomCard: true
+        });
+       }
     //-- pick card from shuffled deck, add to hand.
     selectCard = (e) => {
         const { selectSpread, deck, hand, shuffle } = this.state;
@@ -549,7 +558,7 @@ export default class App extends Component {
             };
         });
         
-        this.showDeck();
+        this.shuffleDeck();
         //-- delay deck animation til block is in view
         setTimeout(() => {
             this.animateDeck();
@@ -644,43 +653,47 @@ export default class App extends Component {
             user={user} 
             />
         <Switch>
-        <Route path={routes.ROOT} exact render={() => 
-            <HomePage clearAll={this.clearAll}/> }/>
-            }/>
-        <Route path={routes.ACCT} exact render={() => 
-            <UserPage 
-                hand={hand} 
-                selectSpread={selectSpread} 
-                userSpreads={userSpreads} 
-                user={user}
-                uid={uid}
-                showSpreadLayout={this.showSpreadLayout}
-                /> 
-            }/>
-        <Route path={routes.FAQS} exact render={() => 
-            <div> MY TAROT CARD READINGS </div> }/>
-        <Route path={routes.LAYS} exact render={() => 
-            <>
-                <Deck 
-                    animateDeck={this.animateDeck}
-                    deck={deck} 
-                    hand={hand} 
-                    selectCard={this.selectCard} 
-                    selectSpread={selectSpread} 
-                    shuffle={shuffle} 
+            <Route path={routes.ROOT} exact render={() => 
+                <HomePage 
+                    clearAll={this.clearAll} 
+                    pickRandomCard={this.pickRandomCard}
+                    displayCard={this.state.shuffle[0]}
                     />
-                <Layouts 
-                    selectSpread={this.selectSpread}
-                    layouts={layouts} 
-                    />
-                <SpreadSheet 
+                }/>
+            <Route path={routes.ACCT} exact render={() => 
+                <UserPage 
                     hand={hand} 
                     selectSpread={selectSpread} 
-                    showSpreadLayouts={this.showSpreadLayouts}
+                    userSpreads={userSpreads} 
                     user={user}
-                    />
-            </>
-         }/>
+                    uid={uid}
+                    showSpreadLayout={this.showSpreadLayout}
+                    /> 
+                }/>
+            <Route path={routes.FAQS} exact render={() => 
+                <div> MY TAROT CARD READINGS </div> }/>
+            <Route path={routes.LAYS} exact render={() => 
+                <>
+                    <Deck 
+                        animateDeck={this.animateDeck}
+                        deck={deck} 
+                        hand={hand} 
+                        selectCard={this.selectCard} 
+                        selectSpread={selectSpread} 
+                        shuffle={shuffle} 
+                        />
+                    <Layouts 
+                        selectSpread={this.selectSpread}
+                        layouts={layouts} 
+                        />
+                    <SpreadSheet 
+                        hand={hand} 
+                        selectSpread={selectSpread} 
+                        showSpreadLayouts={this.showSpreadLayouts}
+                        user={user}
+                        />
+                </>
+            }/>
         </Switch>
       </AppContainer>
     );
