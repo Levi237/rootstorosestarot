@@ -16,7 +16,6 @@ export default class UserPage extends Component {
         const target = e.currentTarget.value;
         this.props.userSpreads.filter(m => {
             let x = m.timestamp.toDate().toLocaleString();
-            // let x = m.timestamp.toDate().toDateString();
             if (x === target){
                 this.setState({
                     selected: [m]
@@ -27,9 +26,7 @@ export default class UserPage extends Component {
     render(){
         const { selected } = this.state;
         const { user, userSpreads } = this.props;
-        // console.log(selected[0].hand[0], "<========[0]============>")
         const userSpreadsList = userSpreads.map((us, k) => {
-            // let dateCreated = us.timestamp.toDate().toDateString();
             let dateCreated = us.timestamp.toDate().toLocaleString();
             return (
                 <li key={k}><button onClick={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>{dateCreated} - {us.spread.name}</button></li>
@@ -37,16 +34,14 @@ export default class UserPage extends Component {
         });
         return(
             <DashboardWrapper>
-
                 <section>
-                        <h1>Welcome, {user.email}</h1>
+                        <h1 class="desktop">Welcome, {user.email}</h1>
                     <div>
                         <ul>
                             {userSpreadsList}
                         </ul>
                     </div>
                 </section>
-
                 <section>
                 {selected[0] &&
                     <DisplaySpread 
@@ -55,7 +50,6 @@ export default class UserPage extends Component {
                     />
                 }
                 </section>
-
             </DashboardWrapper>
         );
     };
@@ -68,6 +62,12 @@ const DashboardWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: 'info spread';
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none;
+    }
     > section {
         &:last-of-type {
             grid-area: spread;
@@ -90,6 +90,7 @@ const DashboardWrapper = styled.div`
                         font-size: 18px;
                         border: none;
                         background-color: transparent;
+                        text-align: left;
                         &:hover {
                             color: blue;
                             cursor: pointer;
@@ -122,6 +123,16 @@ const DashboardWrapper = styled.div`
     }
     @media only screen and (max-width: 640px) {
         grid-template-columns: 100vw;
+        grid-template-rows: auto auto;
+        grid-template-areas: ' spread ' ' info ';
+        .mobile {
+            display: block;
+            position: absolute;
+            width: 100%;
+        }
+        .desktop {
+            display: none;
+        }
         > section {
             &:last-of-type {
 
