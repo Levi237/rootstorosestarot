@@ -72,6 +72,9 @@ const Container = styled.div`
     }
     @media only screen and (max-width: 640px) {
         width: 100vw;
+        > section {
+            width: 100%!important;
+        }
     }
 `;
 const ContainerDealt = styled(Container)`
@@ -88,11 +91,8 @@ const ContainerSpread = styled(Container)`
 `;
 
 const LocalWrapper = styled.div`
-    @media only screen and (max-width: 640px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: ' spread ' ' info ';
-    }
+    position: relative;
+
 //-----------------------------------------------------> SIMPLE SPREADS
     .spread-three-simple > section {
         grid-template-columns: 1fr 1fr 1fr;
@@ -132,7 +132,7 @@ const LocalWrapper = styled.div`
             ' . . two . . '
             ' . four one five . '
             ' . . three . . ';
-            max-width: 600px;
+            width: calc(126vh - 240px);
     }
     .spread-ten-celtic-cross > section {
         grid-template-columns: 3fr 3fr 3fr 1fr 3fr;
@@ -142,7 +142,7 @@ const LocalWrapper = styled.div`
             ' five one six . eight '
             ' . four . . nine '
             ' . two . . ten ';
-            max-width: 500px;
+            width: calc(100vh - 240px);
     }
 //-----------------------------------------------------> CELTIC CROSS SPREADS
     .spread-thirteen-celtic-cross > section {
@@ -155,7 +155,8 @@ const LocalWrapper = styled.div`
             ' . four . . ten '
             ' . two . . . ';
         margin-bottom: -20%;
-        max-width: 500px;
+        margin-top: -25px;
+        width: calc(100vh - 240px);
     }
     .spread-ten-celtic-cross > section > div:nth-of-type(2),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(2) {
@@ -172,11 +173,14 @@ const LocalWrapper = styled.div`
     .spread-thirteen-celtic-cross > section > div:nth-of-type(7),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(8),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(9),
-    .spread-thirteen-celtic-cross > section > div:nth-of-type(10),
+    .spread-thirteen-celtic-cross > section > div:nth-of-type(10) {
+        width: 90%;
+    }
     .spread-thirteen-celtic-cross > section > div:nth-of-type(11),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(12),
     .spread-thirteen-celtic-cross > section > div:nth-of-type(13) {
-        width: 90%;
+        width: 80%!important;
+        margin-top: 20%;
     }
 
     .spread-ten-celtic-cross > section > div:nth-of-type(7) {
