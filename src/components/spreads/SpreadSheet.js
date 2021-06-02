@@ -7,7 +7,9 @@ import 'firebase/auth';
 
 import DisplaySpread from './DisplaySpread';
 export default class SpreadSheet extends Component {
-
+state = {
+    showSaveBtn: true
+}
     saveHand = async () => {
         const { hand, selectSpread } = this.props;
         const newFromDB = await firebase.firestore().collection('spreads').add({
@@ -19,6 +21,12 @@ export default class SpreadSheet extends Component {
         return newFromDB;
     };
 
+    hideBtn = () => {
+        console.log("clickedHideBtn")
+        this.setState({
+            showSaveBtn: false
+        })
+    }
     render(){
         const { hand, selectSpread, showSpreadLayouts, user, showModal } = this.props;
 
@@ -28,6 +36,11 @@ export default class SpreadSheet extends Component {
             num -= 1;
             sheet.push(<div key={num}><img src="./deck/back.jpg" alt="deck back"/></div>);
         };
+        if (hand.length > 0){
+            console.log("hand true")
+        }else{
+            console.log("hand false")
+        }
 
         const showInfo = hand.map((h, k) => {
             return (
@@ -58,10 +71,14 @@ export default class SpreadSheet extends Component {
                                 </button>
                             </section>
                             <section id="save">
-                            { user
-
-                                ? <button className="purpleBtn" onClick={() => {this.saveHand();}}>Save</button>
-                                : <button className="purpleBtn" onClick={(e) => {showModal(e)}} name="login">Save</button>
+                            { (user && hand.length > 0 && hand.length === selectSpread.cards && this.state.showSaveBtn) && 
+                                <button className="purpleBtn" onClick={() => {this.saveHand(); this.hideBtn();}}>Save</button> 
+                            }
+                            { (!user && hand.length === selectSpread.cards) && 
+                                <button className="purpleBtn" onClick={(e) => {showModal(e)}} name="login">Save</button> 
+                            }
+                            { (!user && hand.length < selectSpread.cards) && 
+                                <button className="purpleBtn" onClick={(e) => {showModal(e)}} name="login">Log In</button> 
                             }
                             </section>
                         </div>
