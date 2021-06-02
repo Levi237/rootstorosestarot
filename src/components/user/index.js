@@ -49,20 +49,35 @@ export default class UserPage extends Component {
         const { user } = this.props;
         const userSpreadsList = userSpreads.map((us, k) => {
             let dateCreated = us.timestamp.toDate().toLocaleString();
+            const cardList = us.hand.map((c, k) => {
+                return (
+                    <li key={k}>
+                        {c.title}
+                    </li>
+                )
+            })
             return (
-                <li key={k}><button onClick={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>{dateCreated} - {us.spread.name}</button></li>
+                <section key={k}>
+                    <button onCsectionck={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>
+                        {us.spread.name}
+                        <br/>
+                        <small>{dateCreated}</small>
+                    </button>
+                    <div>
+                        <ol>
+                            {cardList}
+                        </ol>
+                    </div>
+                </section>
             );
         });
         return(
             <DashboardWrapper>
                 <section>
-                    {user && <h1 class="desktop">Welcome, {user.email}</h1>}
-                        
-                    <div>
-                        <ul>
-                            {userSpreadsList}
-                        </ul>
-                    </div>
+                    { user && <h1 class="desktop">Welcome, {user.email}</h1> }
+                    <UserSpreadsList>
+                        {userSpreadsList}
+                    </UserSpreadsList>
                 </section>
                 <section>
                 {(selected && user) &&
@@ -77,11 +92,33 @@ export default class UserPage extends Component {
     };
 };
 
+const UserSpreadsList = styled.div`
+    padding: 5%;
+    background-color: white;
+    width: 80%;
+    min-height: calc(90% - 200px);
+    margin: 0 auto;
+    overflow: scroll;
+
+    section {
+        padding: 5px 0;
+        button {
+            font-size: 18px;
+            border: none;
+            background-color: transparent;
+            text-align: left;
+            &:hover {
+                color: blue;
+                cursor: pointer;
+            }
+        }
+    }
+`;
 const DashboardWrapper = styled.div`
     width: 100vw;
     min-height: calc(100vh - 40px);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 320px calc(100% - 320px);
     grid-template-rows: 1fr;
     grid-template-areas: 'info spread';
     .desktop {
@@ -99,26 +136,6 @@ const DashboardWrapper = styled.div`
         }
         &:first-of-type {
             grid-area: info;
-            > div {
-                padding: 5%;
-                background-color: white;
-                width: 80%;
-                min-height: calc(90% - 200px);
-                margin: 100px auto 0;
-                overflow: scroll;
-                li {
-                    padding: 5px 0;
-                    button {
-                        font-size: 18px;
-                        border: none;
-                        background-color: transparent;
-                        text-align: left;
-                        &:hover {
-                            color: blue;
-                            cursor: pointer;
-                        }
-                    }
-                }
             }
         }
     }
@@ -133,7 +150,7 @@ const DashboardWrapper = styled.div`
                     background-color: white;
                     width: 80%;
                     min-height: calc(90% - 200px);
-                    li {
+                    section {
 
                     }
                 }
@@ -158,7 +175,7 @@ const DashboardWrapper = styled.div`
             &:first-of-type {
                 > div {
                     margin: 0 auto;
-                    li {
+                    section {
                     }
                 }
             }
