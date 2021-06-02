@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import styled               from 'styled-components';
 
 import HamburgerNav from '../nav/HamburgerNav';
+
+//----------------------------------------------> GLOBAL HEADER / NAV
+//----------------------------------------------> Animate Spell out logo name from logoHeader
 export default class Header extends Component {
     state = {
         logoHeader: "Roots to Roses Tarot"

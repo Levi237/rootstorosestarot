@@ -30,7 +30,7 @@ const Container = styled.div`
     > h1 {
         margin: 50px auto 40px;
         font-family: var(--decorative-font);
-        color: #fff;
+        // color: #fff;
         font-weight: 100;
         text-transform: uppercase;
     }

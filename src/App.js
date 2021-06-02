@@ -702,7 +702,7 @@ export default class App extends Component {
 };
 
 const AppContainer = styled.div`
-  background-color: var(--green);
+//   background-color: var(--green);
   width: 100vw;
   h1 {
     text-align: center;
