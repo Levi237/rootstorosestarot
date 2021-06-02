@@ -36,11 +36,6 @@ state = {
             num -= 1;
             sheet.push(<div key={num}><img src="./deck/back.jpg" alt="deck back"/></div>);
         };
-        if (hand.length > 0){
-            console.log("hand true")
-        }else{
-            console.log("hand false")
-        }
 
         const showInfo = hand.map((h, k) => {
             return (
