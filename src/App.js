@@ -11,7 +11,7 @@ import HomePage             from './components/home';
 import UserPage             from './components/user';
 import NavMenu              from './components/nav/NavMenu';
 import Header               from './components/Header';
-import Deck                 from './components/deck/Deck';
+import Deck                 from './components/deck';
 import Layouts              from './components/spreads';
 import SpreadSheet          from './components/spreads/SpreadSheet';
 
