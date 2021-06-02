@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled               from 'styled-components';
 
-import HamburgerNav from './nav/HamburgerNav';
+import HamburgerNav from '../nav/HamburgerNav';
 export default class Header extends Component {
     state = {
         logoHeader: "Roots to Roses Tarot"
