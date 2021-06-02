@@ -33,7 +33,7 @@ export default class Nav extends Component {
     };
 };
 
-const NavContainer = styled.div`
+const NavContainer = styled.nav`
     text-align: center;
     font-size: 20px;
     right: 0;
