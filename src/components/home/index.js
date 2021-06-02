@@ -43,7 +43,7 @@ const HomeWrapper = styled.div`
     height: calc(100vh - 40px);
     overflow: scroll;
     letter-spacing: 1px;
-    // color: #fff;
+    color: #fff;
     h1 {
         font-family: var(--decorative-font);
         font-weight: 400;
