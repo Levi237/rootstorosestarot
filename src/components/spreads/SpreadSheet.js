@@ -27,6 +27,12 @@ state = {
             showSaveBtn: false
         })
     }
+    resetShowSaveBtn = () => {
+        console.log("clickedHideBtn")
+        this.setState({
+            showSaveBtn: true
+        })
+    }
     render(){
         const { hand, selectSpread, showSpreadLayouts, user, showModal } = this.props;
 
@@ -61,7 +67,7 @@ state = {
                         </ol>
                         <div>
                             <section id="restart">
-                                <button className="purpleBtn" onClick={(e) => showSpreadLayouts(e)}>
+                                <button className="purpleBtn" onClick={(e) => {showSpreadLayouts(e); this.resetShowSaveBtn();}}>
                                     Close
                                 </button>
                             </section>
