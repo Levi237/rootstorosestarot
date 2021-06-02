@@ -10,11 +10,11 @@ import DisplaySpread from '../spreads/DisplaySpread';
 export default class UserPage extends Component {
     state = {
         selected: null,
-        userSpreads: [],
+        userSpreads: []
     };
     componentDidMount(){
         this.userSpreadsList();
-    }
+    };
 //-------------> Get user spreads history
     userSpreadsList(){
         firebase.firestore()
@@ -33,6 +33,7 @@ export default class UserPage extends Component {
             });
         });
     };
+//-- Show selected spread from list
     showSpread = (e) => {
         const target = e.currentTarget.value;
         this.state.userSpreads.forEach(m => {
@@ -47,62 +48,63 @@ export default class UserPage extends Component {
     render(){
         const { selected, userSpreads } = this.state;
         const { user } = this.props;
+//-- Generate List of users Spreads
         const userSpreadsList = userSpreads.map((us, k) => {
             let dateCreated = us.timestamp.toDate().toLocaleString();
             const cardList = us.hand.map((c, k) => {
-                return (
-                    <li key={k}>
-                        {c.title}
-                    </li>
-                )
-            })
+                return <li key={k}>{c.title}</li>
+            });
             return (
                 <section key={k}>
-                    <button onCsectionck={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>
+                    <button onClick={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>
                         {us.spread.name}
                         <br/>
                         <small>{dateCreated}</small>
                     </button>
                     <div>
-                        <ol>
-                            {cardList}
-                        </ol>
+                        {/* <button>Delete Spread</button> */}
+                        <ol>{cardList}</ol>
                     </div>
                 </section>
             );
         });
-        return(
+
+        return (
             <DashboardWrapper>
-                <section>
-                    { user && <h1 class="desktop">Welcome, {user.email}</h1> }
-                    <UserSpreadsList>
-                        {userSpreadsList}
-                    </UserSpreadsList>
-                </section>
-                <section>
-                {(selected && user) &&
-                    <DisplaySpread 
-                        hand={selected.hand}
-                        selectSpread={selected.spread}
-                    />
-                }
-                </section>
+                <DashboardBody>
+                    <section>
+                        <UserSpreadsList>
+                            {userSpreadsList}
+                        </UserSpreadsList>
+                    </section>
+                    <section>
+                    {(selected && user) &&
+                        <DisplaySpread 
+                            hand={selected.hand}
+                            selectSpread={selected.spread}
+                        />
+                    }
+                    </section>
+                </DashboardBody>
             </DashboardWrapper>
         );
     };
 };
+const DashboardWrapper = styled.div`
+    width: 100vw;
 
+`;
 const UserSpreadsList = styled.div`
-    padding: 5%;
     background-color: white;
-    width: 80%;
-    min-height: calc(90% - 200px);
-    margin: 0 auto;
+    width: 90%;
+    height: calc(100vh - 110px);
+    margin: 20px auto;
     overflow: scroll;
 
     section {
-        padding: 5px 0;
-        button {
+        padding: 5px 12px;
+        border-bottom: 1px solid black;
+        > button {
             font-size: 18px;
             border: none;
             background-color: transparent;
@@ -114,7 +116,7 @@ const UserSpreadsList = styled.div`
         }
     }
 `;
-const DashboardWrapper = styled.div`
+const DashboardBody = styled.div`
     width: 100vw;
     min-height: calc(100vh - 40px);
     display: grid;
@@ -171,6 +173,7 @@ const DashboardWrapper = styled.div`
         }
         > section {
             &:last-of-type {
+                padding: 20px 0;
             }
             &:first-of-type {
                 > div {
