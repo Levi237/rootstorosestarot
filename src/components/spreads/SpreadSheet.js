@@ -55,10 +55,12 @@ state = {
 
         return(
             <LocalWrapper id="spreadsheet-container">
-                <DisplaySpread 
-                    hand={hand}
-                    selectSpread={selectSpread}
-                />
+                <div>
+                    <DisplaySpread 
+                        hand={hand}
+                        selectSpread={selectSpread}
+                    />
+                </div>
                 <div>
                     <InfoContainer>
                         <h2>{selectSpread.name}</h2>
@@ -90,6 +92,7 @@ state = {
     };
 };
 const InfoContainer = styled.div`
+margin-top: 20px;
     width: 90%;
     max-height: 640px;
     padding-bottom: 80px;
@@ -184,17 +187,20 @@ const InfoContainer = styled.div`
 // `;
 
 const LocalWrapper = styled.div`
-    margin: 20px auto;
+    margin: 0 auto;
     position: relative;
     display: none;
     grid-template-columns: calc(100% - 360px) 360px;
-    grid-template-rows: 100%;
+    grid-template-rows: calc(100vh - 40px);
     grid-template-areas: ' spread info ';
     > div {
         position: relative;
         display: inline-block;
         &:first-of-type {
             grid-area: spread;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         &:last-of-type {
             grid-area: info;
