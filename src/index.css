@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Simonetta&family=Sacramento&display=swap');
 
 :root {
-  --green: #17610b;
-  --purple: #2a1638;
+  --green: rgb(175,209,190);
+  --purple: rgb(42,19,96);
+  --gold: rgb(170,128,58);
+  /* --green: #17610b; */
+  /* --purple: #2a1638; */
   --lightpurple: rgba(42, 22, 56, .2);
-  --gold: #e2ca13;
+  /* --gold: #e2ca13; */
   --lightgrey: #555555;
   --decorative-font: 'Simonetta';
   --logo-font: 'Sacramento', cursive;
