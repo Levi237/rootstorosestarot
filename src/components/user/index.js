@@ -58,7 +58,9 @@ export default class UserPage extends Component {
                 return <li key={k}>{c.title}</li>
             });
             return (
-                <section key={k}>
+                <section key={k}
+                    style={(this.state.selected && this.state.selected.id) === us.id ? {backgroundColor: 'transparent'} : {backgroundColor: 'rgba(0,0,0,.1)'}}
+                >
                     <button 
                         onClick={(e) => {this.showSpread(e);}} 
                         value={us.id} 
@@ -68,7 +70,9 @@ export default class UserPage extends Component {
                         <br/>
                         <small>{dateCreated}</small>
                     </button>
-                    <div>
+                    <div
+                        style={(this.state.selected && this.state.selected.id) === us.id ? {height: '100%'} : {height: '0'}}
+                    >
                         {/* <button>Delete Spread</button> */}
                         <ol>{cardList}</ol>
                     </div>
@@ -107,10 +111,18 @@ const UserSpreadsList = styled.div`
     height: calc(100vh - 110px);
     margin: 20px auto;
     overflow: scroll;
-
     section {
         padding: 5px 12px;
         border-bottom: 1px solid black;
+        transition: background-color .3s ease-in-out;
+        &:hover {
+            background-color: transparent!important;
+            cursor: pointer;
+        }
+        > div {
+            overflow: hidden;
+            transition: height .3s ease-in-out;
+        }
         > button {
             font-size: 18px;
             border: none;
@@ -118,7 +130,6 @@ const UserSpreadsList = styled.div`
             text-align: left;
             &:hover {
                 color: var(--green)!important;
-                cursor: pointer;
             }
         }
     }
