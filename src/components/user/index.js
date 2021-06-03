@@ -29,6 +29,9 @@ export default class UserPage extends Component {
             sp.forEach(f => { 
                 if(f.uid === this.props.uid){
                     this.setState({ userSpreads: [...this.state.userSpreads, f] });
+                    if (!this.state.selected){
+                        this.setState({ selected: f });
+                    }
                 };
             });
         });
@@ -37,8 +40,8 @@ export default class UserPage extends Component {
     showSpread = (e) => {
         const target = e.currentTarget.value;
         this.state.userSpreads.forEach(m => {
-            let x = m.timestamp.toDate().toLocaleString();
-            if (x === target){
+            // let x = m.timestamp.toDate().toLocaleString();
+            if (m.id === target){
                 this.setState({
                     selected: m
                 });
@@ -56,7 +59,11 @@ export default class UserPage extends Component {
             });
             return (
                 <section key={k}>
-                    <button onClick={(e) => {this.showSpread(e);}} value={`${dateCreated}`}>
+                    <button 
+                        onClick={(e) => {this.showSpread(e);}} 
+                        value={us.id} 
+                        style={(this.state.selected && this.state.selected.id) === us.id ? {color: 'var(--green)'} : {color: 'var(--purple)'}}
+                    >
                         {us.spread.name}
                         <br/>
                         <small>{dateCreated}</small>
@@ -110,7 +117,7 @@ const UserSpreadsList = styled.div`
             background-color: transparent;
             text-align: left;
             &:hover {
-                color: blue;
+                color: var(--green)!important;
                 cursor: pointer;
             }
         }
