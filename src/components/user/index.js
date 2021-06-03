@@ -59,7 +59,7 @@ export default class UserPage extends Component {
             });
             return (
                 <section key={k}
-                    style={(this.state.selected && this.state.selected.id) === us.id ? {backgroundColor: 'transparent'} : {backgroundColor: 'rgba(0,0,0,.1)'}}
+                    style={(this.state.selected && this.state.selected.id) === us.id ? {backgroundColor: 'transparent'} : {backgroundColor: 'rgba(0,0,0,.05)'}}
                 >
                     <button 
                         onClick={(e) => {this.showSpread(e);}} 
@@ -110,10 +110,11 @@ const UserSpreadsList = styled.div`
     width: 90%;
     height: calc(100vh - 110px);
     margin: 20px auto;
+    box-shadow: 4px 4px 14px rgb(0,0,0,.5);
     overflow: scroll;
     section {
         padding: 5px 12px;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid rgba(0,0,0,.2);
         transition: background-color .3s ease-in-out;
         &:hover {
             background-color: transparent!important;
