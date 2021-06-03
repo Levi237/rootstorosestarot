@@ -35,12 +35,15 @@ const SpreadContainer = styled.section`
         max-width: 197px;
         height: 30vw;
         max-height: 197px;
-        border: 2px solid var(--gold);
+        border: 2px solid var(--purple);
         margin: clamp(.1vw, 1vw, 8px);
         vertical-align: top;
         background-color: #fff;
         > h2 {
             color: var(--purple);
+            font-weight: 100;
+            font-family: var(--decorative-font);
+            text-transform: capitalize;
         }
         > div {
             width: 100%;
