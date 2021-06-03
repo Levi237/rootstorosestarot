@@ -14,7 +14,6 @@ export default class Deck extends Component {
 
         return (
             <Container id="deck-container">
-            <h1 id="spread-header">pick your tarot layout</h1>
                 <div id="displayContainer">
                     <div id="deckDisplay">
                         { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg" alt="deck back"/></div>}
@@ -27,13 +26,6 @@ export default class Deck extends Component {
 
 const Container = styled.div`
     width: 100vw;
-    > h1 {
-        margin: 50px auto 40px;
-        font-family: var(--decorative-font);
-        color: #fff;
-        font-weight: 100;
-        text-transform: uppercase;
-    }
     > section {
         text-align: right;
         position: absolute;

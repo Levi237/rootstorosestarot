@@ -142,3 +142,12 @@ h1, h2, h3, h4, p {
     max-width: 100vw;
   }
 }
+
+/* add back to component when completed */
+#spread-header {
+  margin: 50px auto 40px;
+  font-family: var(--decorative-font);
+  color: var(--purple);
+  font-weight: 100;
+  text-transform: uppercase;
+}

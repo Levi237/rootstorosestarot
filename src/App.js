@@ -11,9 +11,7 @@ import HomePage             from './components/home';
 import UserPage             from './components/user';
 import NavMenu              from './components/nav/NavMenu';
 import Header               from './components/header';
-import Deck                 from './components/deck';
-import Layouts              from './components/spreads';
-import SpreadSheet          from './components/spreads/SpreadSheet';
+import LayoutsIndex         from './components/spreads';
 
 export default class App extends Component {
     state = {
@@ -540,7 +538,7 @@ export default class App extends Component {
         };
     };
     // Choose tarot spread layout
-    selectSpread = (e) => {
+    selectThisSpread = (e) => {
         const t = e.currentTarget.name;
         document.getElementById("spread-header").style.display = "none";
         document.getElementById("spread-container").style.display = "none";
@@ -675,27 +673,19 @@ export default class App extends Component {
             <Route path={routes.FAQS} exact render={() => 
                 <div> MY TAROT CARD READINGS </div> }/>
             <Route path={routes.LAYS} exact render={() => 
-                <>
-                    <Deck 
-                        animateDeck={this.animateDeck}
-                        deck={deck} 
-                        hand={hand} 
-                        selectCard={this.selectCard} 
-                        selectSpread={selectSpread} 
-                        shuffle={shuffle} 
-                        />
-                    <Layouts 
-                        selectSpread={this.selectSpread}
-                        layouts={layouts} 
-                        />
-                    <SpreadSheet 
-                        hand={hand} 
-                        selectSpread={selectSpread} 
-                        showSpreadLayouts={this.showSpreadLayouts}
-                        showModal={this.showModal}
-                        user={user}
-                        />
-                </>
+                <LayoutsIndex
+                    animateDeck={this.animateDeck}
+                    deck={deck} 
+                    hand={hand} 
+                    layouts={layouts} 
+                    selectCard={this.selectCard} 
+                    selectSpread={selectSpread} 
+                    selectThisSpread={this.selectThisSpread}
+                    showModal={this.showModal}
+                    showSpreadLayouts={this.showSpreadLayouts}
+                    shuffle={shuffle} 
+                    user={user}
+                />
             }/>
         </Switch>
       </AppContainer>
