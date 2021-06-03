@@ -14,34 +14,33 @@ export default class Layouts extends Component {
             );
         });
         return(
-            // <LocalWrapper>
-                <SpreadContainer id="spread-container">
-                    {spreadOptions}
-                </SpreadContainer>
-            // </LocalWrapper>
+            <SpreadContainer id="spread-container">
+                {spreadOptions}
+            </SpreadContainer>
         );
     };
 };
-// const LocalWrapper = styled.div`
-// `;
+
 const SpreadContainer = styled.section`
     text-align: center;
     max-width: 640px;
     width: 100vw;
     margin: 0 auto;
+    background-image: url(/img/roses-lightgold-pattern.png);
+    background-size: 250px;
     > button {
         color: white;
-        text-shadow: 2px 2px 5px rgba(0,0,0,.75);
         display: inline-block;
         width: 30vw;
         max-width: 197px;
         height: 30vw;
         max-height: 197px;
-        border: 2px solid white;
+        border: 2px solid var(--gold);
         margin: clamp(.1vw, 1vw, 8px);
         vertical-align: top;
-        background-color: transparent;
+        background-color: #fff;
         > h2 {
+            color: var(--purple);
         }
         > div {
             width: 100%;
@@ -58,7 +57,6 @@ const SpreadContainer = styled.section`
             height: calc(45vw - 4px);
             max-height: calc(45vw - 4px);
             > h2 {
-                // font-size: 3.6vw;
             }
             > div {}
         }
