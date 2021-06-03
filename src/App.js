@@ -708,7 +708,7 @@ const AppContainer = styled.div`
   }
   .purpleBtn {
     background-color: var(--purple);
-    color: var(--gold);
+    color: #fff;
     transition: opacity .3s ease;
     &:hover {
         opacity: .8;
