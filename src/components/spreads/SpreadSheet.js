@@ -22,17 +22,17 @@ state = {
     };
 
     hideBtn = () => {
-        console.log("clickedHideBtn")
         this.setState({
             showSaveBtn: false
-        })
-    }
+        });
+    };
     resetShowSaveBtn = () => {
-        console.log("clickedHideBtn")
-        this.setState({
-            showSaveBtn: true
-        })
-    }
+        setTimeout(() => {
+            this.setState({
+                showSaveBtn: true
+            });
+        }, 1200);
+    };
     render(){
         const { hand, selectSpread, showSpreadLayouts, user, showModal } = this.props;
 
