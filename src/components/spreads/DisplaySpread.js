@@ -143,6 +143,7 @@ const LocalWrapper = styled.div`
             ' . four . . nine '
             ' . two . . ten ';
             width: calc(100vh - 240px);
+            margin-top: -80px;
     }
 //-----------------------------------------------------> CELTIC CROSS SPREADS
     .spread-thirteen-celtic-cross > section {
@@ -155,8 +156,8 @@ const LocalWrapper = styled.div`
             ' . four . . ten '
             ' . two . . . ';
         margin-bottom: -20%;
-        margin-top: -25px;
         width: calc(100vh - 240px);
+        margin-top: -80px;
     }
     @media only screen and (max-width: 640px) {
         .spread-thirteen-celtic-cross > section {
