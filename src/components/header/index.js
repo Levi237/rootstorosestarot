@@ -40,11 +40,11 @@ export default class Header extends Component {
                 <LogoHeader>             
                     {mapLogo}
                 </LogoHeader>
-                <section id="shuffle-nav">
+                {/* <section id="shuffle-nav">
                     <button className="whiteBtn" onClick={(e) => shuffleThis(e)}>
                         Shuffle
                     </button>
-                </section>
+                </section> */}
                 <section id="login-logout">
                 { uid === null ?
                     <button className="desktop-inline" onClick={(e) => {showModal(e)}} name="login" value="login">Login</button>
