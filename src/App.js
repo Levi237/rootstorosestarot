@@ -566,7 +566,6 @@ export default class App extends Component {
         ////-- delay deck animation til block is in view
         setTimeout(() => {
             this.animateDeck();
-            // document.getElementById("block-all").style.display = "none";
         }, 2000);
     };
 
@@ -637,12 +636,10 @@ export default class App extends Component {
 
     return (
       <AppContainer> 
-        {/* <BlockEverything id="block-all"></BlockEverything> */}
         <NavMenu 
             clearAll={this.clearAll}
             logout={this.logout} 
             showModal={this.showModal} 
-            // showSpreadLayouts={this.showSpreadLayouts} 
             toggleHamburger={this.toggleHamburger} 
             user={user} 
             />
@@ -699,13 +696,6 @@ export default class App extends Component {
   };
 };
 
-// const BlockEverything = styled.div`
-//     height: 100vh;
-//     width: 100vw;
-//     position: absolute;
-//     z-index: 99999999999999999999999;
-//     display: none;
-// `;
 const AppContainer = styled.div`
   background-color: var(--green);
   width: 100vw;
