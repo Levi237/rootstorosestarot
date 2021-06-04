@@ -4,7 +4,7 @@ import styled               from 'styled-components';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-export default class SpreadContainer extends Component {
+export default class ShowSpread extends Component {
 
 
 

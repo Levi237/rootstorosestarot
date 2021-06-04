@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-import DisplaySpread from './DisplaySpread';
+import ShowSpread from './ShowSpread';
 export default class SpreadSheet extends Component {
 state = {
     showSaveBtn: true
@@ -56,7 +56,7 @@ state = {
         return(
             <LocalWrapper id="spreadsheet-container">
                 <div>
-                    <DisplaySpread 
+                    <ShowSpread 
                         hand={hand}
                         selectSpread={selectSpread}
                     />
@@ -97,7 +97,7 @@ state = {
     };
 };
 const InfoContainer = styled.div`
-margin-top: 20px;
+    margin-top: 20px;
     width: 90%;
     max-height: 640px;
     padding-bottom: 80px;
@@ -106,12 +106,14 @@ margin-top: 20px;
     position: relative;
     text-align: center;
     box-shadow: 4px 4px 14px rgba(0,0,0,.2);
+
     h2 {
         color: var(--purple);
         padding: 30px 0 0;
         font-size: 32px;
         text-transform: capitalize;
     }
+
     ol {
         margin-left: 20px;
         text-align: left;
@@ -126,11 +128,13 @@ margin-top: 20px;
             }
         }
     }
+
     > div:last-of-type {
         position: absolute;
         bottom: 20px;
         width: 100%;
     }
+
     #restart,
     #save {
         display: inline-block;
@@ -141,56 +145,11 @@ margin-top: 20px;
             font-size: 20px;
         }
     }
+    
     @media only screen and (max-width: 640px) {
         margin: 40px auto;
     }
 `;
-
-// const Container = styled.div`
-//     text-align: center;
-//     width: 100%;
-//     position: relative;
-//     > section {
-//         margin: 0 auto;
-//         position: relative;
-//         margin: 0 auto;
-//         width: 100%;
-//         display: grid;
-//         > div {
-//             &:first-of-type { grid-area: one; }
-//             &:nth-of-type(2) { grid-area: two; }
-//             &:nth-of-type(3) { grid-area: three; }
-//             &:nth-of-type(4) { grid-area: four; }
-//             &:nth-of-type(5) { grid-area: five; }
-//             &:nth-of-type(6) { grid-area: six; }
-//             &:nth-of-type(7) { grid-area: seven; }
-//             &:nth-of-type(8) { grid-area: eight; }
-//             &:nth-of-type(9) { grid-area: nine; }
-//             &:nth-of-type(10) { grid-area: ten; }
-//             &:nth-of-type(11) { grid-area: eleven; }
-//             &:nth-of-type(12) { grid-area: twelve; }
-//             &:nth-of-type(13) { grid-area: thirteen; }
-//             > img {
-//                 max-width: 80%;
-//             }
-//         }
-//     }
-//     @media only screen and (max-width: 640px) {
-//         width: 100vw;
-//     }
-// `;
-// const ContainerDealt = styled(Container)`
-//     position: absolute;
-//     top: 0;
-// `;
-// const ContainerSpread = styled(Container)`
-//     position: relative;
-//     img {
-//         -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-//         filter: grayscale(100%);
-//         opacity: .2;
-//       }
-// `;
 
 const LocalWrapper = styled.div`
     margin: 0 auto;

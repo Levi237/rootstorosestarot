@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-import DisplaySpread from '../spreads/DisplaySpread';
+import DisplaySpread from '../spreads/ShowSpread';
 
 export default class UserPage extends Component {
     state = {
