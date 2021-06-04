@@ -7,7 +7,7 @@ export default class Deck extends Component {
         const dealCards = shuffle.map((card, key) => {
             return (
                 <div id={card.id} key={key} className="dealtCard shuffleDeck" onClick={(e) => selectCard(e)}>
-                    <img alt="tarot card back" src="./deck/tab/back.jpg"/>
+                    <img alt="tarot card back" src="./deck/tab/back.png"/>
                 </div>
             );
         });
@@ -16,7 +16,7 @@ export default class Deck extends Component {
             <Container id="deck-container">
                 <div id="displayContainer">
                     <div id="deckDisplay">
-                        { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.jpg" alt="deck back"/></div>}
+                        { shuffle.length > 0 ? dealCards : <div><img src="./deck/tab/back.png" alt="deck back"/></div>}
                     </div>
                 </div>
             </Container>

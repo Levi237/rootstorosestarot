@@ -40,7 +40,7 @@ state = {
         let num = selectSpread.cards;
         while (num > 0) {
             num -= 1;
-            sheet.push(<div key={num}><img src="./deck/back.jpg" alt="deck back"/></div>);
+            sheet.push(<div key={num}><img src="./deck/back.png" alt="deck back"/></div>);
         };
 
         const showInfo = hand.map((h, k) => {
@@ -63,6 +63,11 @@ state = {
                 </div>
                 <div>
                     <InfoContainer>
+                    <section id="shuffle-nav">
+                        <button className="purpleBtn">
+                            Shuffle
+                        </button>
+                    </section>
                         <h2>{selectSpread.name}</h2>
                         <ol>
                             {showInfo}
@@ -70,7 +75,7 @@ state = {
                         <div>
                             <section id="restart">
                                 <button className="purpleBtn" onClick={(e) => {showSpreadLayouts(e); this.resetShowSaveBtn();}}>
-                                    Close
+                                    Go Back
                                 </button>
                             </section>
                             <section id="save">

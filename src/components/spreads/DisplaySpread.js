@@ -15,7 +15,7 @@ export default class SpreadContainer extends Component {
         let num = selectSpread.cards;
         while (num > 0) {
             num -= 1;
-            sheet.push(<div key={num}><img src="./deck/back.jpg" alt="deck back"/></div>);
+            sheet.push(<div key={num}><img src="./deck/back.png" alt="deck back"/></div>);
         };
         const showHand = hand.map((h, k) => {
             return (

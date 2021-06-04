@@ -15,7 +15,7 @@ const HomePage = ({clearAll, pickRandomCard, showCard}) => {
                     <section>
                         { showCard 
                             ? <img alt={showCard.title} src={`./deck/${showCard.id}.jpg`}/> 
-                            : <><img src="/deck/back.jpg" alt="deck back"/><button onClick={() => {pickRandomCard();}}>Click Me!</button></>
+                            : <><img src="/deck/back.png" alt="deck back"/><button onClick={() => {pickRandomCard();}}>Click Me!</button></>
                         }
                     </section>
                     <section>
@@ -32,7 +32,7 @@ const HomePage = ({clearAll, pickRandomCard, showCard}) => {
                         <p>
                             If you like your spread you can create an account, login and save it!
                         </p>
-                <NavLink to={routes.LAYS} onClick={() => {clearAll();}}>View Tarot Spreads</NavLink>      
+                <NavLink to={routes.LAYS} onClick={() => {clearAll();}}>Choose Your Spread →</NavLink>      
                     </section>
                 </HomeIntro>
             </div>
@@ -49,14 +49,17 @@ const HomeWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/img/roses-lightgold-pattern.png);
-    background-size: 400px;
+    background-image: url(/img/roses-lightpurple-pattern.png);
+    background-size: 800px;
+    background-color: var(--purple);
     // opacity: .5;
     position: relative;
     > div {
         display: inline-block;
-        padding: 20px 40px;
-        background-color: white;
+        padding: 6% 16%;
+        background-color: #fff;
+        border-radius: 100%;
+        box-shadow: 0 0 35px rgba(0,0,0,.8);
     }
     h1 {
         font-family: var(--decorative-font);
@@ -64,6 +67,9 @@ const HomeWrapper = styled.div`
         letter-width: 1px;
         &:first-of-type {
             font-weight: 600;
+        }
+        &:last-of-type {
+            padding-bottom: 20px;
         }
         span {
             color: var(--gold);
@@ -81,9 +87,10 @@ const HomeIntro = styled.section`
     }
     a {
         color: var(--gold);
+        text-decoration: none;
         &:hover {
-            opacity: .8;
-        }
+            text-decoration: underline;
+;        }
     }
     > section {
         display: inline-block;
@@ -92,6 +99,8 @@ const HomeIntro = styled.section`
             width: 31.25%;
             img {
                 width: 100%;
+                border-radius: 8px;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.5);
             }
             button {
                 position: absolute;
