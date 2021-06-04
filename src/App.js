@@ -412,6 +412,11 @@ export default class App extends Component {
         ], 
         layouts: [
             {
+                id: "single-card-draw",
+                name: "1 card draw",
+                image: "./spread/single-card-draw.png",
+                cards: 1
+            },{
                 id: "spread-three-simple",
                 name: "3 card spread",
                 image: "./spread/three-card-spread.png",
@@ -436,12 +441,11 @@ export default class App extends Component {
                 name: "10 card celtic cross",
                 image: "./spread/ten-celtic-cross-spread.png",
                 cards: 10
-
-            },{
-                id: "spread-thirteen-celtic-cross",
-                name: "13 card celtic cross",
-                image: "./spread/thirteen-celtic-cross-spread.png",
-                cards: 13
+            // },{
+            //     id: "spread-thirteen-celtic-cross",
+            //     name: "13 card celtic cross",
+            //     image: "./spread/thirteen-celtic-cross-spread.png",
+            //     cards: 13
             }
         ],
         shuffle: [],
