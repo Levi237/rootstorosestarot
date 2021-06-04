@@ -453,7 +453,7 @@ export default class App extends Component {
     componentDidMount = () => {
         this.authListener();
     };
-    //-- Authenticate User
+    ////-- Authenticate User
     authListener(){
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
@@ -466,7 +466,7 @@ export default class App extends Component {
             };
         });
     };
-    //-- Logout User
+    ////-- Logout User
     logout = () => {
         firebase.auth().signOut();
         this.setState({
@@ -476,7 +476,7 @@ export default class App extends Component {
         this.clearModal();
     };
 
-    //-- Shuffle deck and display
+    ////-- Shuffle deck and display
     shuffleDeck = () => {
         const { deck } = this.state;
         let newDeck = [...deck];
@@ -491,7 +491,7 @@ export default class App extends Component {
             shuffle: [...shuffledDeck]
         });
     };
-    //-- Shuffle deck again
+    ////-- Shuffle deck again
     shuffleThis = () => {
         let dealtDeck = document.getElementsByClassName('dealtCard');
         for (let i = 0; i < dealtDeck.length; i++) {
@@ -501,7 +501,7 @@ export default class App extends Component {
             }, 2000);
         };
     };
-    //-- Generate random single card
+    ////-- Generate random single card
     pickRandomCard = () => {
         console.log("pickRandomCard");
         this.shuffleDeck();
@@ -509,11 +509,13 @@ export default class App extends Component {
             randomCard: true
         });
        }
-    //-- pick card from shuffled deck, add to hand.
+    ////-- pick card from shuffled deck, add to hand.
     selectCard = (e) => {
         const { selectSpread, deck, hand, shuffle } = this.state;
         const t = e.currentTarget.id;
-        const random = Math.floor(Math.random(1 - 0) * 2);
+        ////-- increase chances of card being upright
+        // const random = Math.floor(Math.random(1 - 0) * 2);
+        const random = Math.floor(Math.random(1 - 0) * 3);
         if (hand.length < selectSpread.cards) {
             document.getElementById(t).style.display = "none";
             deck.filter(d => {
@@ -557,14 +559,14 @@ export default class App extends Component {
         });
         
         this.shuffleDeck();
-        //-- delay deck animation til block is in view
+        ////-- delay deck animation til block is in view
         setTimeout(() => {
             this.animateDeck();
             // document.getElementById("block-all").style.display = "none";
         }, 2000);
     };
 
-    //-- Show the layout options a user can select
+    ////-- Show the layout options a user can select
     showSpreadLayouts = (e) => {
         document.getElementById("shuffle-nav").style.display = "none";
         document.getElementById("deckDisplay").style.marginLeft = "-120%";
@@ -580,7 +582,7 @@ export default class App extends Component {
         }, 1200);
     };
 
-    //-- clear states when user is done with task
+    ////-- clear states when user is done with task
     clearAll = () => {
         this.clearDeck();
         this.clearSelections();
@@ -609,7 +611,7 @@ export default class App extends Component {
         };
     };
 
-    //-- Modals
+    ////-- Modals
     showModal = (e) => {
         this.setState({
             show: e.currentTarget.name
