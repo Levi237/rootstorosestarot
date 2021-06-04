@@ -10,7 +10,7 @@ export default class Login extends Component {
         password: "",
         passwordConfirm: "",
         fireErrors:"",
-        formTitle: "Sign In",
+        formTitle: "Log In",
         loginBtn: true,
     };
 
