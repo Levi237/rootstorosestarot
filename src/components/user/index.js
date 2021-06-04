@@ -59,7 +59,7 @@ export default class UserPage extends Component {
             });
             return (
                 <section key={k}
-                    style={(this.state.selected && this.state.selected.id) === us.id ? {backgroundColor: 'transparent'} : {backgroundColor: 'rgba(0,0,0,.05)'}}
+                    style={(this.state.selected && this.state.selected.id) === us.id ? {backgroundColor: 'transparent'} : {backgroundColor: 'rgba(0,0,0,.0)'}}
                 >
                     <button 
                         onClick={(e) => {this.showSpread(e);}} 
