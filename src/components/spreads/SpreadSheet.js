@@ -100,6 +100,7 @@ margin-top: 20px;
     font-family: var(--decorative-font);
     position: relative;
     text-align: center;
+    box-shadow: 4px 4px 14px rgba(0,0,0,.2);
     h2 {
         color: var(--purple);
         padding: 30px 0 0;

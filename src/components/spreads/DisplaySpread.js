@@ -67,6 +67,7 @@ const Container = styled.div`
             &:nth-of-type(13) { grid-area: thirteen; }
             > img {
                 max-width: 80%;
+                box-shadow: 0 0 12px rgba(0,0,0,.33);
             }
         }
     }
