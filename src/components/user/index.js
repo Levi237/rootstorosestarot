@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-import DisplaySpread from '../spreads/ShowSpread';
+import ShowSpread from '../spreads/ShowSpread';
 
 export default class UserPage extends Component {
     state = {
@@ -90,7 +90,7 @@ export default class UserPage extends Component {
                     </section>
                     <section>
                     {(selected && user) &&
-                        <DisplaySpread 
+                        <ShowSpread 
                             hand={selected.hand}
                             selectSpread={selected.spread}
                         />
