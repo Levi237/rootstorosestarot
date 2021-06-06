@@ -8,7 +8,7 @@ export default class LayoutsIndex extends Component {
 
     render(){
         
-        const { animateDeck, deck, hand, selectCard, shuffle, selectThisSpread, layouts, showSpreadLayouts, showModal, user, selectSpread } = this.props;
+        const { animateDeck, deck, hand, selectCard, shuffle, selectThisSpread, layouts, showSpreadLayouts, showModal, user, selectSpread, shuffleThis } = this.props;
         return(
             <LocalWrapper>
                     <h1 id="spread-header">pick your tarot layout</h1>
@@ -30,6 +30,7 @@ export default class LayoutsIndex extends Component {
                         showSpreadLayouts={showSpreadLayouts}
                         showModal={showModal}
                         user={user}
+                        shuffleThis={shuffleThis}
                         />
             </LocalWrapper>
         );

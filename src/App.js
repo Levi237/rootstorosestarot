@@ -687,6 +687,7 @@ export default class App extends Component {
                     showModal={this.showModal}
                     showSpreadLayouts={this.showSpreadLayouts}
                     shuffle={shuffle} 
+                    shuffleThis={this.shuffleThis} 
                     user={user}
                 />
             }/>
@@ -699,9 +700,11 @@ export default class App extends Component {
 const AppContainer = styled.div`
   background-color: var(--green);
   width: 100vw;
+
   h1 {
     text-align: center;
   }
+
   .purpleBtn {
     background-color: var(--purple);
     color: #fff;
@@ -710,6 +713,7 @@ const AppContainer = styled.div`
         opacity: .8;
     }
   }
+
   .whiteBtn {
     background-color: white;
     color: var(--purple);
@@ -717,5 +721,11 @@ const AppContainer = styled.div`
     &:hover {
         background-color: var(--lightpurple);
     };
+  }
+  
+  .largeBtn {
+    margin: 10px auto 0;
+    padding: 10px 36px;
+    font-size: 20px;
   }
 `;
