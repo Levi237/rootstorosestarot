@@ -64,7 +64,7 @@ state = {
                 <div>
                     <InfoContainer>
                     <section id="shuffle-nav">
-                        <button className="purpleBtn">
+                        <button className="purpleBtn largeBtn"  onClick={(e) => this.props.shuffleThis(e)}>
                             Shuffle
                         </button>
                     </section>
@@ -74,19 +74,19 @@ state = {
                         </ol>
                         <div>
                             <section id="restart">
-                                <button className="purpleBtn" onClick={(e) => {showSpreadLayouts(e); this.resetShowSaveBtn();}}>
+                                <button className="purpleBtn largeBtn" onClick={(e) => {showSpreadLayouts(e); this.resetShowSaveBtn();}}>
                                     Go Back
                                 </button>
                             </section>
                             <section id="save">
                             { (user && hand.length > 0 && hand.length === selectSpread.cards && this.state.showSaveBtn) && 
-                                <button className="purpleBtn" onClick={() => {this.saveHand(); this.hideBtn();}}>Save</button> 
+                                <button className="purpleBtn largeBtn" onClick={() => {this.saveHand(); this.hideBtn();}}>Save</button> 
                             }
                             { (!user && hand.length === selectSpread.cards) && 
-                                <button className="purpleBtn" onClick={(e) => {showModal(e)}} name="login">Save</button> 
+                                <button className="purpleBtn largeBtn" onClick={(e) => {showModal(e)}} name="login">Save</button> 
                             }
                             { (!user && hand.length < selectSpread.cards) && 
-                                <button className="purpleBtn" onClick={(e) => {showModal(e)}} name="login">Log In</button> 
+                                <button className="purpleBtn largeBtn" onClick={(e) => {showModal(e)}} name="login">Log In</button> 
                             }
                             </section>
                         </div>
@@ -138,12 +138,12 @@ const InfoContainer = styled.div`
     #restart,
     #save {
         display: inline-block;
-        margin: 0 10px;
-        button {
-            margin: 10px auto 0;
-            padding: 10px 36px;
-            font-size: 20px;
-        }
+        // margin: 0 10px;
+        // button {
+        //     margin: 10px auto 0;
+        //     padding: 10px 36px;
+        //     font-size: 20px;
+        // }
     }
     
     @media only screen and (max-width: 640px) {
